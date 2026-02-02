@@ -16,3 +16,70 @@ main {
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    background-color: #2d2d2d;
+}
+
+/* only for development purposes */
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.App {
+    background-color: #eaeaea;
+
+    max-height: 600px;
+    max-width: 800px;
+
+    min-height: 600px;
+    min-width: 800px;
+
+    /* overflow-y: scroll; /* only set this on content, not the whole component */
+
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+component-search {
+}
+
+.container-search {
+    position: relative;
+
+    margin-top: 12.5%;
+}
+
+.icon-search {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-43%);
+    pointer-events: none;
+}
+
+.input-search {
+    background-color: #eaeaea;
+
+    height: 60px;
+    width: 420px;
+
+    outline: none;
+
+    border-radius: 30px;
+    border-color: #fff;
+    border: 1px solid red;
+
+    font-size: 18px;
+    padding-left: 75px;
+}
+
+.input-search:focus {
+    outline: 1px solid red;
+}
