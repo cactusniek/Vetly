@@ -15,6 +15,13 @@ main {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    font-family: 'Nunito', sans-serif;
+    font-optical-sizing: auto;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    font-style: normal;
 }
 
 body {
@@ -36,39 +43,92 @@ body {
     justify-content: center;
 }
 
-component-search {
+.component-search {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.container-search {
+.container-search-bar {
+    align-self: center;
+
     position: relative;
 
     margin-top: 12.5%;
 }
 
-.icon-search {
+.icon-search-bar {
     position: absolute;
     left: 25px;
     top: 50%;
-    transform: translateY(-43%);
+    transform: translateY(-45%);
     pointer-events: none;
 }
 
-.input-search {
+.input-search-bar {
     background-color: #eaeaea;
 
     height: 60px;
     width: 420px;
 
+    border-radius: 30px;
+    border: 2px solid #75706f;
+
     outline: none;
 
-    border-radius: 30px;
-    border-color: #fff;
-    border: 1px solid red;
-
-    font-size: 18px;
     padding-left: 75px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.input-search:focus {
-    outline: 1px solid red;
+.input-search-bar:focus {
+    border: 2px solid #2c2c2c;
+    box-shadow: 0 0 0 0.5px #2c2c2c;
 }
+
+.input-search-bar:hover {
+    border: 2px solid #2c2c2c;
+    box-shadow: 0 0 0 0.5px #2c2c2c;
+}
+
+.container-search-alphabetical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    height: 100px;
+    width: 500px;
+
+    border-radius: 30px;
+    border: 2px solid #75706f;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.container-search-alphabetical:hover {
+    border: 2px solid #2c2c2c;
+    box-shadow: 0 0 0 0.5px #2c2c2c;
+}
+
+.alphabet-row {
+    display: flex;
+    gap: 22.5px;
+}
+
+.alphabet-letter {
+    color:;
+}
+
+.alphabet-letter:hover {
+    cursor: pointer;
+}
+
+/* morgen: kleuren als variables gebruiken */
+/* SaSS gebruiken */
+/* misschien tekst kleiner maken, 16px ipv. 18px */
