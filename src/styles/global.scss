@@ -1,9 +1,12 @@
+// this scss file contains all global styles
+
+@use './variables' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 *,
-html,
-body,
-main {
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,21 +18,17 @@ main {
     line-height: 1.4;
     letter-spacing: 0.02em;
     font-optical-sizing: auto;
-}
-
-body {
-    background-color: #2d2d2d;
+    color: $color-text-main;
 }
 
 .App {
-    background-color: #eaeaea;
-
-    height: 100vh;
     width: 100%;
-
-    border-radius: 15px;
+    height: 100vh;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    background-color: $color-bg-main;
+    border-radius: 15px;
 }

@@ -1,49 +1,47 @@
+// this scss file contains styles for search.tsx
+
+@use './variables' as *;
+
 .component-search {
     display: flex;
     flex-direction: column;
     gap: 25px;
 
     .container-search-bar {
-        align-self: center;
+        margin-top: 12.5%;
 
         position: relative;
-
-        margin-top: 12.5%;
+        align-self: center;
 
         .icon-search-bar {
             position: absolute;
-            left: 25px;
             top: 50%;
+            left: 25px;
             transform: translateY(-45%);
+
             pointer-events: none;
         }
 
         .input-search-bar {
-            background-color: #eaeaea;
-
-            height: 60px;
-            width: 420px;
-
-            border-radius: 30px;
-            border: 2px solid #75706f;
-
-            outline: none;
-
             padding-left: 75px;
 
+            width: 420px;
+            height: 60px;
+
+            background-color: $color-bg-main;
+            border: 2px solid $color-muted;
+            border-radius: 30px;
+
+            outline: none;
             transition:
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
         }
 
-        .input-search-bar:focus {
-            border: 2px solid #2c2c2c;
-            box-shadow: 0 0 0 0.5px #2c2c2c;
-        }
-
+        .input-search-bar:focus,
         .input-search-bar:hover {
-            border: 2px solid #2c2c2c;
-            box-shadow: 0 0 0 0.5px #2c2c2c;
+            border: 2px solid $color-secondary;
+            box-shadow: 0 0 0 0.5px $color-secondary;
         }
     }
 }
@@ -59,7 +57,7 @@
     width: 500px;
 
     border-radius: 30px;
-    border: 2px solid #75706f;
+    border: 2px solid $color-muted;
 
     transition:
         border-color 0.3s ease,
@@ -67,25 +65,30 @@
 
     .alphabet-row {
         display: flex;
-        gap: 22.5px;
 
         .alphabet-letter {
-            // color:;
+            padding-inline: 12px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+
+            color: $color-text-muted;
+
+            transition:
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .alphabet-letter:hover {
+            color: $color-secondary;
+
             cursor: pointer;
         }
     }
 }
 
 .container-search-alphabetical:hover {
-    border: 2px solid #2c2c2c;
-    box-shadow: 0 0 0 0.5px #2c2c2c;
+    border: 2px solid $color-secondary;
+    box-shadow: 0 0 0 0.5px $color-secondary;
 }
-
-/* morgen: kleuren als variables gebruiken */
-/* SaSS gebruiken */
-/* padding toevoegen rond de letters */
 
 /* overflow-y: scroll; /* only set this on content, not the whole component */
