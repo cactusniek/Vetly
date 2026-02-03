@@ -7,8 +7,13 @@ import '../styles/search.scss'
 import iconSearch from '../assets/icon-search.svg'
 
 export default function Search() {
-    async function searchBar(e: any) {
-        e.preventDefault()
+    const [searchBarActive, setSearchBarActive] = useState(false)
+    const [searchBarValue, setSearchBarValue] = useState('')
+
+    function searchBar(e: React.ChangeEvent<HTMLInputElement>) {
+        setSearchBarValue(e.target.value)
+
+        // on each change start searching
     }
 
     const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
@@ -19,7 +24,7 @@ export default function Search() {
         <div className="component-search">
             <div className="container-search-bar">
                 <img src={iconSearch} className="icon-search-bar" />
-                <input type="text" value="" onChange={e => onSearch(e.target.value)} placeholder="Zoek Medicijn" className="input-search-bar" />
+                <input type="text" value={searchBarValue} onChange={searchBar} onFocus={() => setSearchBarActive(true)} onBlur={() => setSearchBarActive(false)} placeholder="Zoek Medicijn" className="input-search-bar" />
             </div>
 
             <div className="container-search-alphabetical">
@@ -42,3 +47,6 @@ export default function Search() {
         </div>
     )
 }
+
+// when searchbar is on focus move out alphabetical order, make it go up and fade out.
+// then move searchbar up a little at the same time.

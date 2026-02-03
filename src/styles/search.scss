@@ -16,7 +16,7 @@
         .icon-search-bar {
             position: absolute;
             top: 50%;
-            left: 25px;
+            left: 27.5px;
             transform: translateY(-45%);
 
             pointer-events: none;
@@ -31,11 +31,16 @@
             background-color: $color-bg-main;
             border: 2px solid $color-muted;
             border-radius: 30px;
+            color: $color-text-main;
 
             outline: none;
             transition:
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
+        }
+
+        .input-search-bar::placeholder {
+            color: $color-text-muted;
         }
 
         .input-search-bar:focus,
