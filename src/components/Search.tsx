@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useRef, useEffect, useState } from 'react'
 
-import '../index.css'
+import '../styles/search.scss'
 
 import iconSearch from '../assets/icon-search.svg'
 

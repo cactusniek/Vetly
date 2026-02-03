@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './index.css'
+import './styles/global.scss'
 
 // components:
 import Search from './components/Search'
