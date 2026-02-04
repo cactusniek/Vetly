@@ -1,0 +1,19 @@
+// this scss file contains styles for result.tsx
+
+@use './variables' as *;
+
+.component-result {
+    .container-result {
+        height: 110px;
+        width: 540px;
+
+        border-radius: 30px;
+        border: 2px solid $color-muted;
+
+        .result-left {
+        }
+
+        .result-right {
+        }
+    }
+}

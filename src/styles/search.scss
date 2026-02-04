@@ -5,7 +5,11 @@
 .component-search {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 25px;
+
+    overflow: hidden;
 
     .container-search-bar {
         margin-top: 12.5%;
@@ -58,6 +62,10 @@
     .container-search-bar.shift {
         transform: translateY(-20px);
     }
+}
+
+.component-search.shrink {
+    max-height: 200px;
 }
 
 .container-search-alphabetical {

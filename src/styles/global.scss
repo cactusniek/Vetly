@@ -26,8 +26,9 @@
     height: 100vh;
 
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
 
     background-color: $color-bg-main;
     border-radius: 15px;
