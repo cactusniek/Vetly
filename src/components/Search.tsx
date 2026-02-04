@@ -9,6 +9,7 @@ import iconSearch from '../assets/icon-search.svg'
 export default function Search() {
     const [searchBarActive, setSearchBarActive] = useState<boolean>(false)
     const [searchBarValue, setSearchBarValue] = useState<string>('')
+    const searchRef = useRef<HTMLInputElement>(null)
 
     const [selectedAlphabeticalValue, setSelectedAlphabeticalValue] = useState<string | null>(null)
 
@@ -24,13 +25,31 @@ export default function Search() {
     const firstRow = alphabet.slice(0, 14) // a - n
     const secondRow = alphabet.slice(14) // o - z
 
+    useEffect(() => {
+        if (searchBarValue) return
+
+        const close = () => {
+            setSearchBarActive(false)
+            searchRef.current?.blur()
+        }
+
+        const onDown = (e: MouseEvent) => !searchRef.current?.contains(e.target as Node) && close()
+        const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
+
+        document.addEventListener('mousedown', onDown)
+        document.addEventListener('keydown', onKey)
+
+        return () => {
+            document.removeEventListener('mousedown', onDown)
+            document.removeEventListener('keydown', onKey)
+        }
+    }, [searchBarValue])
+
     return (
         <div className="component-search">
             <div className={`container-search-bar ${searchBarActive || searchBarValue.length > 0 ? 'shift' : ''}`}>
                 <img src={iconSearch} className="icon-search-bar" />
                 <input
-                    type="text"
-                    value={searchBarValue}
                     onChange={e => {
                         setSearchBarValue(e.target.value)
                     }}
@@ -38,7 +57,9 @@ export default function Search() {
                         setSearchBarActive(true)
                         setSelectedAlphabeticalValue(null)
                     }}
-                    onBlur={() => setSearchBarActive(false)}
+                    ref={searchRef}
+                    type="text"
+                    value={searchBarValue}
                     placeholder="Zoek Medicijn"
                     className="input-search-bar"
                 />

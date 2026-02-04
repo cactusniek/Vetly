@@ -17,14 +17,13 @@
         position: relative;
         align-self: center;
 
-        transform: translateY(0);
-
-        transition: transform 0.35s ease;
+        transition: margin-top 0.35s ease;
 
         .icon-search-bar {
             position: absolute;
             top: 50%;
             left: 27.5px;
+
             transform: translateY(-45%);
 
             pointer-events: none;
@@ -60,12 +59,8 @@
     }
 
     .container-search-bar.shift {
-        transform: translateY(-20px);
+        margin-top: 6.25%;
     }
-}
-
-.component-search.shrink {
-    max-height: 200px;
 }
 
 .container-search-alphabetical {
@@ -81,7 +76,7 @@
     border-radius: 30px;
     border: 2px solid $color-muted;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
 
     transition:
         border-color 0.3s ease,
@@ -131,7 +126,7 @@
 }
 
 .container-search-alphabetical.disappear {
-    transform: translateY(-15px);
+    transform: translateY(-6.25%);
     opacity: 0;
 
     pointer-events: none;
