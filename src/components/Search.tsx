@@ -7,16 +7,18 @@ import '../styles/search.scss'
 import iconSearch from '../assets/icon-search.svg'
 
 export default function Search() {
-    const [searchBarActive, setSearchBarActive] = useState(false)
-    const [searchBarValue, setSearchBarValue] = useState('')
+    const [searchBarActive, setSearchBarActive] = useState<boolean>(false)
+    const [searchBarValue, setSearchBarValue] = useState<string>('')
 
-    const [searchAlphabeticalValue, setSearchAlphabeticalValue] = useState('')
+    const [selectedAlphabeticalValue, setSelectedAlphabeticalValue] = useState<string | null>(null)
 
     function searchBar(e: React.ChangeEvent<HTMLInputElement>) {
         setSearchBarValue(e.target.value)
 
         // on each change start searching
     }
+
+    function searchAlphabetical(letter: string) {}
 
     const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
     const firstRow = alphabet.slice(0, 14) // a - n
@@ -29,8 +31,13 @@ export default function Search() {
                 <input
                     type="text"
                     value={searchBarValue}
-                    onChange={e => setSearchBarValue(e.target.value)}
-                    onFocus={() => setSearchBarActive(true)}
+                    onChange={e => {
+                        setSearchBarValue(e.target.value)
+                    }}
+                    onFocus={() => {
+                        setSearchBarActive(true)
+                        setSelectedAlphabeticalValue(null)
+                    }}
                     onBlur={() => setSearchBarActive(false)}
                     placeholder="Zoek Medicijn"
                     className="input-search-bar"
@@ -40,7 +47,18 @@ export default function Search() {
             <div className={`container-search-alphabetical ${searchBarActive || searchBarValue.length > 0 ? 'disappear' : ''}`}>
                 <div className="alphabet-row">
                     {firstRow.map(letter => (
-                        <span key={letter} className="alphabet-letter">
+                        <span
+                            key={letter}
+                            className={`alphabet-letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
+                            onClick={() => {
+                                if (selectedAlphabeticalValue === letter) {
+                                    setSelectedAlphabeticalValue(null)
+                                } else {
+                                    setSelectedAlphabeticalValue(letter)
+                                    setSearchBarValue('')
+                                }
+                            }}
+                        >
                             {letter}
                         </span>
                     ))}

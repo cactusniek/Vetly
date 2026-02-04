@@ -91,15 +91,18 @@
 
             color: $color-text-muted;
 
-            transition:
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .alphabet-letter:hover {
-            color: $color-secondary;
+            color: $color-text-muted-hover;
 
             cursor: pointer;
+        }
+
+        .alphabet-letter.selected {
+            font-weight: 700;
+            color: $color-text-main;
         }
     }
 }
