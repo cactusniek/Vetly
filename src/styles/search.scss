@@ -13,6 +13,10 @@
         position: relative;
         align-self: center;
 
+        transform: translateY(0);
+
+        transition: transform 0.35s ease;
+
         .icon-search-bar {
             position: absolute;
             top: 50%;
@@ -24,6 +28,7 @@
 
         .input-search-bar {
             padding-left: 75px;
+            padding-right: 25px;
 
             width: 420px;
             height: 60px;
@@ -32,8 +37,8 @@
             border: 2px solid $color-muted;
             border-radius: 30px;
             color: $color-text-main;
-
             outline: none;
+
             transition:
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
@@ -49,6 +54,10 @@
             box-shadow: 0 0 0 0.5px $color-secondary;
         }
     }
+
+    .container-search-bar.shift {
+        transform: translateY(-20px);
+    }
 }
 
 .container-search-alphabetical {
@@ -63,10 +72,14 @@
 
     border-radius: 30px;
     border: 2px solid $color-muted;
+    opacity: 1;
+    transform: translateY(0);
 
     transition:
         border-color 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        transform 0.35s ease,
+        opacity 0.35s ease;
 
     .alphabet-row {
         display: flex;
@@ -94,6 +107,13 @@
 .container-search-alphabetical:hover {
     border: 2px solid $color-secondary;
     box-shadow: 0 0 0 0.5px $color-secondary;
+}
+
+.container-search-alphabetical.disappear {
+    transform: translateY(-15px);
+    opacity: 0;
+
+    pointer-events: none;
 }
 
 /* overflow-y: scroll; /* only set this on content, not the whole component */
