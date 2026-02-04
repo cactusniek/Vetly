@@ -65,10 +65,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 
-    height: 100px;
-    width: 500px;
+    height: 110px;
+    width: 540px;
 
     border-radius: 30px;
     border: 2px solid $color-muted;
@@ -84,25 +84,35 @@
     .alphabet-row {
         display: flex;
 
+        cursor: pointer;
+
         .alphabet-letter {
-            padding-inline: 12px;
+            margin: 1.5px;
+            padding-inline: 11px;
             padding-top: 3px;
             padding-bottom: 3px;
 
+            border-radius: 10px;
+            font-size: 20px;
             color: $color-text-muted;
 
-            transition: color 0.3s ease;
+            user-select: none;
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease;
         }
 
         .alphabet-letter:hover {
-            color: $color-text-muted-hover;
+            background-color: $color-muted;
+
+            color: $color-text-white;
 
             cursor: pointer;
         }
 
         .alphabet-letter.selected {
-            font-weight: 700;
-            color: $color-text-main;
+            background-color: $color-muted;
+            color: $color-text-white;
         }
     }
 }
@@ -119,4 +129,5 @@
     pointer-events: none;
 }
 
-/* overflow-y: scroll; /* only set this on content, not the whole component */
+// start making breakpoints for responsive design
+// overflow-y: scroll; /* only set this on content, not the whole component

@@ -66,7 +66,18 @@ export default function Search() {
 
                 <div className="alphabet-row">
                     {secondRow.map(letter => (
-                        <span key={letter} className="alphabet-letter">
+                        <span
+                            key={letter}
+                            className={`alphabet-letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
+                            onClick={() => {
+                                if (selectedAlphabeticalValue === letter) {
+                                    setSelectedAlphabeticalValue(null)
+                                } else {
+                                    setSelectedAlphabeticalValue(letter)
+                                    setSearchBarValue('')
+                                }
+                            }}
+                        >
                             {letter}
                         </span>
                     ))}
@@ -75,6 +86,3 @@ export default function Search() {
         </div>
     )
 }
-
-// when searchbar is on focus move out alphabetical order, make it go up and fade out.
-// then move searchbar up a little at the same time.
