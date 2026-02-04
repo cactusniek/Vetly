@@ -13,7 +13,16 @@ function App() {
         <div className="App">
             <Search />
 
+            {/* THIS must go up / ALL Results must go up */}
             <Result />
+
+            {/* <div className="container-results"> */}
+
+            {/* <Result /> */}
+
+            {/* Loading spinner here */}
+
+            {/* </div> */}
 
             {/* <DotLottieReact src="https://lottie.host/bb727232-fdd0-41c8-9590-4febb07ca6b6/kagK7Konq6.lottie" stateMachineId="StateMachine1" /> */}
         </div>
