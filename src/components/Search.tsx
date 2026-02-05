@@ -11,6 +11,7 @@ export default function Search() {
     const [searchBarValue, setSearchBarValue] = useState<string>('')
     const searchRef = useRef<HTMLInputElement>(null)
 
+    const [searchAlphabeticalActive, setSearchAlphabeticalActive] = useState<boolean>(false)
     const [selectedAlphabeticalValue, setSelectedAlphabeticalValue] = useState<string | null>(null)
 
     function searchBar(e: React.ChangeEvent<HTMLInputElement>) {
@@ -65,18 +66,24 @@ export default function Search() {
                 />
             </div>
 
-            <div className={`container-search-alphabetical ${searchBarActive || searchBarValue.length > 0 ? 'disappear' : ''}`}>
+            <div className={`container-search-alphabetical ${searchBarActive || searchBarValue.length > 0 ? 'disappear' : ''} ${searchAlphabeticalActive ? 'active' : ''}`}>
                 <div className="alphabet-row">
                     {firstRow.map(letter => (
                         <span
                             key={letter}
                             className={`alphabet-letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
                             onClick={() => {
-                                if (selectedAlphabeticalValue === letter) {
+                                const isSame = selectedAlphabeticalValue === letter
+
+                                if (isSame) {
+                                    // Deselect letter → alphabetical should no longer be active
                                     setSelectedAlphabeticalValue(null)
+                                    setSearchAlphabeticalActive(false)
                                 } else {
+                                    // Select letter → mark alphabetical active
                                     setSelectedAlphabeticalValue(letter)
                                     setSearchBarValue('')
+                                    setSearchAlphabeticalActive(true)
                                 }
                             }}
                         >
@@ -107,3 +114,5 @@ export default function Search() {
         </div>
     )
 }
+
+// als er een letter geselecteerd is, zet de border van container-search-alphabetical ook donkerder
