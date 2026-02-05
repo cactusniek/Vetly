@@ -2,12 +2,15 @@ import React from 'react'
 
 import { useRef, useEffect, useState } from 'react'
 
+import { useAtom } from 'jotai'
+import { searchBarActiveAtom } from '../globals/atoms'
+
 import '../styles/search.scss'
 
 import iconSearch from '../assets/icon-search.svg'
 
 export default function Search() {
-    const [searchBarActive, setSearchBarActive] = useState<boolean>(false)
+    const [searchBarActive, setSearchBarActive] = useAtom(searchBarActiveAtom)
     const [searchBarValue, setSearchBarValue] = useState<string>('')
     const searchRef = useRef<HTMLInputElement>(null)
 
@@ -115,5 +118,3 @@ export default function Search() {
         </div>
     )
 }
-
-// als er een letter geselecteerd is, zet de border van container-search-alphabetical ook donkerder
