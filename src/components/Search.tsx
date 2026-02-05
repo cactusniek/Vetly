@@ -56,6 +56,7 @@ export default function Search() {
                     }}
                     onFocus={() => {
                         setSearchBarActive(true)
+                        setSearchAlphabeticalActive(false)
                         setSelectedAlphabeticalValue(null)
                     }}
                     ref={searchRef}
