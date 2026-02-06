@@ -12,13 +12,18 @@ import Search from './components/Search'
 import Result from './components/Result'
 
 function App() {
+    const [searchBarActive, setSearchBarActive] = useAtom(searchBarActiveAtom)
+
     return (
         <div className="App">
             <Search />
 
             {/* THIS must go up / ALL Results must go up */}
 
-            <div className="container-results">
+            {/* <div className={`container-search-bar ${searchBarActive || searchBarValue.length > 0 ? 'shift' : ''}`}> */}
+            {/* "container-results" */}
+
+            <div className={`container-results ${searchBarActive ? 'shift' : ''}`}>
                 <Result />
 
                 {/* Loading spinner here */}

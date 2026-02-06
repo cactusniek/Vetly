@@ -3,11 +3,17 @@
 @use './variables' as *;
 
 .component-search {
+    padding-inline: 5px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 25px;
+
+    box-sizing: border-box;
+
+    width: 540px;
 
     overflow: hidden;
 
@@ -39,8 +45,8 @@
             background-color: $color-bg-main;
             border: 2px solid $color-muted;
             border-radius: 30px;
-            color: $color-text-main;
             outline: none;
+            color: $color-text-main;
 
             transition:
                 border-color 0.3s ease,
@@ -64,29 +70,37 @@
 }
 
 .container-search-alphabetical {
+    margin-bottom: 25px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
+    transform-origin: bottom;
+    transform: translateY(0%);
 
     height: 110px;
-    width: 540px;
+    width: 100%;
 
     border-radius: 30px;
     border: 2px solid $color-muted;
     opacity: 1;
-    transform: translateY(0%);
 
     transition:
+        margin-bottom 0.5s ease,
+        height 0.6s ease,
+        opacity 0.5s ease,
+        transform 0.5s ease,
         border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.35s ease,
-        opacity 0.35s ease;
+        box-shadow 0.3s ease;
 
     .alphabet-row {
         display: flex;
 
+        opacity: 1;
+
+        transition: opacity 0.15s ease 0.1s;
         cursor: pointer;
 
         .alphabet-letter {
@@ -127,10 +141,21 @@
 }
 
 .container-search-alphabetical.disappear {
+    margin-bottom: 0;
+
     transform: translateY(-6.25%);
+
+    height: 0;
+
     opacity: 0;
 
     pointer-events: none;
+
+    .alphabet-row {
+        opacity: 0;
+
+        transition: opacity 0.15s ease;
+    }
 }
 
 .container-search-alphabetical.active {
@@ -140,3 +165,9 @@
 
 // start making breakpoints for responsive design
 // overflow-y: scroll; /* only set this on content, not the whole component
+
+// breakpoints:
+// 320px - 440px - alleen searchbar zichtbaar
+// 440px - 540px - searchbar & alfabetische volgorde zichtbaar
+
+// 320px minimum viewport width
