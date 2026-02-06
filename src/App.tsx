@@ -15,7 +15,7 @@ function App() {
     const [searchBarActive, setSearchBarActive] = useAtom(searchBarActiveAtom)
 
     return (
-        <div className="App">
+        <div className="widget">
             <Search />
 
             {/* THIS must go up / ALL Results must go up */}

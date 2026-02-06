@@ -11,3 +11,32 @@ $color-text-main: #2c2c2c;
 $color-text-muted: #75706f;
 $color-text-muted-hover: #494949;
 $color-text-white: #eaeaea;
+
+$breakpoints: (
+    sm: 320px,
+    md: 440px,
+    lg: 540px,
+);
+
+@mixin respond-up($size) {
+    $breakpoint: map-get($breakpoints, $size);
+
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin respond-between($min, $max) {
+    $min-width: map-get($breakpoints, $min);
+    $max-width: map-get($breakpoints, $max);
+
+    @media (width >= $min-width) and (width < $max-width) {
+        @content;
+    }
+}
+
+// breakpoints:
+// 320px - 440px - alleen searchbar zichtbaar
+// 440px - 540px - searchbar & alfabetische volgorde zichtbaar
+
+// 320px minimum viewport width

@@ -3,22 +3,25 @@
 @use './variables' as *;
 
 .component-search {
-    padding-inline: 5px;
+    // padding-inline: 5vw;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 1.5rem;
 
-    box-sizing: border-box;
-
-    width: 540px;
+    min-width: 100%;
 
     overflow: hidden;
 
     .container-search-bar {
-        margin-top: 12.5%;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 23.5rem;
+
+        margin-top: 4vh;
 
         position: relative;
         align-self: center;
@@ -26,9 +29,10 @@
         transition: margin-top 0.35s ease;
 
         .icon-search-bar {
+            // look at this later
             position: absolute;
             top: 50%;
-            left: 27.5px;
+            left: 2rem;
 
             transform: translateY(-45%);
 
@@ -36,11 +40,16 @@
         }
 
         .input-search-bar {
-            padding-left: 75px;
-            padding-right: 25px;
+            box-sizing: border-box;
 
-            width: 420px;
-            height: 60px;
+            margin-inline: 0.5rem;
+            padding-left: 4rem;
+            padding-right: 1.5rem;
+
+            width: 100%;
+            // max-width: 23.5rem;
+            // height must be a different metric
+            height: 3.35rem;
 
             background-color: $color-bg-main;
             border: 2px solid $color-muted;
@@ -65,22 +74,24 @@
     }
 
     .container-search-bar.shift {
-        margin-top: 6.25%;
+        margin-top: 2.5vh;
     }
 }
 
 .container-search-alphabetical {
-    margin-bottom: 25px;
+    margin-bottom: 1.5rem;
+    padding-inline: 4vw;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 0.25rem;
     transform-origin: bottom;
     transform: translateY(0%);
 
-    height: 110px;
+    height: 6rem;
+    max-width: 28rem;
     width: 100%;
 
     border-radius: 30px;
@@ -95,6 +106,10 @@
         border-color 0.3s ease,
         box-shadow 0.3s ease;
 
+    @include respond-up(lg) {
+        display: flex;
+    }
+
     .alphabet-row {
         display: flex;
 
@@ -103,9 +118,10 @@
         transition: opacity 0.15s ease 0.1s;
         cursor: pointer;
 
+        // HERE
         .alphabet-letter {
             margin: 1.5px;
-            padding-inline: 11px;
+            padding-inline: 9px;
             padding-top: 3px;
             padding-bottom: 3px;
 
@@ -143,7 +159,8 @@
 .container-search-alphabetical.disappear {
     margin-bottom: 0;
 
-    transform: translateY(-6.25%);
+    //
+    transform: translateY(-4vh);
 
     height: 0;
 
@@ -163,11 +180,15 @@
     box-shadow: 0 0 0 0.5px $color-secondary;
 }
 
-// start making breakpoints for responsive design
-// overflow-y: scroll; /* only set this on content, not the whole component
+// // start making breakpoints for responsive design
+// // overflow-y: scroll; /* only set this on content, not the whole component
 
-// breakpoints:
-// 320px - 440px - alleen searchbar zichtbaar
-// 440px - 540px - searchbar & alfabetische volgorde zichtbaar
+// // breakpoints:
+// // 320px - 440px - alleen searchbar zichtbaar
+// // 440px - 540px - searchbar & alfabetische volgorde zichtbaar
 
-// 320px minimum viewport width
+// // 320px minimum viewport width
+
+// DISTANCE BETWEEN SEARCHBAR AND TOP PAGE NEEDS TO BE ADJUSTED
+// !IMPORTANT! THEN DISTANCE BETWEEN ELEMENTS ASWELL!
+// !IMPORTANT! WHEN ALPHABETICAL SEARCH IS INACTIVE FIX BORDER SEARCH BAR BOTTOM

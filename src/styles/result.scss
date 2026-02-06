@@ -4,8 +4,10 @@
 
 .component-result {
     .container-result {
-        height: 110px;
-        width: 540px;
+        display: none;
+
+        // height: 110px;
+        // width: 540px;
 
         border-radius: 30px;
         border: 2px solid $color-muted;
