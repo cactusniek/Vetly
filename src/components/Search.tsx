@@ -50,7 +50,7 @@ export default function Search() {
     }, [searchBarValue])
 
     return (
-        <div className="component-search">
+        <div className="search">
             <div className={`container-search-bar ${searchBarActive || searchBarValue.length > 0 ? 'shift' : ''}`}>
                 <img src={iconSearch} className="icon-search-bar" />
                 <input

@@ -1,0 +1,57 @@
+// this scss file contains styles for result.tsx
+
+@use './variables' as *;
+
+.medicine {
+    .medicine_container_top {
+        .medicine_left {
+            .medicine_productnaam {
+            }
+
+            .medicine_details {
+                .detail_afleverstatus,
+                .detail_farmaceutische-vorm,
+                .detail_toedieningsweg {
+                    .icon-CircleInfo {
+                    }
+
+                    .detail_text {
+                    }
+                }
+
+                .detail_spc-etiket-bijsluiter {
+                    .icon-CircleInfo {
+                    }
+
+                    .detail_anchor {
+                    }
+                }
+            }
+        }
+
+        .medicine_right {
+            .medicine_meta {
+                .medicine_doeldieren {
+                    img {
+                    }
+                }
+
+                .medicine_handelsvergunninghouder {
+                }
+
+                .medicine_registratienummer {
+                }
+            }
+        }
+    }
+
+    .medicine_container_bottom {
+        .medicine_toggle {
+            .icon-Toggle {
+            }
+
+            .toggle_text {
+            }
+        }
+    }
+}
