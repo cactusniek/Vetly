@@ -9,7 +9,7 @@ import './styles/global.scss'
 
 // components:
 import Search from './components/Search'
-import Result from './components/Result'
+import Medicine from './components/Medicine'
 
 function App() {
     const [searchBarActive, setSearchBarActive] = useAtom(searchBarActiveAtom)
@@ -24,7 +24,7 @@ function App() {
             {/* "container-results" */}
 
             <div className={`container-results ${searchBarActive ? 'shift' : ''}`}>
-                <Result />
+                <Medicine />
 
                 {/* Loading spinner here */}
             </div>

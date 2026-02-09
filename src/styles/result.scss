@@ -3,19 +3,33 @@
 @use './variables' as *;
 
 .component-result {
-    .container-result {
-        display: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
 
-        // height: 110px;
-        // width: 540px;
+    min-width: 100%;
+
+    .container-result {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 23.5rem;
+
+        margin-inline: 0.5rem;
+        padding-top: 0.75rem;
+        padding-inline: 0.9rem;
+        padding-bottom: 0.75rem;
+
+        margin-top: 5vh; // consider moving global spacing to global.scss
+
+        position: relative;
+        align-self: center;
+
+        transition: margin-top 0.35s ease;
 
         border-radius: 30px;
         border: 2px solid $color-muted;
-
-        .result-left {
-        }
-
-        .result-right {
-        }
     }
 }

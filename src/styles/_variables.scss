@@ -1,5 +1,7 @@
 // this scss file contains all global variables
 
+@use 'sass:map';
+
 $color-primary: #121212;
 $color-secondary: #2c2c2c;
 $color-muted: #75706f;
@@ -12,25 +14,29 @@ $color-text-muted: #75706f;
 $color-text-muted-hover: #494949;
 $color-text-white: #eaeaea;
 
-$breakpoints: (
+$breakpoints-width: (
     sm: 320px,
     md: 440px,
     lg: 540px,
 );
 
-@mixin respond-up($size) {
-    $breakpoint: map-get($breakpoints, $size);
+$breakpoints-height: (
+    md: 600px,
+);
+
+@mixin respond-up-width($size) {
+    $breakpoint: map.get($breakpoints-width, $size);
 
     @media (min-width: $breakpoint) {
         @content;
     }
 }
 
-@mixin respond-between($min, $max) {
-    $min-width: map-get($breakpoints, $min);
-    $max-width: map-get($breakpoints, $max);
+@mixin respond-up-width-height($w, $h) {
+    $min-width: map.get($breakpoints-width, $w);
+    $min-height: map.get($breakpoints-height, $h);
 
-    @media (width >= $min-width) and (width < $max-width) {
+    @media (min-width: $min-width) and (min-height: $min-height) {
         @content;
     }
 }
