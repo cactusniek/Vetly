@@ -2,15 +2,12 @@ import React from 'react'
 
 import { useRef, useEffect, useState } from 'react'
 
-import { useAtom } from 'jotai'
-import { searchBarActiveAtom } from '../globals/atoms'
-
 import '../styles/search.scss'
 
-import iconSearch from '../assets/icon-search.svg'
+import { SearchIcon } from '../assets'
 
 export default function Search() {
-    const [searchBarActive, setSearchBarActive] = useAtom(searchBarActiveAtom)
+    const [searchBarActive, setSearchBarActive] = useState<boolean>(false)
     const [searchBarValue, setSearchBarValue] = useState<string>('')
     const searchRef = useRef<HTMLInputElement>(null)
 
@@ -51,8 +48,8 @@ export default function Search() {
 
     return (
         <div className="search">
-            <div className={`container-search-bar ${searchBarActive || searchBarValue.length > 0 ? 'shift' : ''}`}>
-                <img src={iconSearch} className="icon-search-bar" />
+            <div className={`container_searchbar ${searchBarActive || searchBarValue.length > 0 ? 'shift' : ''}`}>
+                <img src={SearchIcon} className="icon_Search" />
                 <input
                     onChange={e => {
                         setSearchBarValue(e.target.value)
@@ -66,25 +63,25 @@ export default function Search() {
                     type="text"
                     value={searchBarValue}
                     placeholder="Zoek Medicijn"
-                    className="input-search-bar"
+                    className="input_searchbar"
                 />
             </div>
 
-            <div className={`container-search-alphabetical ${searchBarActive || searchBarValue.length > 0 ? 'disappear' : ''} ${searchAlphabeticalActive ? 'active' : ''}`}>
-                <div className="alphabet-row">
+            <div className={`container_search-alphabetical ${searchBarActive || searchBarValue.length > 0 ? 'disappear' : ''} ${searchAlphabeticalActive ? 'active' : ''}`}>
+                <div className="alphabet_row">
                     {firstRow.map(letter => (
                         <span
                             key={letter}
-                            className={`alphabet-letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
+                            className={`alphabet_letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
                             onClick={() => {
                                 const isSame = selectedAlphabeticalValue === letter
 
                                 if (isSame) {
-                                    // Deselect letter → alphabetical should no longer be active
+                                    // deselecting a letter -> alphabetical should no longer be active
                                     setSelectedAlphabeticalValue(null)
                                     setSearchAlphabeticalActive(false)
                                 } else {
-                                    // Select letter → mark alphabetical active
+                                    // select a letter -> mark alphabetical active
                                     setSelectedAlphabeticalValue(letter)
                                     setSearchBarValue('')
                                     setSearchAlphabeticalActive(true)
@@ -96,11 +93,11 @@ export default function Search() {
                     ))}
                 </div>
 
-                <div className="alphabet-row">
+                <div className="alphabet_row">
                     {secondRow.map(letter => (
                         <span
                             key={letter}
-                            className={`alphabet-letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
+                            className={`alphabet_letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
                             onClick={() => {
                                 if (selectedAlphabeticalValue === letter) {
                                     setSelectedAlphabeticalValue(null)

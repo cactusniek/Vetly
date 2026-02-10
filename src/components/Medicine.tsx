@@ -4,9 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 
 import '../styles/medicine.scss'
 
-// import animals here
-import CircleInfo from '../assets/circle-info.svg'
-import arrowToggle from '../assets/arrow-toggle.svg'
+import { CircleSmall, ArrowToggle } from '../assets'
 
 import { BeeIcon, CatIcon, ChickenIcon, CowIcon, DogIcon, DuckIcon, FishIcon, GoatIcon, GooseIcon, HorseIcon, ParrotIcon, PigIcon, PigeonIcon, RabbitIcon, SheepIcon, TurkeyIcon, TurtleIcon } from '../assets'
 
@@ -19,22 +17,22 @@ export default function Medicine() {
 
                     <div className="medicine_details">
                         <div className="detail_afleverstatus">
-                            <img src={CircleInfo} className="icon-CircleInfo" />
+                            <img src={CircleSmall} className="icon_CircleSmall" />
                             <span className="detail_text">Uitsluitend door dierenartsen te gebruiken</span>
                         </div>
 
                         <div className="detail_farmaceutische-vorm">
-                            <img src={CircleInfo} className="icon-CircleInfo" />
+                            <img src={CircleSmall} className="icon_CircleSmall" />
                             <span className="detail_text">Oplossing voor injectie</span>
                         </div>
 
                         <div className="detail_toedieningsweg">
-                            <img src={CircleInfo} className="icon-CircleInfo" />
+                            <img src={CircleSmall} className="icon_CircleSmall" />
                             <span className="detail_text">Intramusculair gebruik, Subcutaan gebruik</span>
                         </div>
 
                         <div className="detail_spc-etiket-bijsluiter">
-                            <img src={CircleInfo} className="icon-CircleInfo" />
+                            <img src={CircleSmall} className="icon_CircleSmalls" />
                             <a href="#" className="detail_anchor" download target="_blank" rel="noopener noreferrer">
                                 Download bijsluiter
                             </a>
@@ -46,9 +44,9 @@ export default function Medicine() {
                     <div className="medicine_meta">
                         <div className="medicine_doeldieren">
                             {/* if doeldieren > 5; display maximum of 5 animals + {number of animals left} */}
-                            <img src={CatIcon} className="icon-Cat" />
-                            <img src={TurtleIcon} className="icon-Turtle" />
-                            <img src={FishIcon} className="icon-Fish" />
+                            <img src={CatIcon} className="icon_Cat" />
+                            <img src={TurtleIcon} className="icon_Turtle" />
+                            <img src={FishIcon} className="icon_Fish" />
                         </div>
 
                         <div className="medicine_details">
@@ -62,7 +60,7 @@ export default function Medicine() {
 
             <div className="medicine_container_bottom">
                 <div className="medicine_toggle">
-                    <img src={arrowToggle} className="icon-Toggle" />
+                    <img src={ArrowToggle} className="icon_ArrowToggle" />
                     <span className="toggle_text">Meer informatie</span>
                 </div>
             </div>

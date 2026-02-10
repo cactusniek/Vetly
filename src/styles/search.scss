@@ -13,7 +13,7 @@
 
     min-width: 100%;
 
-    .container-search-bar {
+    .container_searchbar {
         display: flex;
         justify-content: center;
         width: 100%;
@@ -26,7 +26,7 @@
 
         transition: margin-top 0.35s ease;
 
-        .icon-search-bar {
+        .icon_Search {
             position: absolute;
             top: 50%;
             left: 2rem;
@@ -36,7 +36,7 @@
             pointer-events: none;
         }
 
-        .input-search-bar {
+        .input_searchbar {
             box-sizing: border-box;
 
             margin-inline: 0.5rem;
@@ -57,23 +57,23 @@
                 box-shadow 0.3s ease;
         }
 
-        .input-search-bar::placeholder {
+        .input_searchbar::placeholder {
             color: $color-text-muted;
         }
 
-        .input-search-bar:focus,
-        .input-search-bar:hover {
+        .input_searchbar:focus,
+        .input_searchbar:hover {
             border: 2px solid $color-secondary;
             box-shadow: 0 0 0 0.5px $color-secondary;
         }
     }
 
-    .container-search-bar.shift {
+    .container_searchbar.shift {
         margin-top: 4vh;
     }
 }
 
-.container-search-alphabetical {
+.container_search-alphabetical {
     margin-bottom: 1.5rem;
     padding-inline: 4vw;
 
@@ -105,7 +105,7 @@
         display: flex;
     }
 
-    .alphabet-row {
+    .alphabet_row {
         display: flex;
 
         opacity: 1;
@@ -114,7 +114,7 @@
         will-change: opacity;
         cursor: pointer;
 
-        .alphabet-letter {
+        .alphabet_letter {
             margin: 1.5px;
             padding-inline: 9px;
             padding-top: 3px;
@@ -131,7 +131,7 @@
                 color 0.3s ease;
         }
 
-        .alphabet-letter:hover {
+        .alphabet_letter:hover {
             background-color: $color-muted-light;
 
             color: $color-text-white;
@@ -139,19 +139,19 @@
             cursor: pointer;
         }
 
-        .alphabet-letter.selected {
+        .alphabet_letter.selected {
             background-color: $color-muted;
             color: $color-text-white;
         }
     }
 }
 
-.container-search-alphabetical:hover {
+.container_search-alphabetical:hover {
     border: 2px solid $color-secondary;
     box-shadow: 0 0 0 0.5px $color-secondary;
 }
 
-.container-search-alphabetical.disappear {
+.container_search-alphabetical.disappear {
     margin-bottom: 0;
 
     transform: translateY(-6.25%);
@@ -162,14 +162,14 @@
 
     pointer-events: none;
 
-    .alphabet-row {
+    .alphabet_row {
         opacity: 0;
 
         transition: opacity 0.15s ease;
     }
 }
 
-.container-search-alphabetical.active {
+.container_search-alphabetical.active {
     border: 2px solid $color-secondary;
     box-shadow: 0 0 0 0.5px $color-secondary;
 }
