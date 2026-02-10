@@ -45,13 +45,17 @@ export default function Medicine() {
                 <div className="medicine_right">
                     <div className="medicine_meta">
                         <div className="medicine_doeldieren">
+                            {/* if doeldieren > 5; display maximum of 5 animals + {number of animals left} */}
                             <img src={CatIcon} className="icon-Cat" />
                             <img src={TurtleIcon} className="icon-Turtle" />
+                            <img src={FishIcon} className="icon-Fish" />
                         </div>
 
-                        <span className="medicine_handelsvergunninghouder">Le Vet Beheer B.V.</span>
+                        <div className="medicine_details">
+                            <span className="medicine_handelsvergunninghouder">Chanelle Pharmaceuticals Manufacturing Ltd.</span>
 
-                        <span className="medicine_registratienummer">113871</span>
+                            <span className="medicine_registratienummer">113871</span>
+                        </div>
                     </div>
                 </div>
             </div>
