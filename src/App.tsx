@@ -15,7 +15,7 @@ function App() {
         <div className="widget">
             <Search />
 
-            <div className="container_medicines">
+            <div className="medicines">
                 <Medicine />
 
                 {/* loading spinner: <DotLottieReact src="https://lottie.host/bb727232-fdd0-41c8-9590-4febb07ca6b6/kagK7Konq6.lottie" stateMachineId="StateMachine1" /> */}

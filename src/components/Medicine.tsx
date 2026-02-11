@@ -9,13 +9,15 @@ import { CircleSmall, ArrowToggle } from '../assets'
 import { BeeIcon, CatIcon, ChickenIcon, CowIcon, DogIcon, DuckIcon, FishIcon, GoatIcon, GooseIcon, HorseIcon, ParrotIcon, PigIcon, PigeonIcon, RabbitIcon, SheepIcon, TurkeyIcon, TurtleIcon } from '../assets'
 
 export default function Medicine() {
+    const [showMore, setShowMore] = useState<boolean>(false)
+
     return (
         <div className="medicine">
             <div className="medicine_container_top">
                 <div className="medicine_left">
                     <h1 className="medicine_productnaam">Metomotyl 5 ml oplossing voor injectie voor katten</h1>
 
-                    <div className="medicine_details">
+                    <div className={`medicine_details ${showMore ? 'show' : ''}`}>
                         <div className="detail_afleverstatus">
                             <img src={CircleSmall} className="icon_CircleSmall" />
                             <span className="detail_text">Uitsluitend door dierenartsen te gebruiken</span>
@@ -32,7 +34,7 @@ export default function Medicine() {
                         </div>
 
                         <div className="detail_spc-etiket-bijsluiter">
-                            <img src={CircleSmall} className="icon_CircleSmalls" />
+                            <img src={CircleSmall} className="icon_CircleSmall" />
                             <a href="#" className="detail_anchor" download target="_blank" rel="noopener noreferrer">
                                 Download bijsluiter
                             </a>
@@ -58,10 +60,11 @@ export default function Medicine() {
                 </div>
             </div>
 
+            {/* className={`container_searchbar ${searchBarActive || searchBarValue.length > 0 ? 'shift' : ''}`} */}
             <div className="medicine_container_bottom">
-                <div className="medicine_toggle">
-                    <img src={ArrowToggle} className="icon_ArrowToggle" />
-                    <span className="toggle_text">Meer informatie</span>
+                <div onClick={() => setShowMore(prev => !prev)} className="medicine_toggle">
+                    <img src={ArrowToggle} className={`icon_ArrowToggle ${showMore ? 'rotate' : ''}`} />
+                    <span className="toggle_text"> {showMore ? 'Laat minder informatie zien' : 'Laat meer informatie zien'}</span>
                 </div>
             </div>
         </div>

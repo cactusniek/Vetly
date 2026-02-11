@@ -28,7 +28,13 @@
             }
 
             .medicine_details {
-                display: none;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+
+                transition:
+                    max-height 0.5s ease-in-out,
+                    opacity 0.7s ease-in-out;
 
                 .detail_afleverstatus,
                 .detail_farmaceutische-vorm,
@@ -47,6 +53,11 @@
                     .detail_anchor {
                     }
                 }
+            }
+
+            .medicine_details.show {
+                max-height: 400px; // pick a value that's big enough for your content
+                opacity: 1;
             }
         }
 
@@ -101,9 +112,16 @@
             gap: 0.75rem;
 
             cursor: pointer;
+            user-select: none;
 
-            .icon-Toggle {
+            .icon_ArrowToggle {
                 -webkit-user-drag: none;
+
+                transition: transform 0.4s ease;
+            }
+
+            .icon_ArrowToggle.rotate {
+                transform: rotate(180deg);
             }
 
             .toggle_text {
