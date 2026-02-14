@@ -2,7 +2,12 @@
 
 @use './variables' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@font-face {
+    font-family: 'Nexa-Trail-Regular';
+    src: url('../assets/fonts/Nexa-Trial-Regular.ttf') format('truetype');
+}
 
 *,
 *::before,
@@ -10,15 +15,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
 
-    font-family: 'Nunito', sans-serif;
-    font-style: normal;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.4; // maybe set this to 1
+html {
+    font-family: 'Nexa-Trail-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
     letter-spacing: 0.02em;
     font-optical-sizing: auto;
     color: $color-text-main;
+}
+
+input {
+    font-family: 'Nexa-Trail-Regular', sans-serif;
 }
 
 .widget {
@@ -32,9 +42,10 @@
     background-color: $color-bg-main;
     border-radius: 15px;
 
+    .search {
+    }
+
     .medicines {
-        display: none;
+        // medicines should be rendered in and gap should be set here.
     }
 }
-
-// responsive design needs to be here probably.

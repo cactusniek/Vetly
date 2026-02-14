@@ -112,6 +112,11 @@ export default function Search() {
                     ))}
                 </div>
             </div>
+
+            <div className="container_search-results">
+                {/* conditional; if results > 1 - resultaten else resultaat */}
+                <span className="search_results-text">Er zijn 3 resultaten gevonden</span>
+            </div>
         </div>
     )
 }

@@ -13,58 +13,70 @@ export default function Medicine() {
 
     return (
         <div className="medicine">
-            <div className="medicine_container_top">
-                <div className="medicine_left">
-                    <h1 className="medicine_productnaam">Metomotyl 5 ml oplossing voor injectie voor katten</h1>
+            <div className="container_medicine">
+                <div className="medicine_header">
+                    <div className="medicine_titles">
+                        <span className="medicine_productnaam">Metomotyl 1000 mg tablet voor honden en katten</span>
 
-                    <div className={`medicine_details ${showMore ? 'show' : ''}`}>
-                        <div className="detail_afleverstatus">
-                            <img src={CircleSmall} className="icon_CircleSmall" />
-                            <span className="detail_text">Uitsluitend door dierenartsen te gebruiken</span>
-                        </div>
-
-                        <div className="detail_farmaceutische-vorm">
-                            <img src={CircleSmall} className="icon_CircleSmall" />
-                            <span className="detail_text">Oplossing voor injectie</span>
-                        </div>
-
-                        <div className="detail_toedieningsweg">
-                            <img src={CircleSmall} className="icon_CircleSmall" />
-                            <span className="detail_text">Intramusculair gebruik, Subcutaan gebruik</span>
-                        </div>
-
-                        <div className="detail_spc-etiket-bijsluiter">
-                            <img src={CircleSmall} className="icon_CircleSmall" />
-                            <a href="#" className="detail_anchor" download target="_blank" rel="noopener noreferrer">
-                                Download bijsluiter
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="medicine_right">
-                    <div className="medicine_meta">
                         <div className="medicine_doeldieren">
                             {/* if doeldieren > 5; display maximum of 5 animals + {number of animals left} */}
                             <img src={CatIcon} className="icon_Cat" />
                             <img src={TurtleIcon} className="icon_Turtle" />
                             <img src={FishIcon} className="icon_Fish" />
                         </div>
+                    </div>
 
-                        <div className="medicine_details">
-                            <span className="medicine_handelsvergunninghouder">Chanelle Pharmaceuticals Manufacturing Ltd.</span>
+                    <div className="medicine_subtitles">
+                        <span className="medicine_handelsvergunninghouder">Nextmune Italy S.R.L.</span>
 
-                            <span className="medicine_registratienummer">113871</span>
+                        <div className="medicine_references">
+                            <span className="medicine_registratienummer">REG NL: 110212</span>
+                            <span className="references_devider">|</span>
+                            <span className="medicine_procedurenummer">IT/V/0125/002</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* className={`container_searchbar ${searchBarActive || searchBarValue.length > 0 ? 'shift' : ''}`} */}
-            <div className="medicine_container_bottom">
+                <div className={`medicine_main ${showMore ? 'show' : ''}`}>
+                    <div className="medicine_info">
+                        <img src={CircleSmall} className="icon_CircleSmall" />
+                        <span className="medicine_afleverstatus">UDA - Uitsluitend verkrijgbaar bij een dierenarts of op diergeneeskundig voorschrift [recept] van een dierenarts bij een apotheek</span>
+                    </div>
+
+                    <div className="medicine_info">
+                        <img src={CircleSmall} className="icon_CircleSmall" />
+                        <a href="#" download target="_blank" rel="noopener noreferrer" className="medicine_spc-etiket-bijsluiter">
+                            Download bijsluiter
+                        </a>
+                    </div>
+
+                    <div className="medicine_info">
+                        <img src={CircleSmall} className="icon_CircleSmall" />
+                        <span className="medicine_doeldieren">Diersoorten: kippen, ganzen, konijnen, paarden, runderen, reptielen</span>
+                    </div>
+
+                    <div className="medicine_disclaimer">Neem bij vragen altijd contact op met uw dierenarts.</div>
+
+                    <div className="medicine_bronvermelding">
+                        <span className="text_bronvermelding">Bronnen:</span>
+                        <a href="diergeneesmiddeleninformatiebank.nl" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
+                            diergeneesmiddeleninformatiebank.nl
+                        </a>
+                        <a href="ema.europe.eu" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
+                            ema.europe.eu
+                        </a>
+                    </div>
+
+                    <div className="medicine_references">
+                        <span className="medicine_registratienummer">REG NL: 110212</span>
+                        <span className="references_devider">|</span>
+                        <span className="medicine_procedurenummer">IT/V/0125/002</span>
+                    </div>
+                </div>
+
                 <div onClick={() => setShowMore(prev => !prev)} className="medicine_toggle">
                     <img src={ArrowToggle} className={`icon_ArrowToggle ${showMore ? 'rotate' : ''}`} />
-                    <span className="toggle_text"> {showMore ? 'Laat minder informatie zien' : 'Laat meer informatie zien'}</span>
+                    <span className="text_toggle"> {showMore ? 'Laat minder informatie zien' : 'Laat meer informatie zien'}</span>
                 </div>
             </div>
         </div>

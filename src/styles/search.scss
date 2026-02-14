@@ -3,66 +3,55 @@
 @use './variables' as *;
 
 .search {
-    // padding-inline: 5vw;
+    margin-top: 2.5rem;
+    padding-inline: 1.25rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 1.5rem;
 
-    min-width: 100%;
+    width: 100%;
 
     .container_searchbar {
+        position: relative;
         display: flex;
         justify-content: center;
+
         width: 100%;
-        max-width: 23.5rem;
-
-        margin-top: 5vh;
-
-        position: relative;
-        align-self: center;
+        max-width: 26.25rem;
 
         transition: margin-top 0.35s ease;
 
         .icon_Search {
             position: absolute;
             top: 50%;
-            left: 2rem;
+            left: 1.5rem;
+
+            width: 1.25rem;
+            height: 1.25rem;
 
             transform: translateY(-45%);
-
             pointer-events: none;
         }
 
         .input_searchbar {
             box-sizing: border-box;
-
-            margin-inline: 0.5rem;
-            padding-left: 4rem;
-            padding-right: 1.5rem;
+            padding-left: 3.75rem;
+            padding-right: 1.875rem;
 
             width: 100%;
-            height: 3.2rem;
+            height: 3.125rem;
 
             background-color: $color-bg-main;
             border: 2px solid $color-muted;
             border-radius: 30px;
             outline: none;
+            font-size: 18px;
             color: $color-text-main;
 
             transition:
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
-
-            @include respond-up-width(md) {
-                margin-inline: 0.5rem;
-                padding-left: 4rem;
-                padding-right: 1.5rem;
-
-                height: 3.35rem;
-            }
         }
 
         .input_searchbar::placeholder {
@@ -72,114 +61,53 @@
         .input_searchbar:focus,
         .input_searchbar:hover {
             border: 2px solid $color-secondary;
-            box-shadow: 0 0 0 0.5px $color-secondary;
+            box-shadow: 0 0 0 0.25px $color-secondary;
         }
     }
 
     .container_searchbar.shift {
-        margin-top: 4vh;
-    }
-}
-
-.container_search-alphabetical {
-    margin-bottom: 1.5rem;
-    padding-inline: 4vw;
-
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.25rem;
-    transform-origin: bottom;
-    transform: translateY(0%);
-
-    height: 6rem;
-    max-width: 28rem;
-    width: 100%;
-
-    border-radius: 30px;
-    border: 2px solid $color-muted;
-    opacity: 1;
-
-    transition:
-        margin-bottom 0.5s ease,
-        height 0.6s ease,
-        opacity 0.5s ease,
-        transform 0.5s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-
-    @include respond-up-width-height(lg, md) {
-        display: flex;
+        margin-top: -0.75rem;
     }
 
-    .alphabet_row {
-        display: flex;
+    .container_search-alphabetical {
+        display: none;
 
-        opacity: 1;
+        .alphabet_row {
+            .alphabet_letter {
+            }
 
-        transition: opacity 0.15s ease 0.1s;
-        will-change: opacity;
-        cursor: pointer;
+            .alphabet_letter:hover {
+            }
 
-        .alphabet_letter {
-            margin: 1.5px;
-            padding-inline: 9px;
-            padding-top: 3px;
-            padding-bottom: 3px;
-
-            border-radius: 10px;
-            font-size: 20px;
-            color: $color-text-muted;
-
-            user-select: none;
-            transition:
-                background-color 0.3s ease,
-                border 0.3s ease,
-                color 0.3s ease;
-        }
-
-        .alphabet_letter:hover {
-            background-color: $color-muted-light;
-
-            color: $color-text-white;
-
-            cursor: pointer;
-        }
-
-        .alphabet_letter.selected {
-            background-color: $color-muted;
-            color: $color-text-white;
+            .alphabet_letter.selected {
+            }
         }
     }
-}
 
-.container_search-alphabetical:hover {
-    border: 2px solid $color-secondary;
-    box-shadow: 0 0 0 0.5px $color-secondary;
-}
-
-.container_search-alphabetical.disappear {
-    margin-bottom: 0;
-
-    transform: translateY(-6.25%);
-
-    height: 0;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    .alphabet_row {
-        opacity: 0;
-
-        transition: opacity 0.15s ease;
+    .container_search-alphabetical:hover {
     }
-}
 
-.container_search-alphabetical.active {
-    border: 2px solid $color-secondary;
-    box-shadow: 0 0 0 0.5px $color-secondary;
+    .container_search-alphabetical.disappear {
+        .alphabet_row {
+        }
+    }
+
+    .container_search-alphabetical.active {
+    }
+
+    .container_search-results {
+        margin-top: 0.35rem;
+
+        width: 100%;
+        max-width: 26.25rem;
+
+        font-size: 14px;
+        color: $color-text-muted;
+
+        .search_results-text {
+            padding-left: 1.5rem;
+        }
+    }
 }
 
 // // start making breakpoints for responsive design
