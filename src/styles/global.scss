@@ -31,13 +31,23 @@ input {
     font-family: 'Nexa-Trail-Regular', sans-serif;
 }
 
+a {
+    text-underline-offset: 0.125rem;
+    text-decoration-thickness: 0.08rem;
+}
+
+a:hover {
+    color: $color-text-main-hover;
+}
+
 .widget {
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
 
     background-color: $color-bg-main;
     border-radius: 15px;
@@ -47,7 +57,10 @@ input {
     }
 
     .medicines {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
         width: 100%;
-        // medicines should be rendered in and gap should be set here.
     }
 }

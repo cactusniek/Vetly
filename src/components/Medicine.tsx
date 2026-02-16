@@ -38,39 +38,41 @@ export default function Medicine() {
                 </div>
 
                 <div className={`medicine_main ${showMore ? 'show' : ''}`}>
-                    <div className="medicine_info">
-                        <img src={CircleSmall} className="icon_CircleSmall" />
-                        <span className="medicine_afleverstatus">UDA - Uitsluitend verkrijgbaar bij een dierenarts of op diergeneeskundig voorschrift [recept] van een dierenarts bij een apotheek</span>
-                    </div>
+                    <div className="container_main">
+                        <div className="medicine_info">
+                            <img src={CircleSmall} className="icon_CircleSmall" />
+                            <span className="medicine_afleverstatus">UDA - Uitsluitend verkrijgbaar bij een dierenarts of op diergeneeskundig voorschrift [recept] van een dierenarts bij een apotheek</span>
+                        </div>
 
-                    <div className="medicine_info">
-                        <img src={CircleSmall} className="icon_CircleSmall" />
-                        <a href="#" download target="_blank" rel="noopener noreferrer" className="medicine_spc-etiket-bijsluiter">
-                            Download bijsluiter
-                        </a>
-                    </div>
+                        <div className="medicine_info">
+                            <img src={CircleSmall} className="icon_CircleSmall" />
+                            <a href="#" download target="_blank" rel="noopener noreferrer" className="medicine_spc-etiket-bijsluiter">
+                                Download bijsluiter
+                            </a>
+                        </div>
 
-                    <div className="medicine_info">
-                        <img src={CircleSmall} className="icon_CircleSmall" />
-                        <span className="medicine_doeldieren">Diersoorten: kippen, ganzen, konijnen, paarden, runderen, reptielen</span>
-                    </div>
+                        <div className="medicine_info">
+                            <img src={CircleSmall} className="icon_CircleSmall" />
+                            <span className="medicine_doeldieren">Diersoorten: kippen, ganzen, konijnen, paarden, runderen, reptielen</span>
+                        </div>
 
-                    <div className="medicine_disclaimer">Neem bij vragen altijd contact op met uw dierenarts.</div>
+                        <div className="medicine_disclaimer">Neem bij vragen altijd contact op met uw dierenarts.</div>
 
-                    <div className="medicine_bronvermelding">
-                        <span className="text_bronvermelding">Bronnen:</span>
-                        <a href="diergeneesmiddeleninformatiebank.nl" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
-                            diergeneesmiddeleninformatiebank.nl
-                        </a>
-                        <a href="ema.europe.eu" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
-                            ema.europe.eu
-                        </a>
-                    </div>
+                        <div className="medicine_bronvermelding">
+                            <span className="text_bronvermelding">Bronnen:</span>
+                            <a href="diergeneesmiddeleninformatiebank.nl" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
+                                diergeneesmiddeleninformatiebank.nl
+                            </a>
+                            <a href="ema.europe.eu" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
+                                ema.europe.eu
+                            </a>
+                        </div>
 
-                    <div className="medicine_references">
-                        <span className="medicine_registratienummer">REG NL: 110212</span>
-                        <span className="references_devider">|</span>
-                        <span className="medicine_procedurenummer">IT/V/0125/002</span>
+                        <div className="medicine_references">
+                            <span className="medicine_registratienummer">REG NL: 110212</span>
+                            <span className="references_devider">|</span>
+                            <span className="medicine_procedurenummer">IT/V/0125/002</span>
+                        </div>
                     </div>
                 </div>
 
