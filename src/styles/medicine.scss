@@ -28,9 +28,7 @@
         border: 2px solid $color-muted;
         border-radius: 25px;
 
-        transition:
-            border-color 0.3s ease,
-            box-shadow 0.3s ease;
+        transition: border-color 0.3s ease;
 
         .medicine_header {
             display: flex;
@@ -232,5 +230,9 @@
                 font-size: 14px;
             }
         }
+    }
+
+    .container_medicine:hover {
+        border: 2px solid $color-secondary;
     }
 }

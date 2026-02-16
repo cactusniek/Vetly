@@ -48,7 +48,7 @@ export default function Search() {
 
     return (
         <div className="search">
-            <div className={`container_searchbar ${searchBarActive || searchBarValue.length > 0 ? 'shift' : ''}`}>
+            <div className="container_searchbar">
                 <img src={SearchIcon} className="icon_Search" />
                 <input
                     onChange={e => {

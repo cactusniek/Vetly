@@ -20,8 +20,6 @@
         width: 100%;
         max-width: 26.25rem;
 
-        transition: margin-top 0.35s ease;
-
         .icon_Search {
             position: absolute;
             top: 50%;
@@ -35,6 +33,9 @@
         }
 
         .input_searchbar {
+            appearance: none;
+            -webkit-appearance: none;
+
             box-sizing: border-box;
             padding-left: 3.75rem;
             padding-right: 1.875rem;
@@ -61,12 +62,7 @@
         .input_searchbar:focus,
         .input_searchbar:hover {
             border: 2px solid $color-secondary;
-            box-shadow: 0 0 0 0.25px $color-secondary;
         }
-    }
-
-    .container_searchbar.shift {
-        margin-top: -0.75rem;
     }
 
     .container_search-alphabetical {
@@ -109,17 +105,3 @@
         }
     }
 }
-
-// // start making breakpoints for responsive design
-// // overflow-y: scroll; /* only set this on content, not the whole component
-
-// // breakpoints:
-// // 320px - 440px - alleen searchbar zichtbaar
-// // 440px - 540px - searchbar & alfabetische volgorde zichtbaar
-
-// // 320px minimum viewport width
-
-// DISTANCE BETWEEN SEARCHBAR AND TOP PAGE NEEDS TO BE ADJUSTED
-// !IMPORTANT! THEN DISTANCE BETWEEN ELEMENTS ASWELL!
-
-// !CHECK WHY FIREFOX ANIMATION IS SLOW!
