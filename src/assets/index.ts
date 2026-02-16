@@ -17,6 +17,8 @@ export { default as SheepIcon } from './animals/sheep.svg'
 export { default as TurkeyIcon } from './animals/turkey.svg'
 export { default as TurtleIcon } from './animals/turtle.svg'
 
+export { default as Fade } from './ui/fade.svg'
+
 // ui icons
 export { default as SearchIcon } from './ui/search.svg'
 export { default as CircleSmall } from './ui/circle-small.svg'

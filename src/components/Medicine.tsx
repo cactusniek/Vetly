@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 
 import '../styles/medicine.scss'
 
-import { CircleSmall, ArrowToggle } from '../assets'
+import { CircleSmall, ArrowToggle, Fade } from '../assets'
 
 import { BeeIcon, CatIcon, ChickenIcon, CowIcon, DogIcon, DuckIcon, FishIcon, GoatIcon, GooseIcon, HorseIcon, ParrotIcon, PigIcon, PigeonIcon, RabbitIcon, SheepIcon, TurkeyIcon, TurtleIcon } from '../assets'
 
@@ -21,8 +21,8 @@ export default function Medicine() {
                         <div className="medicine_doeldieren">
                             {/* if doeldieren > 5; display maximum of 5 animals + {number of animals left} */}
                             <img src={CatIcon} className="icon_Cat" />
-                            <img src={TurtleIcon} className="icon_Turtle" />
-                            <img src={FishIcon} className="icon_Fish" />
+                            <img src={Fade} className="Fade" />
+                            <img src={BeeIcon} className="icon_Dog" />
                         </div>
                     </div>
 

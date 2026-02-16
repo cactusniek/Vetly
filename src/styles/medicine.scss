@@ -5,7 +5,6 @@
 // Rethink whole class naming
 
 .medicine {
-    // margin-top: 2.5rem;
     padding-inline: 1.25rem;
 
     display: flex;
@@ -36,7 +35,10 @@
             gap: 0.5rem;
 
             .medicine_titles {
-                // width: 100%;
+                position: relative;
+
+                display: flex;
+                justify-content: space-between;
 
                 .medicine_productnaam {
                     line-height: 1.3;
@@ -44,9 +46,38 @@
                 }
 
                 .medicine_doeldieren {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    // z-index: -10;
+
                     display: none;
 
+                    user-select: none;
+                    -webkit-user-drag: none;
+
+                    .icon_Cat {
+                        position: relative;
+                        left: 67.5px;
+                        // z-index: 10;
+                    }
+
+                    .Fade {
+                        position: relative;
+                        // right: 25.5px;
+                        top: 20px;
+                        left: 37.5px;
+                        // z-index: 20;
+                    }
+
+                    .icon_Dog {
+                        position: relative;
+                        right: 0px;
+                        z-index: 100;
+                    }
+
                     img {
+                        -webkit-user-drag: none;
                     }
                 }
             }
@@ -82,16 +113,13 @@
 
             width: 100%;
 
-            line-height: 1.3;
-            font-size: 14px;
-
             max-height: 0;
             opacity: 0;
             overflow: hidden;
 
             transition:
-                max-height 0.6s ease-in-out,
-                opacity 0.6s ease-in-out;
+                max-height 0.4s ease-in-out,
+                opacity 0.4s ease-in-out;
 
             .container_main {
                 padding-top: 0.5rem;
@@ -114,7 +142,7 @@
 
                     img {
                         padding-top: 0.35rem;
-                        align-self: start;
+                        align-self: flex-start;
 
                         user-select: none;
                         -webkit-user-drag: none;
@@ -136,13 +164,9 @@
                 .medicine_bronvermelding {
                     display: flex;
                     flex-direction: column;
-                    gap: 0.15rem;
-
-                    width: 100%;
+                    gap: 0.25rem;
 
                     .text_bronvermelding {
-                        display: flex;
-
                         color: $color-text-main;
                     }
 
@@ -163,13 +187,10 @@
                 }
 
                 .medicine_references {
-                    // margin-bottom: 0.5rem;
-
                     display: flex;
                     justify-content: space-between;
 
                     color: $color-text-muted;
-                    // font-size: 12px;
 
                     .medicine_registratienummer {
                     }
@@ -184,14 +205,11 @@
         }
 
         .medicine_main.show {
-            // margin-top: 1rem;
-            // margin-bottom: 1rem;
-
             display: flex;
             flex-direction: column;
             gap: 0.85rem;
 
-            max-height: 400px;
+            max-height: 700px;
             opacity: 1;
         }
 
@@ -212,13 +230,7 @@
                 user-select: none;
                 -webkit-user-drag: none;
 
-                transition: transform 0.6s;
-
-                // transition-delay: 0s;
-            }
-
-            .icon_arrowToggle:hover {
-                transform: rotate(-180deg);
+                transition: transform 0.4s;
             }
 
             .icon_ArrowToggle.rotate {
