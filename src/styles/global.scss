@@ -24,11 +24,18 @@ html {
     line-height: 1;
     letter-spacing: 0.02em;
     font-optical-sizing: auto;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
     color: $color-text-main;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: $color-bg-main;
+    // or set to #fff
 }
 
 input {
@@ -41,22 +48,41 @@ a {
 }
 
 .widget {
-    width: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
+
+    width: 100%;
+    min-height: 0;
+    height: 100vh;
 
     .search {
-        // width: 100%;
+        position: fixed;
+        top: 0;
+
+        width: 100%;
+
+        background-color: $color-bg-main;
+        z-index: 10;
+
+        -webkit-mask-image: none;
+        mask-image: none;
     }
 
     .medicines {
+        padding-top: 0.75rem;
+        margin-bottom: 1.5rem;
+
+        position: relative;
+        top: 7.5rem;
+
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+    }
 
-        // width: 100%;
+    .medicines::-webkit-scrollbar {
+        display: none;
     }
 }
