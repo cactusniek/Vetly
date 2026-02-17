@@ -3,7 +3,7 @@
 @use './variables' as *;
 
 .search {
-    padding-top: 2.5rem;
+    padding-top: 1.5rem;
     padding-inline: 1.25rem;
     padding-bottom: 0.75rem;
 
@@ -13,6 +13,7 @@
 
     width: 100%;
 
+    z-index: 10;
     background: $color-bg-main;
 
     &::after {
@@ -35,7 +36,7 @@
         justify-content: center;
 
         width: 100%;
-        max-width: 26.25rem;
+        max-width: 21.25rem;
 
         .icon_Search {
             position: absolute;
@@ -62,8 +63,8 @@
 
             background-color: $color-bg-main;
             border-radius: 30px;
-            border: 2px solid $color-muted;
             outline: none;
+            border: 2px solid $color-muted;
             font-size: 18px;
             color: $color-text-main;
 
@@ -113,7 +114,7 @@
         padding-left: 1.5rem;
 
         width: 100%;
-        max-width: 26.25rem;
+        max-width: 21.25rem;
 
         .search_results-text {
             font-size: 14px;

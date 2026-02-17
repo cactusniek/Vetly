@@ -35,7 +35,7 @@ html {
 
 body {
     background-color: $color-bg-main;
-    // or set to #fff
+    // background-color: #ffffff;
 }
 
 input {
@@ -45,6 +45,16 @@ input {
 a {
     text-underline-offset: 0.125rem;
     text-decoration-thickness: 0.08rem;
+}
+
+svg,
+svg path,
+svg line,
+svg circle {
+    shape-rendering: geometricPrecision;
+
+    vector-effect: non-scaling-stroke;
+    backface-visibility: hidden;
 }
 
 .widget {
@@ -75,7 +85,7 @@ a {
         margin-bottom: 1.5rem;
 
         position: relative;
-        top: 7.5rem;
+        top: 6.5rem; // the height of Search.tsx
 
         display: flex;
         flex-direction: column;

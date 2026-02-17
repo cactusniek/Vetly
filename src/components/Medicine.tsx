@@ -4,11 +4,37 @@ import { useRef, useEffect, useState } from 'react'
 
 import '../styles/medicine.scss'
 
-import { CircleSmall, ArrowToggle, Fade } from '../assets'
+import { CircleSmall, ArrowToggle } from '../assets'
 
-import { BeeIcon, CatIcon, ChickenIcon, CowIcon, DogIcon, DuckIcon, FishIcon, GoatIcon, GooseIcon, HorseIcon, ParrotIcon, PigIcon, PigeonIcon, RabbitIcon, SheepIcon, TurkeyIcon, TurtleIcon } from '../assets'
+import { AnimalFade, Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
+
+const doeldierenArray: string[] = ['Katten', 'Siervogels', 'Reptielen']
+
+const doeldierenImagesMap: Record<string, string> = {
+    Bijen: Bee,
+    Katten: Cat,
+    Kippen: Chicken,
+    Koeien: Cow,
+    Runderen: Cow,
+    Kalveren: Cow,
+    Honden: Dog,
+    Eenden: Duck,
+    Vissen: Fish,
+    Geiten: Goat,
+    Ganzen: Goose,
+    Paarden: Horse,
+    Siervogels: Parrot,
+    Varkens: Pig,
+    Biggen: Pig,
+    Duiven: Pigeon,
+    Konijnen: Rabbit,
+    Schapen: Sheep,
+    Kalkoenen: Turkey,
+    Reptielen: Turtle,
+}
 
 export default function Medicine() {
+    const [showMoreAnimals, setShowMoreAnimals] = useState<boolean>(false)
     const [showMore, setShowMore] = useState<boolean>(false)
 
     return (
@@ -18,11 +44,22 @@ export default function Medicine() {
                     <div className="medicine_titles">
                         <span className="medicine_productnaam">Metomotyl 1000 mg tablet voor honden en katten</span>
 
-                        <div className="medicine_doeldieren">
-                            {/* if doeldieren > 5; display maximum of 5 animals + {number of animals left} */}
-                            <img src={CatIcon} className="icon_Cat" />
-                            <img src={Fade} className="Fade" />
-                            <img src={BeeIcon} className="icon_Dog" />
+                        <div
+                            className={`medicine_doeldieren ${showMoreAnimals ? 'show' : ''}`}
+                            onClick={() => setShowMoreAnimals(prev => !prev)} // toggle class
+                        >
+                            {doeldierenArray.map((animal, index) => {
+                                const imgSrc = doeldierenImagesMap[animal]
+                                if (!imgSrc) return null
+
+                                return (
+                                    <div key={animal} className="AnimalWrapper">
+                                        <img src={imgSrc} alt={animal} className="Animal" />
+                                        {/* only add fade if not the last animal */}
+                                        {index < doeldierenArray.length - 1 && <img src={AnimalFade} alt="fade" className="AnimalFade" />}
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
 
