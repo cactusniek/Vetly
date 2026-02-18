@@ -61,6 +61,7 @@ export default function Search() {
                     }}
                     ref={searchRef}
                     type="text"
+                    spellCheck="false"
                     value={searchBarValue}
                     placeholder="Zoek Medicijn"
                     className="input_searchbar"

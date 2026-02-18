@@ -8,7 +8,7 @@ import { CircleSmall, ArrowToggle } from '../assets'
 
 import { AnimalFade, Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
 
-const doeldierenArray: string[] = ['Schapen', 'Katten']
+const doeldierenArray: string[] = ['Schapen', 'Katten', 'Koeien', 'Varkens']
 
 const doeldierenImagesMap: Record<string, string> = {
     Bijen: Bee,
@@ -46,7 +46,10 @@ export default function Medicine() {
             <div className="container_medicine">
                 <div className="medicine_header">
                     <div className="medicine_titles">
-                        <span className="medicine_productnaam">Metomotyl 1000 mg tablet voor honden en katten</span>
+                        <span className="medicine_productnaam">Milbemycin oxime Praziquantel Chew Alfamed 12.5 mg / 125 mg kauwtabletten voor honden</span>
+
+                        {/* when opening the medicine play the animation, when closing play the animation again */}
+                        {/* on mobile tapping the medicine will open the medicine, not the other way around though! */}
 
                         <div className="medicine_doeldieren">
                             {visibleAnimals.map((animal, index) => {
@@ -54,29 +57,27 @@ export default function Medicine() {
                                 if (!imgSrc) return null
 
                                 return (
-                                    <div key={animal} className="AnimalWrapper">
-                                        <img src={imgSrc} alt={animal} className="Animal" />
-                                        {index < visibleAnimals.length - 1 && <div className="AnimalFade" />}
+                                    <div key={animal} className="container_animal">
+                                        <img src={imgSrc} alt={animal} className="animal_image" />
+                                        {index < visibleAnimals.length - 1 && <div className="animal_fade" />}
                                     </div>
                                 )
                             })}
 
-                            {/* +X badge if there are extra animals */}
                             {remainingCount > 0 && (
-                                <div className="AnimalWrapper AnimalMore">
-                                    <span className="plus">+</span>
-                                    <span className="count">{remainingCount}</span>
+                                <div className="container_animal animal_more">
+                                    <span className="animal_text">+</span>
+                                    <span className="animal_text">{remainingCount}</span>
                                 </div>
                             )}
                         </div>
                     </div>
 
                     <div className="medicine_subtitles">
-                        <span className="medicine_handelsvergunninghouder">Nextmune Italy S.R.L.</span>
+                        <span className="medicine_handelsvergunninghouder">B. Braun Melsungen AG (Melsungen)</span>
 
                         <div className="medicine_references">
                             <span className="medicine_registratienummer">REG NL: 110212</span>
-                            <span className="references_devider">|</span>
                             <span className="medicine_procedurenummer">IT/V/0125/002</span>
                         </div>
                     </div>
@@ -115,7 +116,6 @@ export default function Medicine() {
 
                         <div className="medicine_references">
                             <span className="medicine_registratienummer">REG NL: 110212</span>
-                            <span className="references_devider">|</span>
                             <span className="medicine_procedurenummer">IT/V/0125/002</span>
                         </div>
                     </div>

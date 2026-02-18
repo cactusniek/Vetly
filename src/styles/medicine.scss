@@ -52,19 +52,25 @@
                 .medicine_doeldieren {
                     display: none;
 
-                    user-select: none;
-                    -webkit-user-drag: none;
-
                     @include respond-up-width(lg) {
-                        display: block;
+                        display: flex;
+                        flex: 1;
+
+                        align-items: start;
                     }
 
-                    .AnimalWrapper {
+                    .container_animal {
+                        display: flex;
+                        align-items: center;
+
                         position: absolute;
+
+                        width: 45px;
+                        height: 29px;
 
                         transition: transform 0.45s ease;
 
-                        .AnimalFade {
+                        .animal_fade {
                             position: absolute;
                             right: 0;
 
@@ -73,47 +79,40 @@
 
                             background-color: rgba(234, 234, 234, 1);
 
-                            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 1) 35%);
-                            -webkit-mask-repeat: no-repeat;
-                            -webkit-mask-size: cover;
-                            -webkit-mask-position: left;
-
                             mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 1) 35%);
-                            mask-repeat: no-repeat;
-                            mask-size: cover;
-                            mask-position: left;
+
+                            user-select: none;
+                            -webkit-user-drag: none;
                         }
 
-                        .Animal {
+                        .animal_image {
                             position: absolute;
                             right: 0;
                             z-index: 1;
 
                             width: 42px;
                             height: 29px;
+
+                            user-select: none;
+                            -webkit-user-drag: none;
                         }
                     }
 
+                    .container_animal.animal_more {
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: $color-text-muted;
+
+                        user-select: none;
+                        -webkit-user-drag: none;
+                    }
+
                     @for $i from 1 through 4 {
-                        > .AnimalWrapper:nth-child(#{$i}) {
+                        > .container_animal:nth-child(#{$i}) {
                             $baseRight: ($i - 1) * 1.5rem;
 
                             right: $baseRight;
                             z-index: 10 - $i;
-
-                            &.AnimalMore {
-                                display: flex;
-                                gap: 0.35rem;
-                                position: absolute;
-                                top: 25%;
-                                right: $baseRight + 1.5rem;
-
-                                .plus,
-                                .count {
-                                    font-size: 14px;
-                                    color: $color-text-muted;
-                                }
-                            }
                         }
                     }
 
@@ -140,9 +139,6 @@
                     display: none;
 
                     .medicine_registratienummer {
-                    }
-
-                    .references_devider {
                     }
 
                     .medicine_procedurenummer {
@@ -241,9 +237,6 @@
                     .medicine_registratienummer {
                     }
 
-                    .references_devider {
-                    }
-
                     .medicine_procedurenummer {
                     }
                 }
@@ -291,18 +284,18 @@
         }
 
         &:hover {
-            .medicine_doeldieren > .AnimalWrapper {
+            .medicine_doeldieren > .container_animal {
                 transition: transform 0.45s ease;
             }
 
             @for $i from 2 through 4 {
-                .medicine_doeldieren > .AnimalWrapper:nth-child(#{$i}):not(.AnimalMore) {
+                .medicine_doeldieren > .container_animal:nth-child(#{$i}):not(.animal_more) {
                     transform: translateX(-#{($i - 1) * 1.25}rem);
                 }
             }
 
-            .medicine_doeldieren > .AnimalWrapper.AnimalMore {
-                transform: translateX(-2.75rem);
+            .medicine_doeldieren > .container_animal.animal_more {
+                transform: translateX(-2.5rem);
             }
         }
     }
