@@ -8,7 +8,7 @@ import { CircleSmall, ArrowToggle } from '../assets'
 
 import { AnimalFade, Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
 
-const doeldierenArray: string[] = ['Honden', 'Katten', 'Reptielen', 'Vissen']
+const doeldierenArray: string[] = ['Schapen', 'Katten']
 
 const doeldierenImagesMap: Record<string, string> = {
     Bijen: Bee,
@@ -105,10 +105,10 @@ export default function Medicine() {
 
                         <div className="medicine_bronvermelding">
                             <span className="text_bronvermelding">Bronnen:</span>
-                            <a href="diergeneesmiddeleninformatiebank.nl" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
+                            <a href="https://diergeneesmiddeleninformatiebank.nl" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
                                 diergeneesmiddeleninformatiebank.nl
                             </a>
-                            <a href="ema.europe.eu" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
+                            <a href="https://www.ema.europa.eu/en/medicines" target="_blank" rel="noopener noreferrer" className="anchor_bronvermelding">
                                 ema.europe.eu
                             </a>
                         </div>

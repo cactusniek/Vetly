@@ -95,7 +95,6 @@
                         }
                     }
 
-                    // initial stacking
                     @for $i from 1 through 4 {
                         > .AnimalWrapper:nth-child(#{$i}) {
                             $baseRight: ($i - 1) * 1.5rem;
@@ -120,14 +119,7 @@
                         }
                     }
 
-                    @for $i from 2 through 4 {
-                        &:hover > .AnimalWrapper:nth-child(#{$i}):not(.AnimalMore) {
-                            transform: translateX(-#{($i - 1) * 1.25}rem);
-                        }
-
-                        &:hover > .AnimalWrapper.AnimalMore {
-                            transform: translateX(-2.75rem);
-                        }
+                    .medicine_titles {
                     }
                 }
 
@@ -296,6 +288,22 @@
             .text_toggle {
                 font-size: 14px;
                 color: $color-text-muted;
+            }
+        }
+
+        &:hover {
+            .medicine_doeldieren > .AnimalWrapper {
+                transition: transform 0.45s ease;
+            }
+
+            @for $i from 2 through 4 {
+                .medicine_doeldieren > .AnimalWrapper:nth-child(#{$i}):not(.AnimalMore) {
+                    transform: translateX(-#{($i - 1) * 1.25}rem);
+                }
+            }
+
+            .medicine_doeldieren > .AnimalWrapper.AnimalMore {
+                transform: translateX(-2.75rem);
             }
         }
     }
