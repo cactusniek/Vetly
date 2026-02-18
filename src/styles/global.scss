@@ -51,10 +51,14 @@ svg,
 svg path,
 svg line,
 svg circle {
-    shape-rendering: geometricPrecision;
+    will-change: width height;
+
+    shape-rendering: crispEdges;
 
     vector-effect: non-scaling-stroke;
     backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0); /* Triggers GPU acceleration */
 }
 
 .widget {

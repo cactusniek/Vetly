@@ -8,7 +8,7 @@ import { CircleSmall, ArrowToggle } from '../assets'
 
 import { AnimalFade, Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
 
-const doeldierenArray: string[] = ['Katten', 'Siervogels', 'Reptielen']
+const doeldierenArray: string[] = ['Honden', 'Katten', 'Reptielen', 'Vissen']
 
 const doeldierenImagesMap: Record<string, string> = {
     Bijen: Bee,
@@ -34,8 +34,12 @@ const doeldierenImagesMap: Record<string, string> = {
 }
 
 export default function Medicine() {
-    const [showMoreAnimals, setShowMoreAnimals] = useState<boolean>(false)
     const [showMore, setShowMore] = useState<boolean>(false)
+
+    const MAX_VISIBLE = 3
+
+    const visibleAnimals = doeldierenArray.slice(0, MAX_VISIBLE)
+    const remainingCount = doeldierenArray.length - MAX_VISIBLE
 
     return (
         <div className="medicine">
@@ -44,22 +48,26 @@ export default function Medicine() {
                     <div className="medicine_titles">
                         <span className="medicine_productnaam">Metomotyl 1000 mg tablet voor honden en katten</span>
 
-                        <div
-                            className={`medicine_doeldieren ${showMoreAnimals ? 'show' : ''}`}
-                            onClick={() => setShowMoreAnimals(prev => !prev)} // toggle class
-                        >
-                            {doeldierenArray.map((animal, index) => {
+                        <div className="medicine_doeldieren">
+                            {visibleAnimals.map((animal, index) => {
                                 const imgSrc = doeldierenImagesMap[animal]
                                 if (!imgSrc) return null
 
                                 return (
                                     <div key={animal} className="AnimalWrapper">
                                         <img src={imgSrc} alt={animal} className="Animal" />
-                                        {/* only add fade if not the last animal */}
-                                        {index < doeldierenArray.length - 1 && <img src={AnimalFade} alt="fade" className="AnimalFade" />}
+                                        {index < visibleAnimals.length - 1 && <div className="AnimalFade" />}
                                     </div>
                                 )
                             })}
+
+                            {/* +X badge if there are extra animals */}
+                            {remainingCount > 0 && (
+                                <div className="AnimalWrapper AnimalMore">
+                                    <span className="plus">+</span>
+                                    <span className="count">{remainingCount}</span>
+                                </div>
+                            )}
                         </div>
                     </div>
 

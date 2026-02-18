@@ -38,6 +38,10 @@
         width: 100%;
         max-width: 21.25rem;
 
+        @include respond-up-width(md) {
+            max-width: 26.25rem;
+        }
+
         .icon_Search {
             position: absolute;
             top: 50%;
@@ -115,6 +119,10 @@
 
         width: 100%;
         max-width: 21.25rem;
+
+        @include respond-up-width(md) {
+            max-width: 26.25rem;
+        }
 
         .search_results-text {
             font-size: 14px;
