@@ -6,6 +6,8 @@ import '../styles/search.scss'
 
 import { SearchIcon } from '../assets'
 
+// breng searchAlphabetical terug of niet
+
 export default function Search() {
     const [searchBarActive, setSearchBarActive] = useState<boolean>(false)
     const [searchBarValue, setSearchBarValue] = useState<string>('')
