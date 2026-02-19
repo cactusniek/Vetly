@@ -8,7 +8,12 @@ import { CircleSmall, ArrowToggle } from '../assets'
 
 import { AnimalFade, Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
 
-const doeldierenArray: string[] = ['Katten', 'Katten', 'Katten', 'Varkens']
+// als doeldier niet gevonden is, render het NIET. voeg het ook NIET toe.
+// Verbeter dit allemaal.
+
+// gebruik ook alleen: text_toggle OF toggle_text in classNames.
+
+const doeldierenArray: string[] = ['Katten', 'Reptielen', 'Siervogels', 'Varkens']
 
 const doeldierenImagesMap: Record<string, string> = {
     // bijen
