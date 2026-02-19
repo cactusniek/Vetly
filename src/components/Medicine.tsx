@@ -84,33 +84,28 @@ const doeldierenImagesMap: Record<string, string> = {
 
 export default function Medicine() {
     const [showMore, setShowMore] = useState<boolean>(false)
-    const [isMobile, setIsMobile] = useState(false)
+    const [isOnMobile, setIsOnMobile] = useState<boolean>(false)
 
-    const MAX_VISIBLE = 3
+    const maxAnimalsVisible = 3
+    const visibleAnimals = doeldierenArray.slice(0, maxAnimalsVisible)
+    const remainingAnimals = doeldierenArray.length - maxAnimalsVisible
 
-    const visibleAnimals = doeldierenArray.slice(0, MAX_VISIBLE)
-    const remainingCount = doeldierenArray.length - MAX_VISIBLE
+    useEffect(() => {
+        const media = window.matchMedia('(max-width: 540px)')
+        setIsOnMobile(media.matches)
 
-    function useIsMobile() {
-        useEffect(() => {
-            const media = window.matchMedia('(max-width: 1024px)')
-            setIsMobile(media.matches)
+        const listener = () => setIsOnMobile(media.matches)
+        media.addEventListener('change', listener)
 
-            const listener = () => setIsMobile(media.matches)
-            media.addEventListener('change', listener)
-
-            return () => media.removeEventListener('change', listener)
-        }, [])
-
-        return isMobile
-    }
+        return () => media.removeEventListener('change', listener)
+    }, [])
 
     return (
         <div className="medicine">
             <div
                 className={`container_medicine ${showMore ? 'open' : ''}`}
                 onClick={() => {
-                    if (!showMore && window.innerWidth <= 1024) {
+                    if (!showMore && window.innerWidth <= 540) {
                         setShowMore(true)
                     }
                 }}
@@ -119,32 +114,24 @@ export default function Medicine() {
                     <div className="medicine_titles">
                         <span className="medicine_productnaam">Milbemycin oxime Praziquantel Chew Alfamed 12.5 mg / 125 mg kauwtabletten voor honden</span>
 
-                        {/* when opening the medicine play the animation, when closing play the animation again */}
-                        {/* on mobile tapping the medicine will open the medicine, not the other way around though! */}
-
                         <div className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
-                            {visibleAnimals.map((animal, index) => {
-                                const imgSrc = doeldierenImagesMap[animal]
-                                if (!imgSrc) return null
+                            {visibleAnimals.map((doeldier, index) => {
+                                const src = doeldierenImagesMap[doeldier]
+                                if (!src) return null
 
                                 return (
-                                    <div key={animal} className="container_animal">
-                                        <img src={imgSrc} alt={animal} title={''} className="animal_image" />
-                                        {index < visibleAnimals.length - 1 && <div className="animal_fade" />}
+                                    <div key={doeldier} className="container_doeldier">
+                                        <img src={src} alt={doeldier} className="image_Doeldier" />
+                                        {index < visibleAnimals.length - 1 && <div className="fade_Doeldier" />}
                                     </div>
                                 )
                             })}
 
-                            {remainingCount > 0 && (
-                                <div className="container_animal animal_more">
-                                    <span className="animal_text">+</span>
-                                    <span className="animal_text">{remainingCount}</span>
+                            {remainingAnimals > 0 && (
+                                <div className="container_doeldier doeldieren_remaining">
+                                    <span className="text_remaining">+ {remainingAnimals}</span>
                                 </div>
                             )}
-
-                            <div className="animal_disclaimer">
-                                <span>zie tekst voor exacte doeldieren.</span>
-                            </div>
                         </div>
                     </div>
 

@@ -64,7 +64,7 @@
                         align-items: start;
                     }
 
-                    .container_animal {
+                    .container_doeldier {
                         display: flex;
                         align-items: center;
 
@@ -73,11 +73,21 @@
                         width: 46px;
                         height: 34px;
 
-                        // cursor: help;
-
                         transition: transform 0.45s ease;
 
-                        .animal_fade {
+                        .image_Doeldier {
+                            position: absolute;
+                            right: 0;
+                            z-index: 1;
+
+                            width: 46px;
+                            height: auto;
+
+                            user-select: none;
+                            -webkit-user-drag: none;
+                        }
+
+                        .fade_Doeldier {
                             position: absolute;
                             right: 0;
 
@@ -91,59 +101,9 @@
                             user-select: none;
                             -webkit-user-drag: none;
                         }
-
-                        .animal_image {
-                            position: absolute;
-                            right: 0;
-                            z-index: 1;
-
-                            width: 46px;
-                            height: auto;
-
-                            user-select: none;
-                            -webkit-user-drag: none;
-                        }
                     }
 
-                    .animal_disclaimer {
-                        padding: 4px 8px;
-
-                        display: flex;
-                        flex-direction: column;
-                        text-align: center;
-                        gap: 5px;
-
-                        position: absolute;
-                        inset-block-start: 100%;
-                        transform: translateX(-10%);
-
-                        width: max-content;
-
-                        font-size: 12px;
-                        white-space: normal;
-                        color: $color-text-white;
-
-                        background: $color-primary;
-                        border-radius: 5px;
-                        opacity: 0;
-
-                        pointer-events: none;
-
-                        transition: opacity 0.2s ease-in-out;
-                    }
-
-                    .animal_disclaimer span {
-                        display: block;
-                        align-self: center;
-
-                        width: 100%;
-                    }
-
-                    &:hover .animal_disclaimer {
-                        opacity: 1;
-                    }
-
-                    .container_animal.animal_more {
+                    .container_doeldier.doeldieren_remaining {
                         font-size: 14px;
                         font-weight: 700;
                         color: $color-text-muted;
@@ -153,29 +113,26 @@
                     }
 
                     @for $i from 1 through 4 {
-                        > .container_animal:nth-child(#{$i}) {
+                        > .container_doeldier:nth-child(#{$i}) {
                             $baseRight: ($i - 1) * 1.5rem;
 
                             right: $baseRight;
                             z-index: 10 - $i;
                         }
                     }
-
-                    .medicine_titles {
-                    }
                 }
 
-                .medicine_doeldieren.open > .container_animal {
+                .medicine_doeldieren.open > .container_doeldier {
                     transition: transform 0.5s ease;
                 }
 
                 @for $i from 2 through 4 {
-                    .medicine_doeldieren.open > .container_animal:nth-child(#{$i}):not(.animal_more) {
+                    .medicine_doeldieren.open > .container_doeldier:nth-child(#{$i}):not(.doeldieren_remaining) {
                         transform: translateX(-#{($i - 1) * 1.5}rem);
                     }
                 }
 
-                .medicine_doeldieren.open > .container_animal.animal_more {
+                .medicine_doeldieren.open > .container_doeldier.doeldieren_remaining {
                     transform: translateX(-3rem);
                 }
             }

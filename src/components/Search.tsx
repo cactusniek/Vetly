@@ -49,7 +49,7 @@ export default function Search() {
     return (
         <div className="search">
             <div className="container_searchbar">
-                <img src={SearchIcon} className="icon_Search" />
+                <img alt="icon_Search" src={SearchIcon} className="icon_Search" />
                 <input
                     onChange={e => {
                         setSearchBarValue(e.target.value)
