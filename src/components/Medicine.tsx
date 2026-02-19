@@ -114,22 +114,22 @@ export default function Medicine() {
                     <div className="medicine_titles">
                         <span className="medicine_productnaam">Milbemycin oxime Praziquantel Chew Alfamed 12.5 mg / 125 mg kauwtabletten voor honden</span>
 
-                        <div className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
+                        <div aria-label="Pictogrammen dienen alleen als visuele impressie en zijn niet leidend; zie tekst voor de exacte doeldieren." className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
                             {visibleAnimals.map((doeldier, index) => {
                                 const src = doeldierenImagesMap[doeldier]
                                 if (!src) return null
 
                                 return (
                                     <div key={doeldier} className="container_doeldier">
-                                        <img src={src} alt={doeldier} className="image_Doeldier" />
-                                        {index < visibleAnimals.length - 1 && <div className="fade_Doeldier" />}
+                                        <img aria-hidden="true" src={src} alt={`impressie_${doeldier}`} className="image_Doeldier" />
+                                        {index < visibleAnimals.length - 1 && <div aria-hidden="true" className="fade_Doeldier" />}
                                     </div>
                                 )
                             })}
 
                             {remainingAnimals > 0 && (
                                 <div className="container_doeldier doeldieren_remaining">
-                                    <span className="text_remaining">+ {remainingAnimals}</span>
+                                    <span className="text_remaining">+{remainingAnimals}</span>
                                 </div>
                             )}
                         </div>
@@ -137,11 +137,6 @@ export default function Medicine() {
 
                     <div className="medicine_subtitles">
                         <span className="medicine_handelsvergunninghouder">B. Braun Melsungen AG (Melsungen)</span>
-
-                        <div className="medicine_references">
-                            <span className="medicine_registratienummer">REG NL: 110212</span>
-                            <span className="medicine_procedurenummer">IT/V/0125/002</span>
-                        </div>
                     </div>
                 </div>
 
@@ -164,7 +159,9 @@ export default function Medicine() {
                             <span className="medicine_doeldieren">Diersoorten: kippen, ganzen, konijnen, paarden, runderen, reptielen</span>
                         </div>
 
-                        <div className="medicine_disclaimer">Neem bij vragen altijd contact op met uw dierenarts.</div>
+                        <div className="medicine_disclaimer">
+                            <span className="text_disclaimer">Neem bij vragen altijd contact op met uw dierenarts.</span>
+                        </div>
 
                         <div className="medicine_bronvermelding">
                             <span className="text_bronvermelding">Bronnen:</span>
