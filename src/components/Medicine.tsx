@@ -8,42 +8,113 @@ import { CircleSmall, ArrowToggle } from '../assets'
 
 import { AnimalFade, Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
 
-const doeldierenArray: string[] = ['Schapen', 'Katten', 'Koeien', 'Varkens']
+const doeldierenArray: string[] = ['Katten', 'Katten', 'Katten', 'Varkens']
 
 const doeldierenImagesMap: Record<string, string> = {
+    // bijen
     Bijen: Bee,
+
+    // katten
     Katten: Cat,
-    Kippen: Chicken,
-    Koeien: Cow,
-    Runderen: Cow,
-    Kalveren: Cow,
+
+    // honden
     Honden: Dog,
-    Eenden: Duck,
-    Vissen: Fish,
-    Geiten: Goat,
-    Ganzen: Goose,
-    Paarden: Horse,
-    Siervogels: Parrot,
+
+    // rundvee
+    Runderen: Cow,
+    Koeien: Cow,
+    Kalveren: Cow,
+    Melkkoeien: Cow,
+    'Lacterende runderen': Cow,
+    'Niet melkgevende runderen': Cow,
+    Stieren: Cow,
+
+    // varkens
     Varkens: Pig,
     Biggen: Pig,
+    Mestvarkens: Pig,
+    Vleesvarkens: Pig,
+    'Fok- en vermeerderingszeugen': Pig,
+    Zeugen: Pig,
+
+    // kippen / pluimvee
+    Kippen: Chicken,
+    Legkippen: Chicken,
+    'Fok- en vermeerderingskippen': Chicken,
+    Pluimvee: Chicken,
+    Slachtpluimvee: Chicken,
+    'Niet eierleggende kippen': Chicken,
+    Eendagskuikens: Chicken,
+
+    // overige vogels
     Duiven: Pigeon,
-    Konijnen: Rabbit,
+    Fazanten: Parrot,
+    Kooivogels: Parrot,
+    Siervogels: Parrot,
+    'Overige pluimvee': Parrot,
+
+    // paarden
+    Paarden: Horse,
+    Merries: Horse,
+    Ponies: Horse,
+    Eenhoevigen: Horse,
+
+    // kleine herkauwers
     Schapen: Sheep,
-    Kalkoenen: Turkey,
+    'Niet melkgevende schapen': Sheep,
+    Lammeren: Sheep,
+    Geiten: Goat,
+    Herkauwers: Sheep,
+
+    // kleine zoogdieren
+    Konijnen: Rabbit,
+    Gezelschapskonijnen: Rabbit,
+    Knaagdieren: Rabbit,
+    Nertsen: Rabbit,
+
+    // vissen / reptielen
+    Aquariumvissen: Fish,
+    Vissen: Fish,
     Reptielen: Turtle,
+    Terrariumdieren: Turtle,
+
+    // fallback-achtige generieken (optioneel)
+    Laboratoriumdieren: Rabbit,
 }
 
 export default function Medicine() {
     const [showMore, setShowMore] = useState<boolean>(false)
+    const [isMobile, setIsMobile] = useState(false)
 
     const MAX_VISIBLE = 3
 
     const visibleAnimals = doeldierenArray.slice(0, MAX_VISIBLE)
     const remainingCount = doeldierenArray.length - MAX_VISIBLE
 
+    function useIsMobile() {
+        useEffect(() => {
+            const media = window.matchMedia('(max-width: 1024px)')
+            setIsMobile(media.matches)
+
+            const listener = () => setIsMobile(media.matches)
+            media.addEventListener('change', listener)
+
+            return () => media.removeEventListener('change', listener)
+        }, [])
+
+        return isMobile
+    }
+
     return (
         <div className="medicine">
-            <div className="container_medicine">
+            <div
+                className={`container_medicine ${showMore ? 'open' : ''}`}
+                onClick={() => {
+                    if (!showMore && window.innerWidth <= 1024) {
+                        setShowMore(true)
+                    }
+                }}
+            >
                 <div className="medicine_header">
                     <div className="medicine_titles">
                         <span className="medicine_productnaam">Milbemycin oxime Praziquantel Chew Alfamed 12.5 mg / 125 mg kauwtabletten voor honden</span>
@@ -51,14 +122,14 @@ export default function Medicine() {
                         {/* when opening the medicine play the animation, when closing play the animation again */}
                         {/* on mobile tapping the medicine will open the medicine, not the other way around though! */}
 
-                        <div className="medicine_doeldieren">
+                        <div className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
                             {visibleAnimals.map((animal, index) => {
                                 const imgSrc = doeldierenImagesMap[animal]
                                 if (!imgSrc) return null
 
                                 return (
                                     <div key={animal} className="container_animal">
-                                        <img src={imgSrc} alt={animal} className="animal_image" />
+                                        <img src={imgSrc} alt={animal} title={''} className="animal_image" />
                                         {index < visibleAnimals.length - 1 && <div className="animal_fade" />}
                                     </div>
                                 )
@@ -70,6 +141,10 @@ export default function Medicine() {
                                     <span className="animal_text">{remainingCount}</span>
                                 </div>
                             )}
+
+                            <div className="animal_disclaimer">
+                                <span>zie tekst voor exacte doeldieren.</span>
+                            </div>
                         </div>
                     </div>
 

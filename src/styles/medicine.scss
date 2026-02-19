@@ -36,6 +36,7 @@
 
             .medicine_titles {
                 position: relative;
+
                 display: flex;
 
                 .medicine_productnaam {
@@ -45,7 +46,11 @@
                     line-height: 1.3;
 
                     @include respond-up-width(lg) {
-                        width: 65%;
+                        width: 62.5%;
+                    }
+
+                    @include respond-up-width(xl) {
+                        width: 67.5%;
                     }
                 }
 
@@ -65,8 +70,10 @@
 
                         position: absolute;
 
-                        width: 45px;
-                        height: 29px;
+                        width: 46px;
+                        height: 34px;
+
+                        // cursor: help;
 
                         transition: transform 0.45s ease;
 
@@ -74,8 +81,8 @@
                             position: absolute;
                             right: 0;
 
-                            width: 45px;
-                            height: 29px;
+                            width: 50px;
+                            height: 34px;
 
                             background-color: rgba(234, 234, 234, 1);
 
@@ -90,12 +97,50 @@
                             right: 0;
                             z-index: 1;
 
-                            width: 42px;
-                            height: 29px;
+                            width: 46px;
+                            height: auto;
 
                             user-select: none;
                             -webkit-user-drag: none;
                         }
+                    }
+
+                    .animal_disclaimer {
+                        padding: 4px 8px;
+
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                        gap: 5px;
+
+                        position: absolute;
+                        inset-block-start: 100%;
+                        transform: translateX(-10%);
+
+                        width: max-content;
+
+                        font-size: 12px;
+                        white-space: normal;
+                        color: $color-text-white;
+
+                        background: $color-primary;
+                        border-radius: 5px;
+                        opacity: 0;
+
+                        pointer-events: none;
+
+                        transition: opacity 0.2s ease-in-out;
+                    }
+
+                    .animal_disclaimer span {
+                        display: block;
+                        align-self: center;
+
+                        width: 100%;
+                    }
+
+                    &:hover .animal_disclaimer {
+                        opacity: 1;
                     }
 
                     .container_animal.animal_more {
@@ -120,8 +165,18 @@
                     }
                 }
 
-                .medicine_doeldieren {
-                    // hover is open, hover again is close
+                .medicine_doeldieren.open > .container_animal {
+                    transition: transform 0.5s ease;
+                }
+
+                @for $i from 2 through 4 {
+                    .medicine_doeldieren.open > .container_animal:nth-child(#{$i}):not(.animal_more) {
+                        transform: translateX(-#{($i - 1) * 1.5}rem);
+                    }
+                }
+
+                .medicine_doeldieren.open > .container_animal.animal_more {
+                    transform: translateX(-3rem);
                 }
             }
 
@@ -282,25 +337,15 @@
                 color: $color-text-muted;
             }
         }
-
-        &:hover {
-            .medicine_doeldieren > .container_animal {
-                transition: transform 0.45s ease;
-            }
-
-            @for $i from 2 through 4 {
-                .medicine_doeldieren > .container_animal:nth-child(#{$i}):not(.animal_more) {
-                    transform: translateX(-#{($i - 1) * 1.25}rem);
-                }
-            }
-
-            .medicine_doeldieren > .container_animal.animal_more {
-                transform: translateX(-2.5rem);
-            }
-        }
     }
 
-    .container_medicine:hover {
+    .container_medicine.open {
         border: 2px solid $color-secondary;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .container_medicine:hover {
+            border: 2px solid $color-secondary;
+        }
     }
 }
