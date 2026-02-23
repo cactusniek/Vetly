@@ -8,10 +8,8 @@ import { CircleSmall, ArrowToggle } from '../assets'
 
 import { AnimalFade, Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
 
-// als doeldier niet gevonden is, render het NIET. voeg het ook NIET toe.
+//
 // Verbeter dit allemaal.
-
-// gebruik ook alleen: text_toggle OF toggle_text in classNames.
 
 const doeldierenArray: string[] = ['Katten', 'Reptielen', 'Siervogels', 'Varkens']
 
@@ -119,7 +117,7 @@ export default function Medicine() {
                     <div className="medicine_titles">
                         <span className="medicine_productnaam">Milbemycin oxime Praziquantel Chew Alfamed 12.5 mg / 125 mg kauwtabletten voor honden</span>
 
-                        <div aria-label="Pictogrammen dienen alleen als visuele impressie en zijn niet leidend; zie tekst voor de exacte doeldieren." className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
+                        <div className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
                             {visibleAnimals.map((doeldier, index) => {
                                 const src = doeldierenImagesMap[doeldier]
                                 if (!src) return null

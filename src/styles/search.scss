@@ -14,6 +14,7 @@
     width: 100%;
 
     z-index: 10;
+
     background: $color-bg-main;
 
     &::after {
@@ -59,7 +60,7 @@
             -webkit-appearance: none;
 
             box-sizing: border-box;
-            padding-left: 3.75rem;
+            padding-left: 3.55rem;
             padding-right: 1.875rem;
 
             width: 100%;
@@ -72,6 +73,8 @@
             font-size: 18px;
             color: $color-text-main;
 
+            text-indent: 0.25ch;
+
             transition:
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
@@ -79,6 +82,8 @@
 
         .input_searchbar::placeholder {
             color: $color-text-muted;
+
+            z-index: 10;
         }
 
         .input_searchbar:focus,

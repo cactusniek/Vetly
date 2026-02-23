@@ -4,10 +4,47 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @font-face {
-    font-family: 'Nexa-Trail-Regular';
+    font-family: 'Nexa';
     src: url('../assets/fonts/Nexa-Trial-Regular.ttf') format('truetype');
 }
+
+// @font-face {
+//     font-family: 'Mandau';
+//     src: url('../assets/fonts/Mandau-Regular.otf') format('opentype');
+// }
+
+// @font-face {
+//     font-family: 'Montreal';
+//     src: url('../assets/fonts/Montreal-Regular.ttf') format('ttf');
+// }
+
+// @font-face {
+//     font-family: 'Swiza';
+//     src: url('../assets/fonts/swiza-medium.otf') format('otf');
+// }
+
+// @font-face {
+//     font-family: 'Alpino';
+//     src: url('../assets/fonts/Alpino-Variable.ttf') format('ttf');
+// }
+
+// @font-face {
+//     font-family: 'Monexa';
+//     src: url('../assets/fonts/Monexa.ttf') format('ttf');
+// }
+
+// @font-face {
+//     font-family: 'UX-Sans';
+//     src: url('../assets/fonts/UX-Sans.ttf') format('ttf');
+// }
+
+// @font-face {
+//     font-family: 'Proxima';
+//     src: url('../assets/fonts/Proxima-Nova.ttf') format('ttf');
+// }
 
 *,
 *::before,
@@ -19,7 +56,14 @@
 
 html {
     // font-family: 'Nunito', sans-serif;
-    font-family: 'Nexa-Trail-Regular', sans-serif;
+    // font-family: 'Montreal', sans-serif;
+    // font-family: 'Swiza', sans-serif;
+    // font-family: 'Alpino', sans-serif;
+    // font-family: 'Monexa', sans-serif;
+    // font-family: 'UX-Sans', sans-serif;
+    // font-family: 'Proxima', sans-serif;
+
+    font-family: 'Nexa', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1;
@@ -40,7 +84,7 @@ body {
 }
 
 input {
-    font-family: 'Nexa-Trail-Regular', sans-serif;
+    font-family: 'Nexa', sans-serif;
 }
 
 a {
@@ -88,6 +132,8 @@ svg circle {
     .medicines {
         padding-top: 0.75rem;
         margin-bottom: 1.5rem;
+
+        width: 100%;
 
         position: relative;
         top: 6.5rem; // the height of Search.tsx
