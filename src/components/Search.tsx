@@ -13,20 +13,11 @@ export default function Search() {
     const [searchBarValue, setSearchBarValue] = useState<string>('')
     const searchRef = useRef<HTMLInputElement>(null)
 
-    const [searchAlphabeticalActive, setSearchAlphabeticalActive] = useState<boolean>(false)
-    const [selectedAlphabeticalValue, setSelectedAlphabeticalValue] = useState<string | null>(null)
-
     function searchBar(e: React.ChangeEvent<HTMLInputElement>) {
         setSearchBarValue(e.target.value)
 
         // on each change start searching
     }
-
-    function searchAlphabetical(letter: string) {}
-
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
-    const firstRow = alphabet.slice(0, 14) // a - n
-    const secondRow = alphabet.slice(14) // o - z
 
     useEffect(() => {
         if (searchBarValue) return
@@ -58,8 +49,6 @@ export default function Search() {
                     }}
                     onFocus={() => {
                         setSearchBarActive(true)
-                        setSearchAlphabeticalActive(false)
-                        setSelectedAlphabeticalValue(null)
                     }}
                     ref={searchRef}
                     type="text"
@@ -68,52 +57,6 @@ export default function Search() {
                     placeholder="Zoek Medicijn"
                     className="input_searchbar"
                 />
-            </div>
-
-            <div className={`container_search-alphabetical ${searchBarActive || searchBarValue.length > 0 ? 'disappear' : ''} ${searchAlphabeticalActive ? 'active' : ''}`}>
-                <div className="alphabet_row">
-                    {firstRow.map(letter => (
-                        <span
-                            key={letter}
-                            className={`alphabet_letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
-                            onClick={() => {
-                                const isSame = selectedAlphabeticalValue === letter
-
-                                if (isSame) {
-                                    // deselecting a letter -> alphabetical should no longer be active
-                                    setSelectedAlphabeticalValue(null)
-                                    setSearchAlphabeticalActive(false)
-                                } else {
-                                    // select a letter -> mark alphabetical active
-                                    setSelectedAlphabeticalValue(letter)
-                                    setSearchBarValue('')
-                                    setSearchAlphabeticalActive(true)
-                                }
-                            }}
-                        >
-                            {letter}
-                        </span>
-                    ))}
-                </div>
-
-                <div className="alphabet_row">
-                    {secondRow.map(letter => (
-                        <span
-                            key={letter}
-                            className={`alphabet_letter ${selectedAlphabeticalValue === letter ? 'selected' : ''}`}
-                            onClick={() => {
-                                if (selectedAlphabeticalValue === letter) {
-                                    setSelectedAlphabeticalValue(null)
-                                } else {
-                                    setSelectedAlphabeticalValue(letter)
-                                    setSearchBarValue('')
-                                }
-                            }}
-                        >
-                            {letter}
-                        </span>
-                    ))}
-                </div>
             </div>
 
             <div className="container_search-results">

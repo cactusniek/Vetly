@@ -108,7 +108,7 @@ export default function Medicine() {
             <div
                 className={`container_medicine ${showMore ? 'open' : ''}`}
                 onClick={() => {
-                    if (!showMore && window.innerWidth <= 540) {
+                    if (!showMore && window.innerWidth <= 640) {
                         setShowMore(true)
                     }
                 }}

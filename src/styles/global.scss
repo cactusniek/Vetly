@@ -12,39 +12,54 @@
 }
 
 // @font-face {
-//     font-family: 'Mandau';
-//     src: url('../assets/fonts/Mandau-Regular.otf') format('opentype');
+//     font-family: 'Cosima-Core';
+//     src: url('../assets/fonts/Cosima-Core.otf') format('opentype');
 // }
 
-// @font-face {
-//     font-family: 'Montreal';
-//     src: url('../assets/fonts/Montreal-Regular.ttf') format('ttf');
-// }
+@font-face {
+    font-family: 'Aribau';
+    src: url('../assets/fonts/Aribau.otf') format('opentype');
+}
 
-// @font-face {
-//     font-family: 'Swiza';
-//     src: url('../assets/fonts/swiza-medium.otf') format('otf');
-// }
+@font-face {
+    font-family: 'Mandau';
+    src: url('../assets/fonts/Mandau-Regular.otf') format('opentype');
+}
 
-// @font-face {
-//     font-family: 'Alpino';
-//     src: url('../assets/fonts/Alpino-Variable.ttf') format('ttf');
-// }
+@font-face {
+    font-family: 'Montreal';
+    src: url('../assets/fonts/Montreal-Regular.ttf') format('truetype');
+}
 
-// @font-face {
-//     font-family: 'Monexa';
-//     src: url('../assets/fonts/Monexa.ttf') format('ttf');
-// }
+@font-face {
+    font-family: 'Swiza';
+    src: url('../assets/fonts/swiza-medium.otf') format('opentype');
+}
 
-// @font-face {
-//     font-family: 'UX-Sans';
-//     src: url('../assets/fonts/UX-Sans.ttf') format('ttf');
-// }
+@font-face {
+    font-family: 'Gucina';
+    src: url('../assets/fonts/gucina-regular.otf') format('opentype');
+}
 
-// @font-face {
-//     font-family: 'Proxima';
-//     src: url('../assets/fonts/Proxima-Nova.ttf') format('ttf');
-// }
+@font-face {
+    font-family: 'Alpino';
+    src: url('../assets/fonts/Alpino-Variable.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Monexa';
+    src: url('../assets/fonts/Monexa.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'UX-Sans';
+    src: url('../assets/fonts/UX-Sans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Proxima';
+    src: url('../assets/fonts/Proxima-Nova.ttf') format('truetype');
+}
 
 *,
 *::before,
@@ -62,6 +77,8 @@ html {
     // font-family: 'Monexa', sans-serif;
     // font-family: 'UX-Sans', sans-serif;
     // font-family: 'Proxima', sans-serif;
+    // font-family: 'Aribau', sans-serif;
+    // font-family: 'Cosima-Core', sans-serif;
 
     font-family: 'Nexa', sans-serif;
     font-weight: 400;

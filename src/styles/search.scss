@@ -75,9 +75,7 @@
 
             text-indent: 0.25ch;
 
-            transition:
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+            transition: border-color 0.3s ease;
         }
 
         .input_searchbar::placeholder {
@@ -90,32 +88,6 @@
         .input_searchbar:hover {
             border: 2px solid $color-secondary;
         }
-    }
-
-    .container_search-alphabetical {
-        display: none;
-
-        .alphabet_row {
-            .alphabet_letter {
-            }
-
-            .alphabet_letter:hover {
-            }
-
-            .alphabet_letter.selected {
-            }
-        }
-    }
-
-    .container_search-alphabetical:hover {
-    }
-
-    .container_search-alphabetical.disappear {
-        .alphabet_row {
-        }
-    }
-
-    .container_search-alphabetical.active {
     }
 
     .container_search-results {

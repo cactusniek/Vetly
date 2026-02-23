@@ -100,7 +100,7 @@
                             width: 50px;
                             height: 34px;
 
-                            background-color: rgba(234, 234, 234, 1);
+                            background-color: $color-bg-main;
 
                             mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 1) 35%);
 
@@ -301,6 +301,11 @@
                 -webkit-user-drag: none;
 
                 transition: transform 0.4s;
+
+                @include respond-up-width(xl) {
+                    width: 14px;
+                    height: 22px;
+                }
             }
 
             .icon_ArrowToggle.rotate {
