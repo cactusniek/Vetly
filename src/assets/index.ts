@@ -1,5 +1,4 @@
 // animal
-export { default as AnimalFade } from './animals/animal-devider.svg'
 export { default as Bee } from './animals/bee.svg'
 export { default as Cat } from './animals/cat.svg'
 export { default as Chicken } from './animals/chicken.svg'
@@ -22,3 +21,4 @@ export { default as Turtle } from './animals/turtle.svg'
 export { default as SearchIcon } from './ui/search.svg'
 export { default as CircleSmall } from './ui/circle-small.svg'
 export { default as ArrowToggle } from './ui/arrow-toggle.svg'
+export { default as DisclaimerIcon } from './ui/disclaimer.svg'

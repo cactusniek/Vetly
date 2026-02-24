@@ -24,7 +24,7 @@
         width: 100%;
         max-width: 37.5rem;
 
-        border-radius: 25px;
+        border-radius: $border-radius-sm;
         border: 2px solid $color-muted;
 
         transition: border-color 0.3s ease;

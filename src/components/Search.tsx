@@ -6,8 +6,6 @@ import '../styles/search.scss'
 
 import { SearchIcon } from '../assets'
 
-// breng searchAlphabetical terug of niet
-
 export default function Search() {
     const [searchBarActive, setSearchBarActive] = useState<boolean>(false)
     const [searchBarValue, setSearchBarValue] = useState<string>('')
@@ -20,24 +18,19 @@ export default function Search() {
     }
 
     useEffect(() => {
-        if (searchBarValue) return
+        const input = searchRef.current
+        if (!input) return
 
         const close = () => {
             setSearchBarActive(false)
-            searchRef.current?.blur()
+            input.blur()
         }
 
-        const onDown = (e: MouseEvent) => !searchRef.current?.contains(e.target as Node) && close()
         const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
 
-        document.addEventListener('mousedown', onDown)
-        document.addEventListener('keydown', onKey)
-
-        return () => {
-            document.removeEventListener('mousedown', onDown)
-            document.removeEventListener('keydown', onKey)
-        }
-    }, [searchBarValue])
+        input.addEventListener('keydown', onKey)
+        return () => input.removeEventListener('keydown', onKey)
+    }, [])
 
     return (
         <div className="search">
@@ -59,9 +52,9 @@ export default function Search() {
                 />
             </div>
 
-            <div className="container_search-results">
+            <div className="container_results">
                 {/* conditional; if results > 1 - resultaten else resultaat */}
-                <span className="search_results-text">Er zijn 3 resultaten gevonden</span>
+                <span className="text_results">Er zijn 3 resultaten gevonden</span>
             </div>
         </div>
     )

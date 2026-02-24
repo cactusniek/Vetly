@@ -15,6 +15,9 @@ $color-text-muted: #75706f;
 $color-text-muted-hover: #494949;
 $color-text-white: #eaeaea;
 
+$border-radius-sm: 25px;
+$border-radius-md: 30px;
+
 $breakpoints-width: (
     sm: 320px,
     md: 440px,
@@ -42,13 +45,3 @@ $breakpoints-height: (
         @content;
     }
 }
-
-// breakpoints:
-// 1: 320px
-// 2: 380px : waarschijnlijk niet nodig..
-// 3: 440px
-// 5: 540px
-
-// border radius'
-// 1: 25px
-// 2: 30px

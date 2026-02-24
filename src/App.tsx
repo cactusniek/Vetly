@@ -16,6 +16,8 @@ function App() {
             <Search />
 
             <div className="medicines">
+                {/* loading spinner: <DotLottieReact src="https://lottie.host/bb727232-fdd0-41c8-9590-4febb07ca6b6/kagK7Konq6.lottie" stateMachineId="StateMachine1" /> */}
+                {/* als er gezocht wordt laat de loading spinner zien */}
                 <Medicine />
                 <Medicine />
                 <Medicine />
@@ -23,7 +25,17 @@ function App() {
                 <Medicine />
             </div>
 
-            {/* loading spinner: <DotLottieReact src="https://lottie.host/bb727232-fdd0-41c8-9590-4febb07ca6b6/kagK7Konq6.lottie" stateMachineId="StateMachine1" /> */}
+            <div className="ToS">
+                <div className="container_ToS">
+                    <a href="#" className="anchor_ToS">
+                        Algemene Voorwaarden
+                    </a>
+
+                    <a href="#" className="anchor_copyright">
+                        Copyright
+                    </a>
+                </div>
+            </div>
         </div>
     )
 }

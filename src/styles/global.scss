@@ -11,10 +11,10 @@
     src: url('../assets/fonts/Nexa-Trial-Regular.ttf') format('truetype');
 }
 
-// @font-face {
-//     font-family: 'Cosima-Core';
-//     src: url('../assets/fonts/Cosima-Core.otf') format('opentype');
-// }
+@font-face {
+    font-family: 'Cosima-Core';
+    src: url('../assets/fonts/Cosima-Core.otf') format('opentype');
+}
 
 @font-face {
     font-family: 'Aribau';
@@ -79,8 +79,8 @@ html {
     // font-family: 'Proxima', sans-serif;
     // font-family: 'Aribau', sans-serif;
     // font-family: 'Cosima-Core', sans-serif;
-
     font-family: 'Nexa', sans-serif;
+
     font-weight: 400;
     font-size: 16px;
     line-height: 1;
@@ -97,7 +97,6 @@ html {
 
 body {
     background-color: $color-bg-main;
-    // background-color: #ffffff;
 }
 
 input {
@@ -120,14 +119,15 @@ svg circle {
     vector-effect: non-scaling-stroke;
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
-    transform: translateZ(0); /* Triggers GPU acceleration */
+    transform: translateZ(0);
 }
 
 .widget {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    // gap: 1rem;
 
     width: 100%;
     min-height: 0;
@@ -147,13 +147,10 @@ svg circle {
     }
 
     .medicines {
-        padding-top: 0.75rem;
+        padding-top: 7.25rem; // height of Search.tsx & padding
         margin-bottom: 1.5rem;
 
         width: 100%;
-
-        position: relative;
-        top: 6.5rem; // the height of Search.tsx
 
         display: flex;
         flex-direction: column;
@@ -162,5 +159,51 @@ svg circle {
 
     .medicines::-webkit-scrollbar {
         display: none;
+    }
+
+    .ToS {
+        padding-inline: 1.25rem;
+        padding-bottom: 1.5rem;
+
+        display: flex;
+        justify-content: center;
+
+        width: 100%;
+
+        .container_ToS {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+            // flex-wrap: wrap;
+
+            max-width: 37.5rem;
+            width: 100%;
+
+            @include respond-up-width(md) {
+                padding-inline: 1.25rem;
+            }
+
+            @include respond-up-width(xl) {
+                max-width: 43.75rem;
+            }
+
+            .anchor_ToS,
+            .anchor_copyright {
+                font-size: 14px;
+                color: $color-text-muted;
+
+                text-align: center;
+
+                width: fit-content;
+
+                transition: color 0.3s ease-in-out;
+            }
+
+            .anchor_ToS:hover,
+            .anchor_copyright:hover {
+                color: $color-text-main;
+            }
+        }
     }
 }

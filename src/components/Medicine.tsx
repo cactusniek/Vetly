@@ -6,95 +6,74 @@ import '../styles/medicine.scss'
 
 import { CircleSmall, ArrowToggle } from '../assets'
 
-import { AnimalFade, Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
-
-//
-// Verbeter dit allemaal.
-
-const doeldierenArray: string[] = ['Katten', 'Reptielen', 'Siervogels', 'Varkens']
+import { Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
 
 const doeldierenImagesMap: Record<string, string> = {
-    // bijen
     Bijen: Bee,
 
-    // katten
     Katten: Cat,
 
-    // honden
-    Honden: Dog,
-
-    // rundvee
-    Runderen: Cow,
-    Koeien: Cow,
-    Kalveren: Cow,
-    Melkkoeien: Cow,
-    'Lacterende runderen': Cow,
-    'Niet melkgevende runderen': Cow,
-    Stieren: Cow,
-
-    // varkens
-    Varkens: Pig,
-    Biggen: Pig,
-    Mestvarkens: Pig,
-    Vleesvarkens: Pig,
-    'Fok- en vermeerderingszeugen': Pig,
-    Zeugen: Pig,
-
-    // kippen / pluimvee
     Kippen: Chicken,
     Legkippen: Chicken,
-    'Fok- en vermeerderingskippen': Chicken,
-    Pluimvee: Chicken,
-    Slachtpluimvee: Chicken,
     'Niet eierleggende kippen': Chicken,
-    Eendagskuikens: Chicken,
 
-    // overige vogels
-    Duiven: Pigeon,
-    Fazanten: Parrot,
-    Kooivogels: Parrot,
-    Siervogels: Parrot,
-    'Overige pluimvee': Parrot,
+    Kalveren: Cow,
+    Koeien: Cow,
+    'Lacterende runderen': Cow,
+    Melkkoeien: Cow,
+    'Niet melkgevende runderen': Cow,
+    Runderen: Cow,
+    Stieren: Cow,
 
-    // paarden
-    Paarden: Horse,
-    Merries: Horse,
-    Ponies: Horse,
-    Eenhoevigen: Horse,
+    Honden: Dog,
 
-    // kleine herkauwers
-    Schapen: Sheep,
-    'Niet melkgevende schapen': Sheep,
-    Lammeren: Sheep,
-    Geiten: Goat,
-    Herkauwers: Sheep,
+    Eenden: Duck,
 
-    // kleine zoogdieren
-    Konijnen: Rabbit,
-    Gezelschapskonijnen: Rabbit,
-    Knaagdieren: Rabbit,
-    Nertsen: Rabbit,
-
-    // vissen / reptielen
     Aquariumvissen: Fish,
     Vissen: Fish,
-    Reptielen: Turtle,
-    Terrariumdieren: Turtle,
 
-    // fallback-achtige generieken (optioneel)
-    Laboratoriumdieren: Rabbit,
+    Geiten: Goat,
+
+    Ganzen: Goose,
+
+    Merries: Horse,
+    Paarden: Horse,
+
+    Kooivogels: Parrot,
+    Siervogels: Parrot,
+
+    Mestvarkens: Pig,
+    Varkens: Pig,
+    Vleesvarkens: Pig,
+    Zeugen: Pig,
+
+    Duiven: Pigeon,
+
+    Gezelschapskonijnen: Rabbit,
+    Konijnen: Rabbit,
+
+    'Niet melkgevende schapen': Sheep,
+    Schapen: Sheep,
+
+    Kalkoenen: Turkey,
+
+    Reptielen: Turtle,
+
+    // Fazanten, Kuikens, Biggetjes, Lammetjes
 }
 
 export default function Medicine() {
     const [showMore, setShowMore] = useState<boolean>(false)
     const [isOnMobile, setIsOnMobile] = useState<boolean>(false)
 
+    const doeldierenArray: string[] = ['Katten', 'Reptielen', 'Siervogels', 'Varkens']
+
     const maxAnimalsVisible = 3
     const visibleAnimals = doeldierenArray.slice(0, maxAnimalsVisible)
     const remainingAnimals = doeldierenArray.length - maxAnimalsVisible
 
     useEffect(() => {
-        const media = window.matchMedia('(max-width: 540px)')
+        const media = window.matchMedia('(max-width: 640px)')
         setIsOnMobile(media.matches)
 
         const listener = () => setIsOnMobile(media.matches)
@@ -124,7 +103,7 @@ export default function Medicine() {
 
                                 return (
                                     <div key={doeldier} className="container_doeldier">
-                                        <img aria-hidden="true" src={src} alt={`impressie_${doeldier}`} className="image_Doeldier" />
+                                        <img src={src} alt={`impressie_${doeldier}`} className="image_Doeldier" />
                                         {index < visibleAnimals.length - 1 && <div aria-hidden="true" className="fade_Doeldier" />}
                                     </div>
                                 )
@@ -163,7 +142,7 @@ export default function Medicine() {
                         </div>
 
                         <div className="medicine_disclaimer">
-                            <span className="text_disclaimer">Neem bij vragen altijd contact op met uw dierenarts.</span>
+                            <span className="text_disclaimer">Deze informatie is uitsluitend bedoeld als hulpmiddel en vervangt geen advies van een dierenarts.</span>
                         </div>
 
                         <div className="medicine_bronvermelding">
