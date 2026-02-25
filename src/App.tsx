@@ -72,6 +72,16 @@ const medicinesMockup = [
         registratienummer: '126198',
         procedurenummer: 'IE/V/0515/001',
     },
+
+    {
+        productnaam: 'Ik vindt schildpadden leuk',
+        handelsvergunninghouder: 'Niek Limited',
+        afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
+        doeldieren: 'Reptielen#Konijnen',
+        bijsluiterUrl: '#',
+        registratienummer: '126198',
+        procedurenummer: 'IE/V/0515/001',
+    },
 ]
 
 function App() {

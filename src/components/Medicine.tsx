@@ -118,7 +118,7 @@ export default function Medicine({ productnaam, handelsvergunninghouder, aflever
     return (
         <div className="medicine">
             <div
-                className={`container_medicine ${showMore ? 'open' : ''}`}
+                className="container_medicine"
                 onClick={() => {
                     if (!showMore && window.innerWidth <= 640) {
                         setShowMore(true)
