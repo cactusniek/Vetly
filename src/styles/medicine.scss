@@ -109,7 +109,8 @@
                         }
                     }
 
-                    .container_doeldier.doeldieren_remaining {
+                    .container_doeldier,
+                    .doeldieren_remaining {
                         font-size: 14px;
                         letter-spacing: 0.1em;
                         font-weight: 700;
@@ -119,29 +120,64 @@
                         -webkit-user-drag: none;
                     }
 
-                    @for $i from 1 through 4 {
-                        > .container_doeldier:nth-child(#{$i}) {
-                            $baseRight: ($i - 1) * 1.5rem;
+                    .doeldieren_remaining {
+                        display: flex;
+                        align-items: center;
 
-                            right: $baseRight;
-                            z-index: 10 - $i;
-                        }
+                        position: absolute;
+
+                        width: 46px;
+                        height: 34px;
                     }
+
+                    // @for $i from 1 through 3 {
+                    //     > .container_doeldier:nth-child(#{$i}) {
+                    //         $baseRight: ($i - 1) * 1.5rem;
+
+                    //         right: $baseRight;
+                    //         z-index: 10 - $i;
+                    //     }
+                    // }
                 }
 
-                .medicine_doeldieren.open > .container_doeldier {
-                    transition: transform 0.5s ease;
-                }
+                // .medicine_doeldieren.open > .container_doeldier {
+                //     transition: transform 0.5s ease;
+                // }
 
-                @for $i from 2 through 4 {
-                    .medicine_doeldieren.open > .container_doeldier:nth-child(#{$i}):not(.doeldieren_remaining) {
-                        transform: translateX(-#{($i - 1) * 1.5}rem);
-                    }
-                }
+                // @for $i from 2 through 3 {
+                //     .medicine_doeldieren.open > .container_doeldier:nth-child(#{$i}) {
+                //         transform: translateX(-#{($i - 1) * 1.5}rem);
+                //     }
+                // }
 
-                .medicine_doeldieren.open > .container_doeldier.doeldieren_remaining {
-                    transform: translateX(-3rem);
-                }
+                // .medicine_doeldieren.open > .container_doeldier {
+                //     transition: transform 0.5s ease;
+                // }
+
+                // /* exact 2 children */
+                // .medicine_doeldieren.open:has(> .container_doeldier:nth-child(2)) :not(:has(> .container_doeldier:nth-child(3))) {
+                //     --shift: 1.5rem;
+                // }
+
+                // /* exact 3 children */
+                // .medicine_doeldieren.open:has(> .container_doeldier:nth-child(3)) :not(:has(> .container_doeldier:nth-child(4))) {
+                //     --shift: 2rem;
+                // }
+
+                // /* exact 4 children */
+                // .medicine_doeldieren.open:has(> .container_doeldier:nth-child(4)) :not(:has(> .container_doeldier:nth-child(5))) {
+                //     --shift: 3rem;
+                // }
+
+                // @for $i from 2 through 4 {
+                //     .medicine_doeldieren.open > .container_doeldier:nth-child(#{$i}):not(.doeldieren_remaining) {
+                //         transform: translateX(calc(-1 * (#{$i - 1}) * var(--shift)));
+                //     }
+                // }
+
+                // .medicine_doeldieren.open > .container_doeldier.doeldieren_remaining {
+                //     transform: translateX(calc(-1 * var(--shift) * 2));
+                // }
             }
 
             .medicine_subtitles {

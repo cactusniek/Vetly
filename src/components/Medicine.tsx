@@ -62,15 +62,48 @@ const doeldierenImagesMap: Record<string, string> = {
     // Fazanten, Kuikens, Biggetjes, Lammetjes
 }
 
-export default function Medicine() {
+type MedicineProps = {
+    productnaam: string
+    handelsvergunninghouder: string
+    afleverstatus: string
+    doeldieren: string
+    bijsluiterUrl: string
+    registratienummer: string
+    procedurenummer: string
+}
+
+export default function Medicine({ productnaam, handelsvergunninghouder, afleverstatus, doeldieren, bijsluiterUrl, registratienummer, procedurenummer }: MedicineProps) {
     const [showMore, setShowMore] = useState<boolean>(false)
     const [isOnMobile, setIsOnMobile] = useState<boolean>(false)
 
-    const doeldierenArray: string[] = ['Katten', 'Reptielen', 'Siervogels', 'Varkens']
+    const doeldierenArray = doeldieren
+        .split('#')
+        .map(d => d.trim())
+        .filter(Boolean)
+
+    const diersoorten = doeldierenArray.join(', ')
+
+    const uniqueIconEntries = Array.from(
+        new Map(
+            doeldierenArray
+                .map(doeldier => {
+                    const src = doeldierenImagesMap[doeldier]
+                    if (!src) return null
+                    return { doeldier, src }
+                })
+                .filter((item): item is { doeldier: string; src: string } => item !== null)
+                .map(item => [item.src, item] as const),
+        ).values(),
+    )
 
     const maxAnimalsVisible = 3
-    const visibleAnimals = doeldierenArray.slice(0, maxAnimalsVisible)
-    const remainingAnimals = doeldierenArray.length - maxAnimalsVisible
+    const visibleIcons = uniqueIconEntries.slice(0, maxAnimalsVisible)
+
+    // welke doeldieren hebben een icoon én zijn zichtbaar?
+    const visibleIconAnimals = new Set(visibleIcons.map(entry => entry.doeldier))
+
+    // alles wat niet in de zichtbare iconen zit, telt als "remaining"
+    const remainingIcons = doeldierenArray.filter(doeldier => !visibleIconAnimals.has(doeldier)).length
 
     useEffect(() => {
         const media = window.matchMedia('(max-width: 640px)')
@@ -94,31 +127,60 @@ export default function Medicine() {
             >
                 <div className="medicine_header">
                     <div className="medicine_titles">
-                        <span className="medicine_productnaam">Milbemycin oxime Praziquantel Chew Alfamed 12.5 mg / 125 mg kauwtabletten voor honden</span>
+                        <span className="medicine_productnaam">{productnaam}</span>
 
                         <div className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
-                            {visibleAnimals.map((doeldier, index) => {
-                                const src = doeldierenImagesMap[doeldier]
-                                if (!src) return null
+                            {visibleIcons.map((entry, index) => {
+                                let transform = 'translateX(0)'
+
+                                if (showMore && visibleIcons.length > 1) {
+                                    if (visibleIcons.length === 2) {
+                                        transform = `translateX(-${index === 0 ? 0 : 1.5}rem)`
+                                    } else if (visibleIcons.length === 3) {
+                                        transform = `translateX(-${index === 0 ? 0 : index === 1 ? 1.5 : 3}rem)`
+                                    }
+                                }
 
                                 return (
-                                    <div key={doeldier} className="container_doeldier">
-                                        <img src={src} alt={`impressie_${doeldier}`} className="image_Doeldier" />
-                                        {index < visibleAnimals.length - 1 && <div aria-hidden="true" className="fade_Doeldier" />}
+                                    <div
+                                        key={entry.src}
+                                        className="container_doeldier"
+                                        style={{
+                                            right: `${index * 1.5}rem`,
+                                            zIndex: `${10 - index}`,
+                                            transform,
+                                            transition: 'transform 0.5s ease',
+                                        }}
+                                    >
+                                        <img src={entry.src} alt={`impressie_${entry.doeldier}`} className="image_Doeldier" />
+                                        {index < visibleIcons.length - 1 && <div aria-hidden="true" className="fade_Doeldier" />}
                                     </div>
                                 )
                             })}
 
-                            {remainingAnimals > 0 && (
-                                <div className="container_doeldier doeldieren_remaining">
-                                    <span className="text_remaining">+{remainingAnimals}</span>
+                            {remainingIcons > 0 && (
+                                <div
+                                    className="doeldieren_remaining"
+                                    style={{
+                                        right: `${visibleIcons.length * 1.5}rem`,
+                                        zIndex: `${10 - visibleIcons.length}`,
+                                        transform: (() => {
+                                            if (!showMore || visibleIcons.length === 1) return 'translateX(0)'
+                                            if (visibleIcons.length === 2) return 'translateX(-1.5rem)'
+                                            if (visibleIcons.length === 3) return 'translateX(-3rem)'
+                                            return 'translateX(0)'
+                                        })(),
+                                        transition: 'transform 0.5s ease',
+                                    }}
+                                >
+                                    <span className="text_remaining">+{remainingIcons}</span>
                                 </div>
                             )}
                         </div>
                     </div>
 
                     <div className="medicine_subtitles">
-                        <span className="medicine_handelsvergunninghouder">B. Braun Melsungen AG (Melsungen)</span>
+                        <span className="medicine_handelsvergunninghouder">{handelsvergunninghouder}</span>
                     </div>
                 </div>
 
@@ -126,7 +188,7 @@ export default function Medicine() {
                     <div className="container_main">
                         <div className="medicine_info">
                             <img src={CircleSmall} className="icon_CircleSmall" />
-                            <span className="medicine_afleverstatus">UDA - Uitsluitend verkrijgbaar bij een dierenarts of op diergeneeskundig voorschrift [recept] van een dierenarts bij een apotheek</span>
+                            <span className="medicine_afleverstatus">{afleverstatus}</span>
                         </div>
 
                         <div className="medicine_info">
@@ -138,7 +200,7 @@ export default function Medicine() {
 
                         <div className="medicine_info">
                             <img src={CircleSmall} className="icon_CircleSmall" />
-                            <span className="medicine_doeldieren">Diersoorten: kippen, ganzen, konijnen, paarden, runderen, reptielen</span>
+                            <span className="medicine_doeldieren">Diersoorten: {diersoorten}</span>
                         </div>
 
                         <div className="medicine_disclaimer">
@@ -156,8 +218,8 @@ export default function Medicine() {
                         </div>
 
                         <div className="medicine_references">
-                            <span className="medicine_registratienummer">REG NL: 110212</span>
-                            <span className="medicine_procedurenummer">IT/V/0125/002</span>
+                            <span className="medicine_registratienummer">REG NL: {registratienummer}</span>
+                            <span className="medicine_procedurenummer">{procedurenummer}</span>
                         </div>
                     </div>
                 </div>

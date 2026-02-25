@@ -6,15 +6,28 @@ import '../styles/search.scss'
 
 import { SearchIcon } from '../assets'
 
-export default function Search() {
+type SearchProps = {
+    onSearch: (query: string) => void
+    isLoading: boolean
+    resultsCount: number
+}
+
+export default function Search({ onSearch, isLoading, resultsCount }: SearchProps) {
     const [searchBarActive, setSearchBarActive] = useState<boolean>(false)
     const [searchBarValue, setSearchBarValue] = useState<string>('')
     const searchRef = useRef<HTMLInputElement>(null)
 
-    function searchBar(e: React.ChangeEvent<HTMLInputElement>) {
-        setSearchBarValue(e.target.value)
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const value = e.target.value
+        setSearchBarValue(value)
 
-        // on each change start searching
+        // als je live wilt zoeken, haal de comment hieronder weg:
+        // onSearch(value)
+    }
+
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+        onSearch(searchBarValue)
     }
 
     useEffect(() => {
@@ -37,9 +50,7 @@ export default function Search() {
             <div className="container_searchbar">
                 <img aria-hidden="true" alt="icon_Search" src={SearchIcon} className="icon_Search" />
                 <input
-                    onChange={e => {
-                        setSearchBarValue(e.target.value)
-                    }}
+                    onChange={handleChange}
                     onFocus={() => {
                         setSearchBarActive(true)
                     }}
@@ -53,8 +64,13 @@ export default function Search() {
             </div>
 
             <div className="container_results">
-                {/* conditional; if results > 1 - resultaten else resultaat */}
-                <span className="text_results">Er zijn 3 resultaten gevonden</span>
+                {!isLoading && resultsCount > 0 && (
+                    <span className="text_results">
+                        Er {resultsCount === 1 ? 'is' : 'zijn'} {resultsCount} {resultsCount === 1 ? 'resultaat' : 'resultaten'} gevonden
+                    </span>
+                )}
+
+                {isLoading && <span className="text_results">Er zijn…</span>}
             </div>
         </div>
     )
