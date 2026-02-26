@@ -56,9 +56,6 @@
         }
 
         .input_searchbar {
-            appearance: none;
-            -webkit-appearance: none;
-
             box-sizing: border-box;
             padding-left: 3.55rem;
             padding-right: 1.875rem;
@@ -67,21 +64,23 @@
             height: 3.125rem;
 
             background-color: $color-bg-main;
+            border: 2px solid $color-muted;
             border-radius: $border-radius-md;
             outline: none;
-            border: 2px solid $color-muted;
 
             font-size: 18px;
             text-indent: 0.25ch;
             color: $color-text-main;
 
             transition: border-color 0.3s ease;
+            appearance: none;
+            -webkit-appearance: none;
         }
 
         .input_searchbar::placeholder {
-            color: $color-text-muted;
-
             z-index: 10;
+
+            color: $color-text-muted;
         }
 
         .input_searchbar:focus,

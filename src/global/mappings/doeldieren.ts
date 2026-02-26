@@ -1,4 +1,4 @@
-// Mapping of doeldieren to their corresponding icons
+// mapping of doeldieren to their corresponding icons
 
 import { Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../../assets'
 
@@ -53,5 +53,9 @@ export const doeldierenIconMap: Record<string, string> = {
 
     Reptielen: Turtle,
 
-    // Fazanten, Kuikens, Biggetjes, Lammetjes
+    // later toevoegen:
+    // Fazanten,
+    // Kuikens,
+    // Biggetjes,
+    // Lammeren
 }

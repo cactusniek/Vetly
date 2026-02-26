@@ -2,64 +2,12 @@
 
 @use './variables' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 @font-face {
     font-family: 'Nexa';
     src: url('../assets/fonts/Nexa-Trial-Regular.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'Cosima-Core';
-    src: url('../assets/fonts/Cosima-Core.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'Aribau';
-    src: url('../assets/fonts/Aribau.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'Mandau';
-    src: url('../assets/fonts/Mandau-Regular.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'Montreal';
-    src: url('../assets/fonts/Montreal-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Swiza';
-    src: url('../assets/fonts/swiza-medium.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'Gucina';
-    src: url('../assets/fonts/gucina-regular.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'Alpino';
-    src: url('../assets/fonts/Alpino-Variable.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Monexa';
-    src: url('../assets/fonts/Monexa.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'UX-Sans';
-    src: url('../assets/fonts/UX-Sans.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Proxima';
-    src: url('../assets/fonts/Proxima-Nova.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 *,
 *::before,
@@ -71,24 +19,16 @@
 
 html {
     // font-family: 'Nunito', sans-serif;
-    // font-family: 'Montreal', sans-serif;
-    // font-family: 'Swiza', sans-serif;
-    // font-family: 'Alpino', sans-serif;
-    // font-family: 'Monexa', sans-serif;
-    // font-family: 'UX-Sans', sans-serif;
-    // font-family: 'Proxima', sans-serif;
-    // font-family: 'Aribau', sans-serif;
-    // font-family: 'Cosima-Core', sans-serif;
     font-family: 'Nexa', sans-serif;
 
     font-weight: 400;
     font-size: 16px;
     line-height: 1;
     letter-spacing: 0.02em;
+    color: $color-text-main;
     font-optical-sizing: auto;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    color: $color-text-main;
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -113,13 +53,9 @@ svg path,
 svg line,
 svg circle {
     will-change: width height;
-
     shape-rendering: crispEdges;
-
     vector-effect: non-scaling-stroke;
     backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
-    transform: translateZ(0);
 }
 
 .widget {
@@ -127,34 +63,33 @@ svg circle {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    // gap: 1rem;
 
     width: 100%;
-    min-height: 0;
     height: 100vh;
 
     .search {
         position: fixed;
         top: 0;
 
+        z-index: 10;
+
         width: 100%;
 
         background-color: $color-bg-main;
-        z-index: 10;
 
-        -webkit-mask-image: none;
-        mask-image: none;
+        // -webkit-mask-image: none;
+        // mask-image: none;
     }
 
     .medicines {
         margin-bottom: 1.5rem;
         padding-top: 7.25rem; // the height of Search.tsx + 0.75rem
 
-        width: 100%;
-
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+
+        width: 100%;
     }
 
     .medicines::-webkit-scrollbar {
@@ -175,10 +110,9 @@ svg circle {
             flex-direction: row;
             justify-content: space-between;
             align-items: start;
-            // flex-wrap: wrap;
 
-            max-width: 37.5rem;
             width: 100%;
+            max-width: 37.5rem;
 
             @include respond-up-width(md) {
                 padding-inline: 1.25rem;
@@ -190,12 +124,11 @@ svg circle {
 
             .anchor_ToS,
             .anchor_copyright {
-                font-size: 14px;
-                color: $color-text-muted;
-
-                text-align: center;
-
                 width: fit-content;
+
+                font-size: 14px;
+                text-align: center;
+                color: $color-text-muted;
 
                 transition: color 0.3s ease-in-out;
             }

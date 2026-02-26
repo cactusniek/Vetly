@@ -21,7 +21,6 @@ export default function Search({ onSearch, isLoading, resultsCount }: SearchProp
         const value = e.target.value
         setSearchBarValue(value)
 
-        // als je live wilt zoeken, haal de comment hieronder weg:
         // onSearch(value)
     }
 

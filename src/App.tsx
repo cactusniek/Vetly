@@ -2,15 +2,12 @@ import React from 'react'
 
 import { useRef, useEffect, useState } from 'react'
 
-// import { useAtom } from 'jotai'
-// import { searchBarActiveAtom } from './globals/atoms'
+import Search from './components/Search'
+import Medicine from './components/Medicine'
 
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 import './styles/global.scss'
-
-import Search from './components/Search'
-import Medicine from './components/Medicine'
 
 type MedicineType = {
     productnaam: string
@@ -53,35 +50,35 @@ const medicinesMockup = [
         procedurenummer: 'IE/V/0460/001',
     },
 
-    {
-        productnaam: 'Amoxy Active CTD 697 mg/g, poeder voor gebruik in drinkwater voor kippen, kalkoenen en eenden',
-        handelsvergunninghouder: 'Dopharma Research B.V.',
-        afleverstatus: 'UDD - Uitsluitend door dierenartsen te gebruiken',
-        doeldieren: 'Eenden#Kalkoenen#imdsimd#kasmfkmf#jndjfndjf',
-        bijsluiterUrl: '#',
-        registratienummer: '122423',
-        procedurenummer: 'NL/V/0308/001',
-    },
+    // {
+    //     productnaam: 'Amoxy Active CTD 697 mg/g, poeder voor gebruik in drinkwater voor kippen, kalkoenen en eenden',
+    //     handelsvergunninghouder: 'Dopharma Research B.V.',
+    //     afleverstatus: 'UDD - Uitsluitend door dierenartsen te gebruiken',
+    //     doeldieren: 'Eenden#Kalkoenen#imdsimd#kasmfkmf#jndjfndjf',
+    //     bijsluiterUrl: '#',
+    //     registratienummer: '122423',
+    //     procedurenummer: 'NL/V/0308/001',
+    // },
 
-    {
-        productnaam: 'Formicpro 68,2 g strips voor in de bijenkorf voor honingbijen',
-        handelsvergunninghouder: 'NOD Apiary Ireland Limited',
-        afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
-        doeldieren: 'Bijen#blabla#Fretten',
-        bijsluiterUrl: '#',
-        registratienummer: '126198',
-        procedurenummer: 'IE/V/0515/001',
-    },
+    // {
+    //     productnaam: 'Formicpro 68,2 g strips voor in de bijenkorf voor honingbijen',
+    //     handelsvergunninghouder: 'NOD Apiary Ireland Limited',
+    //     afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
+    //     doeldieren: 'Bijen#blabla#Fretten',
+    //     bijsluiterUrl: '#',
+    //     registratienummer: '126198',
+    //     procedurenummer: 'IE/V/0515/001',
+    // },
 
-    {
-        productnaam: 'Ik vindt schildpadden leuk',
-        handelsvergunninghouder: 'Niek Limited',
-        afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
-        doeldieren: 'Reptielen#Konijnen',
-        bijsluiterUrl: '#',
-        registratienummer: '126198',
-        procedurenummer: 'IE/V/0515/001',
-    },
+    // {
+    //     productnaam: 'Ik vindt schildpadden leuk',
+    //     handelsvergunninghouder: 'Niek Limited',
+    //     afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
+    //     doeldieren: 'Reptielen#Konijnen',
+    //     bijsluiterUrl: '#',
+    //     registratienummer: '126198',
+    //     procedurenummer: 'IE/V/0515/001',
+    // },
 ]
 
 function App() {
@@ -121,15 +118,8 @@ function App() {
                     ))}
             </div>
 
-            {/* <div className="medicines"> */}
             {/* loading spinner: <DotLottieReact src="https://lottie.host/bb727232-fdd0-41c8-9590-4febb07ca6b6/kagK7Konq6.lottie" stateMachineId="StateMachine1" /> */}
             {/* als er gezocht wordt laat de loading spinner zien */}
-            {/* <Medicine /> */}
-            {/* <Medicine /> */}
-            {/* <Medicine /> */}
-            {/* <Medicine /> */}
-            {/* <Medicine /> */}
-            {/* </div> */}
 
             <div className="ToS">
                 <div className="container_ToS">
