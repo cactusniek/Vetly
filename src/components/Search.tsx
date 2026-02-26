@@ -64,13 +64,15 @@ export default function Search({ onSearch, isLoading, resultsCount }: SearchProp
             </div>
 
             <div className="container_results">
-                {!isLoading && resultsCount > 0 && (
+                <span className="text_results">Er zijn 3 resultaten gevonden</span>
+
+                {/* {!isLoading && resultsCount > 0 && (
                     <span className="text_results">
                         Er {resultsCount === 1 ? 'is' : 'zijn'} {resultsCount} {resultsCount === 1 ? 'resultaat' : 'resultaten'} gevonden
                     </span>
                 )}
 
-                {isLoading && <span className="text_results">Er zijn…</span>}
+                {isLoading && <span className="text_results">Er zijn…</span>} */}
             </div>
         </div>
     )

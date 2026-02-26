@@ -2,80 +2,15 @@ import React from 'react'
 
 import { useRef, useEffect, useState } from 'react'
 
+import type { MedicineProps } from '../global/types'
+
 import '../styles/medicine.scss'
 
 import { CircleSmall, ArrowToggle } from '../assets'
 
-import { Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../assets'
+import { doeldierenIconMap } from '../global/mappings/doeldieren'
 
-const doeldierenImagesMap: Record<string, string> = {
-    Bijen: Bee,
-
-    Katten: Cat,
-
-    Kippen: Chicken,
-    Legkippen: Chicken,
-    'Niet eierleggende kippen': Chicken,
-
-    Kalveren: Cow,
-    Koeien: Cow,
-    'Lacterende runderen': Cow,
-    Melkkoeien: Cow,
-    'Niet melkgevende runderen': Cow,
-    Runderen: Cow,
-    Stieren: Cow,
-
-    Honden: Dog,
-
-    Eenden: Duck,
-
-    Aquariumvissen: Fish,
-    Vissen: Fish,
-
-    Geiten: Goat,
-
-    Ganzen: Goose,
-
-    Merries: Horse,
-    Paarden: Horse,
-
-    Kooivogels: Parrot,
-    Siervogels: Parrot,
-
-    Mestvarkens: Pig,
-    Varkens: Pig,
-    Vleesvarkens: Pig,
-    Zeugen: Pig,
-
-    Duiven: Pigeon,
-
-    Gezelschapskonijnen: Rabbit,
-    Konijnen: Rabbit,
-
-    'Niet melkgevende schapen': Sheep,
-    Schapen: Sheep,
-
-    Kalkoenen: Turkey,
-
-    Reptielen: Turtle,
-
-    // Fazanten, Kuikens, Biggetjes, Lammetjes
-}
-
-type MedicineProps = {
-    productnaam: string
-    handelsvergunninghouder: string
-    afleverstatus: string
-    doeldieren: string
-    bijsluiterUrl: string
-    registratienummer: string
-    procedurenummer: string
-}
-
-export default function Medicine({ productnaam, handelsvergunninghouder, afleverstatus, doeldieren, bijsluiterUrl, registratienummer, procedurenummer }: MedicineProps) {
-    const [showMore, setShowMore] = useState<boolean>(false)
-    const [isOnMobile, setIsOnMobile] = useState<boolean>(false)
-
+function parseDoeldieren(doeldieren: string) {
     const doeldierenArray = doeldieren
         .split('#')
         .map(d => d.trim())
@@ -83,51 +18,40 @@ export default function Medicine({ productnaam, handelsvergunninghouder, aflever
 
     const diersoorten = doeldierenArray.join(', ')
 
-    const uniqueIconEntries = Array.from(
-        new Map(
-            doeldierenArray
-                .map(doeldier => {
-                    const src = doeldierenImagesMap[doeldier]
-                    if (!src) return null
-                    return { doeldier, src }
-                })
-                .filter((item): item is { doeldier: string; src: string } => item !== null)
-                .map(item => [item.src, item] as const),
-        ).values(),
-    )
+    const seen = new Set<string>()
+    const uniqueIconEntries = doeldierenArray
+        .map(doeldier => {
+            const src = doeldierenIconMap[doeldier]
+            if (!src || seen.has(src)) return null
+
+            seen.add(src)
+            return { doeldier, src }
+        })
+        .filter((item): item is { doeldier: string; src: string } => item !== null)
 
     const maxAnimalsVisible = 3
     const visibleIcons = uniqueIconEntries.slice(0, maxAnimalsVisible)
-
-    // welke doeldieren hebben een icoon én zijn zichtbaar?
     const visibleIconAnimals = new Set(visibleIcons.map(entry => entry.doeldier))
-
-    // alles wat niet in de zichtbare iconen zit, telt als "remaining"
     const remainingIcons = doeldierenArray.filter(doeldier => !visibleIconAnimals.has(doeldier)).length
 
-    useEffect(() => {
-        const media = window.matchMedia('(max-width: 640px)')
-        setIsOnMobile(media.matches)
+    return {
+        diersoorten,
+        visibleIcons,
+        remainingIcons,
+    }
+}
 
-        const listener = () => setIsOnMobile(media.matches)
-        media.addEventListener('change', listener)
+export default function Medicine(props: MedicineProps) {
+    const [showMore, setShowMore] = useState<boolean>(false)
 
-        return () => media.removeEventListener('change', listener)
-    }, [])
+    const { diersoorten, visibleIcons, remainingIcons } = parseDoeldieren(props.doeldieren)
 
     return (
         <div className="medicine">
-            <div
-                className="container_medicine"
-                onClick={() => {
-                    if (!showMore && window.innerWidth <= 640) {
-                        setShowMore(true)
-                    }
-                }}
-            >
+            <div className="container_medicine" onClick={() => setShowMore(true)}>
                 <div className="medicine_header">
                     <div className="medicine_titles">
-                        <span className="medicine_productnaam">{productnaam}</span>
+                        <span className="medicine_productnaam">{props.productnaam}</span>
 
                         <div className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
                             {visibleIcons.map((entry, index) => {
@@ -152,7 +76,7 @@ export default function Medicine({ productnaam, handelsvergunninghouder, aflever
                                             transition: 'transform 0.5s ease',
                                         }}
                                     >
-                                        <img src={entry.src} alt={`impressie_${entry.doeldier}`} className="image_Doeldier" />
+                                        <img aria-hidden="true" alt={`impressie_${entry.doeldier}`} src={entry.src} className="image_Doeldier" />
                                         {index < visibleIcons.length - 1 && <div aria-hidden="true" className="fade_Doeldier" />}
                                     </div>
                                 )
@@ -180,7 +104,7 @@ export default function Medicine({ productnaam, handelsvergunninghouder, aflever
                     </div>
 
                     <div className="medicine_subtitles">
-                        <span className="medicine_handelsvergunninghouder">{handelsvergunninghouder}</span>
+                        <span className="medicine_handelsvergunninghouder">{props.handelsvergunninghouder}</span>
                     </div>
                 </div>
 
@@ -188,7 +112,7 @@ export default function Medicine({ productnaam, handelsvergunninghouder, aflever
                     <div className="container_main">
                         <div className="medicine_info">
                             <img src={CircleSmall} className="icon_CircleSmall" />
-                            <span className="medicine_afleverstatus">{afleverstatus}</span>
+                            <span className="medicine_afleverstatus">{props.afleverstatus}</span>
                         </div>
 
                         <div className="medicine_info">
@@ -218,13 +142,19 @@ export default function Medicine({ productnaam, handelsvergunninghouder, aflever
                         </div>
 
                         <div className="medicine_references">
-                            <span className="medicine_registratienummer">REG NL: {registratienummer}</span>
-                            <span className="medicine_procedurenummer">{procedurenummer}</span>
+                            <span className="medicine_registratienummer">REG NL: {props.registratienummer}</span>
+                            <span className="medicine_procedurenummer">{props.procedurenummer}</span>
                         </div>
                     </div>
                 </div>
 
-                <div onClick={() => setShowMore(prev => !prev)} className="medicine_toggle">
+                <div
+                    onClick={e => {
+                        e.stopPropagation()
+                        setShowMore(prev => !prev)
+                    }}
+                    className="medicine_toggle"
+                >
                     <img src={ArrowToggle} className={`icon_ArrowToggle ${showMore ? 'rotate' : ''}`} />
                     <span className="text_toggle"> {showMore ? 'Laat minder informatie zien' : 'Laat meer informatie zien'}</span>
                 </div>

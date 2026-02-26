@@ -20,3 +20,13 @@ export type MedicineResults = {
     partijkeuringen_kenmerk_nummer_datum: string | undefined | null
     besluiten: string | undefined | null
 }
+
+export type MedicineProps = {
+    productnaam: string
+    handelsvergunninghouder: string
+    afleverstatus: string
+    doeldieren: string
+    bijsluiterUrl: string
+    registratienummer: string
+    procedurenummer: string
+}
