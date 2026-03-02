@@ -44,6 +44,24 @@ export default function Search({ onSearch, isLoading, resultsCount }: SearchProp
         return () => input.removeEventListener('keydown', onKey)
     }, [])
 
+    useEffect(() => {
+        const input = searchRef.current
+        if (!input) return
+
+        const onSlash = (e: KeyboardEvent) => {
+            const target = e.target as HTMLElement
+            if (target.tagName === 'INPUT' || target.isContentEditable) return
+            if (e.key === '/') {
+                e.preventDefault()
+                setSearchBarActive(true)
+                input.focus()
+            }
+        }
+
+        window.addEventListener('keydown', onSlash)
+        return () => window.removeEventListener('keydown', onSlash)
+    }, [])
+
     return (
         <div className="search">
             <div className="container_searchbar">

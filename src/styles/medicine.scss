@@ -312,10 +312,6 @@
         }
     }
 
-    .container_medicine.open {
-        border: 2px solid $color-secondary;
-    }
-
     @media (hover: hover) and (pointer: fine) {
         .container_medicine:hover {
             border: 2px solid $color-secondary;

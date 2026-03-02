@@ -9,6 +9,9 @@ import Medicine from './components/Medicine'
 
 import './styles/global.scss'
 
+import { LoadingAnimationOne } from './assets'
+import { LoadingAnimationTwo } from './assets'
+
 type MedicineType = {
     productnaam: string
     doeldierenArray: string[]
@@ -50,39 +53,39 @@ const medicinesMockup = [
         procedurenummer: 'IE/V/0460/001',
     },
 
-    // {
-    //     productnaam: 'Amoxy Active CTD 697 mg/g, poeder voor gebruik in drinkwater voor kippen, kalkoenen en eenden',
-    //     handelsvergunninghouder: 'Dopharma Research B.V.',
-    //     afleverstatus: 'UDD - Uitsluitend door dierenartsen te gebruiken',
-    //     doeldieren: 'Eenden#Kalkoenen#imdsimd#kasmfkmf#jndjfndjf',
-    //     bijsluiterUrl: '#',
-    //     registratienummer: '122423',
-    //     procedurenummer: 'NL/V/0308/001',
-    // },
+    {
+        productnaam: 'Amoxy Active CTD 697 mg/g, poeder voor gebruik in drinkwater voor kippen, kalkoenen en eenden',
+        handelsvergunninghouder: 'Dopharma Research B.V.',
+        afleverstatus: 'UDD - Uitsluitend door dierenartsen te gebruiken',
+        doeldieren: 'Eenden#Kalkoenen#imdsimd#kasmfkmf#jndjfndjf',
+        bijsluiterUrl: '#',
+        registratienummer: '122423',
+        procedurenummer: 'NL/V/0308/001',
+    },
 
-    // {
-    //     productnaam: 'Formicpro 68,2 g strips voor in de bijenkorf voor honingbijen',
-    //     handelsvergunninghouder: 'NOD Apiary Ireland Limited',
-    //     afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
-    //     doeldieren: 'Bijen#blabla#Fretten',
-    //     bijsluiterUrl: '#',
-    //     registratienummer: '126198',
-    //     procedurenummer: 'IE/V/0515/001',
-    // },
+    {
+        productnaam: 'Formicpro 68,2 g strips voor in de bijenkorf voor honingbijen',
+        handelsvergunninghouder: 'NOD Apiary Ireland Limited',
+        afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
+        doeldieren: 'Bijen#blabla#Fretten',
+        bijsluiterUrl: '#',
+        registratienummer: '126198',
+        procedurenummer: 'IE/V/0515/001',
+    },
 
-    // {
-    //     productnaam: 'Ik vindt schildpadden leuk',
-    //     handelsvergunninghouder: 'Niek Limited',
-    //     afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
-    //     doeldieren: 'Reptielen#Konijnen',
-    //     bijsluiterUrl: '#',
-    //     registratienummer: '126198',
-    //     procedurenummer: 'IE/V/0515/001',
-    // },
+    {
+        productnaam: 'Ik vindt schildpadden leuk',
+        handelsvergunninghouder: 'Niek Limited',
+        afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
+        doeldieren: 'Reptielen#Konijnen',
+        bijsluiterUrl: '#',
+        registratienummer: '126198',
+        procedurenummer: 'IE/V/0515/001',
+    },
 ]
 
 function App() {
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [medicines, setMedicines] = useState<MedicineType[]>([])
 
     async function handleSearch(query: string) {
@@ -116,6 +119,27 @@ function App() {
                             procedurenummer={med.procedurenummer}
                         />
                     ))}
+            </div>
+
+            <div className="loading">
+                {isLoading && (
+                    <div className="loading-video">
+                        <video
+                            src={LoadingAnimationTwo}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            onLoadedMetadata={e => {
+                                e.currentTarget.playbackRate = 2.25
+                            }}
+                            style={{
+                                width: '320px',
+                                transform: 'rotate(90deg)',
+                            }}
+                        />
+                    </div>
+                )}
             </div>
 
             {/* loading spinner: <DotLottieReact src="https://lottie.host/bb727232-fdd0-41c8-9590-4febb07ca6b6/kagK7Konq6.lottie" stateMachineId="StateMachine1" /> */}
