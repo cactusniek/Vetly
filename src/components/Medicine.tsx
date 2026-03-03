@@ -41,10 +41,23 @@ function parseDoeldieren(doeldieren: string) {
     }
 }
 
+function parseWachttermijnen(wachttermijnen_doeldier_product_termijn: string) {
+    const wachttermijnenArray = wachttermijnen_doeldier_product_termijn
+        .split('#')
+        .map(d => d.trim())
+        .filter(Boolean)
+        .map(d => d.split('~').join(' - '))
+
+    const wachttermijnen = wachttermijnenArray.map((item, index) => (index === wachttermijnenArray.length - 1 ? item : item + ','))
+
+    return { wachttermijnen }
+}
+
 export default function Medicine(props: MedicineProps) {
     const [showMore, setShowMore] = useState<boolean>(false)
 
     const { diersoorten, visibleIcons, remainingIcons } = parseDoeldieren(props.doeldieren)
+    const { wachttermijnen } = parseWachttermijnen(props.wachttermijnen)
 
     return (
         <div className="medicine">
@@ -126,6 +139,23 @@ export default function Medicine(props: MedicineProps) {
                             <img src={CircleSmall} className="icon_CircleSmall" />
                             <span className="medicine_doeldieren">Diersoorten: {diersoorten}</span>
                         </div>
+
+                        {wachttermijnen.length > 1 && (
+                            <div className="medicine_wachttermijnen">
+                                <div className="container_wachttermijnen">
+                                    <img src={CircleSmall} className="icon_CircleSmall" />
+                                    <span className="title_wachttermijnen">Wachttermijnen:</span>
+                                </div>
+
+                                <div className="container_text">
+                                    {wachttermijnen.map((entry, index) => (
+                                        <span key={index} className="text_wachttermijnen">
+                                            {entry}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
                         <div className="medicine_disclaimer">
                             <span className="text_disclaimer">Deze informatie is uitsluitend bedoeld als hulpmiddel en vervangt geen advies van een dierenarts.</span>

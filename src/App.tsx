@@ -18,6 +18,7 @@ type MedicineType = {
     handelsvergunninghouder: string
     afleverstatus: string
     doeldieren: string
+    wachttermijnen: string
     bijsluiterUrl: string
     registratienummer: string
     procedurenummer: string
@@ -29,6 +30,7 @@ const medicinesMockup = [
         handelsvergunninghouder: 'Nextmune Italy S.R.L.',
         afleverstatus: 'UDD - Uitsluitend door dierenartsen te gebruiken',
         doeldieren: 'Honden',
+        wachttermijnen: '',
         bijsluiterUrl: '#',
         registratienummer: '110212',
         procedurenummer: 'IT/V/0125/002',
@@ -38,6 +40,7 @@ const medicinesMockup = [
         handelsvergunninghouder: 'Intervet International B.V.',
         afleverstatus: 'UDA - Uitsluitend verkrijgbaar bij een dierenarts of op diergeneeskundig voorschrift [recept] van een dierenarts bij een apotheek',
         doeldieren: 'Kippen',
+        wachttermijnen: '',
         bijsluiterUrl: '#',
         registratienummer: '133630',
         procedurenummer: 'EMEA/V/C/006501',
@@ -48,6 +51,7 @@ const medicinesMockup = [
         handelsvergunninghouder: 'VIRBAC SA',
         afleverstatus: 'UDD - Uitsluitend door dierenartsen te gebruiken',
         doeldieren: 'Fretten#Honden#Katten#Knaagdieren#Paarden#Reptielen#Siervogels',
+        wachttermijnen: 'Paarden~Melk~ #Paarden~Vlees~2 dagen',
         bijsluiterUrl: '#',
         registratienummer: '106479',
         procedurenummer: 'IE/V/0460/001',
@@ -58,6 +62,7 @@ const medicinesMockup = [
         handelsvergunninghouder: 'Dopharma Research B.V.',
         afleverstatus: 'UDD - Uitsluitend door dierenartsen te gebruiken',
         doeldieren: 'Eenden#Kalkoenen#imdsimd#kasmfkmf#jndjfndjf',
+        wachttermijnen: 'Eenden~Vlees~9 dagen#Kalkoenen~Vlees~5 dagen#Kippen~Vlees~1 dagen',
         bijsluiterUrl: '#',
         registratienummer: '122423',
         procedurenummer: 'NL/V/0308/001',
@@ -68,6 +73,7 @@ const medicinesMockup = [
         handelsvergunninghouder: 'NOD Apiary Ireland Limited',
         afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
         doeldieren: 'Bijen#blabla#Fretten',
+        wachttermijnen: 'Bijen~Honing~0 dagen',
         bijsluiterUrl: '#',
         registratienummer: '126198',
         procedurenummer: 'IE/V/0515/001',
@@ -78,6 +84,7 @@ const medicinesMockup = [
         handelsvergunninghouder: 'Niek Limited',
         afleverstatus: 'VRIJ - Vrij verkrijgbaar zonder diergeneeskundig voorschrift [recept]',
         doeldieren: 'Reptielen#Konijnen',
+        wachttermijnen: '',
         bijsluiterUrl: '#',
         registratienummer: '126198',
         procedurenummer: 'IE/V/0515/001',
@@ -85,7 +92,7 @@ const medicinesMockup = [
 ]
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [medicines, setMedicines] = useState<MedicineType[]>([])
 
     async function handleSearch(query: string) {
@@ -114,6 +121,7 @@ function App() {
                             handelsvergunninghouder={med.handelsvergunninghouder}
                             afleverstatus={med.afleverstatus}
                             doeldieren={med.doeldieren}
+                            wachttermijnen={med.wachttermijnen}
                             bijsluiterUrl={med.bijsluiterUrl}
                             registratienummer={med.registratienummer}
                             procedurenummer={med.procedurenummer}
@@ -125,7 +133,7 @@ function App() {
                 {isLoading && (
                     <div className="loading-video">
                         <video
-                            src={LoadingAnimationTwo}
+                            src={LoadingAnimationOne}
                             autoPlay
                             loop
                             muted
@@ -135,7 +143,6 @@ function App() {
                             }}
                             style={{
                                 width: '320px',
-                                transform: 'rotate(90deg)',
                             }}
                         />
                     </div>

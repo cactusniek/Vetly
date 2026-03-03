@@ -202,6 +202,40 @@
                     }
                 }
 
+                .medicine_wachttermijnen {
+                    font-size: 14px;
+                    line-height: 1.3;
+
+                    @include respond-up-width(xl) {
+                        font-size: 16px;
+                    }
+
+                    .container_wachttermijnen {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 0.625rem;
+
+                        .icon_CircleSmall {
+                        }
+
+                        .title_wachttermijnen {
+                        }
+                    }
+
+                    .container_text {
+                        padding-top: 0.35rem;
+
+                        display: flex;
+                        flex-direction: column;
+
+                        line-height: 1.5;
+
+                        .text_wachttermijnen {
+                            padding-left: 1.125rem;
+                        }
+                    }
+                }
+
                 .medicine_info,
                 .medicine_disclaimer,
                 .medicine_bronvermelding,
