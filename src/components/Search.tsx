@@ -9,24 +9,28 @@ import { SearchIcon } from '../assets'
 type SearchProps = {
     onSearch: (query: string) => void
     isLoading: boolean
+    searchProgress: number
     resultsCount: number
 }
 
-export default function Search({ onSearch, isLoading, resultsCount }: SearchProps) {
-    const [searchBarActive, setSearchBarActive] = useState<boolean>(false)
-    const [searchBarValue, setSearchBarValue] = useState<string>('')
+export default function Search({ onSearch, isLoading, searchProgress, resultsCount }: SearchProps) {
+    const [searchActive, setSearchActive] = useState<boolean>(false)
+    const [searchValue, setSearchValue] = useState<string>('')
+    // const [searchProgress, setSearchProgress] = useState<number>(60)
+
     const searchRef = useRef<HTMLInputElement>(null)
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-        const value = e.target.value
-        setSearchBarValue(value)
+        setSearchValue(e.target.value)
 
-        // onSearch(value)
+        console.log('Query in Search:', searchValue)
+
+        onSearch(searchValue)
     }
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        onSearch(searchBarValue)
+        onSearch(searchValue)
     }
 
     useEffect(() => {
@@ -34,7 +38,7 @@ export default function Search({ onSearch, isLoading, resultsCount }: SearchProp
         if (!input) return
 
         const close = () => {
-            setSearchBarActive(false)
+            setSearchActive(false)
             input.blur()
         }
 
@@ -53,7 +57,7 @@ export default function Search({ onSearch, isLoading, resultsCount }: SearchProp
             if (target.tagName === 'INPUT' || target.isContentEditable) return
             if (e.key === '/') {
                 e.preventDefault()
-                setSearchBarActive(true)
+                setSearchActive(true)
                 input.focus()
             }
         }
@@ -63,20 +67,20 @@ export default function Search({ onSearch, isLoading, resultsCount }: SearchProp
     }, [])
 
     return (
-        <div className="search">
-            <div className="container_searchbar">
+        <div className="search" style={{ '--search-progress': `${searchProgress}%` } as React.CSSProperties}>
+            <div className="container_search">
                 <img aria-hidden="true" alt="icon_Search" src={SearchIcon} className="icon_Search" />
                 <input
                     onChange={handleChange}
                     onFocus={() => {
-                        setSearchBarActive(true)
+                        setSearchActive(true)
                     }}
                     ref={searchRef}
                     type="text"
                     spellCheck="false"
-                    value={searchBarValue}
+                    value={searchValue}
                     placeholder="Zoek Medicijn"
-                    className="input_searchbar"
+                    className="input_search"
                 />
             </div>
 

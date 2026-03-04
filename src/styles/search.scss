@@ -17,6 +17,22 @@
 
     background: $color-bg-main;
 
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: var(--search-progress, 0%);
+        height: 2px;
+
+        content: '';
+        background: $color-secondary;
+
+        pointer-events: none;
+
+        transition: width 0.75s ease-in-out;
+    }
+
     &::after {
         position: absolute;
         left: 0;
@@ -31,7 +47,7 @@
         pointer-events: none;
     }
 
-    .container_searchbar {
+    .container_search {
         position: relative;
         display: flex;
         justify-content: center;
@@ -55,7 +71,7 @@
             pointer-events: none;
         }
 
-        .input_searchbar {
+        .input_search {
             box-sizing: border-box;
             padding-left: 3.55rem;
             padding-right: 1.875rem;
@@ -77,14 +93,16 @@
             -webkit-appearance: none;
         }
 
-        .input_searchbar::placeholder {
+        .input_search::placeholder {
             z-index: 10;
 
             color: $color-text-muted;
+
+            user-select: none;
         }
 
-        .input_searchbar:focus,
-        .input_searchbar:hover {
+        .input_search:focus,
+        .input_search:hover {
             border: 2px solid $color-secondary;
         }
     }

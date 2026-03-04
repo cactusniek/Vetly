@@ -26,3 +26,5 @@ export { default as DisclaimerIcon } from './ui/disclaimer.svg'
 // loading animation
 export { default as LoadingAnimationOne } from './loading/loading-1.mov'
 export { default as LoadingAnimationTwo } from './loading/loading-2.mov'
+export { default as LoadingAnimationThree } from './loading/loading-3.mp4'
+export { default as LoadingAnimationFour } from './loading/loading-4.mp4'

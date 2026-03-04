@@ -11,6 +11,8 @@ import './styles/global.scss'
 
 import { LoadingAnimationOne } from './assets'
 import { LoadingAnimationTwo } from './assets'
+import { LoadingAnimationThree } from './assets'
+import { LoadingAnimationFour } from './assets'
 
 type MedicineType = {
     productnaam: string
@@ -93,10 +95,23 @@ const medicinesMockup = [
 
 function App() {
     const [isLoading, setIsLoading] = useState(false)
+    const [searchProgress, setSearchProgress] = useState<number>(0)
     const [medicines, setMedicines] = useState<MedicineType[]>([])
 
     async function handleSearch(query: string) {
         setIsLoading(true)
+        setSearchProgress(0)
+
+        // simpele demo-progress over 3s
+        setSearchProgress(30)
+        setTimeout(() => setSearchProgress(50), 1000)
+        setTimeout(() => setSearchProgress(100), 3000)
+
+        console.log('progress', searchProgress)
+
+        // en dan terug naar nul
+
+        console.log('Query in App:', query)
 
         try {
             // hier doe je je echte fetch op basis van `query`
@@ -110,7 +125,7 @@ function App() {
 
     return (
         <div className="widget">
-            <Search onSearch={handleSearch} isLoading={isLoading} resultsCount={medicines.length} />
+            <Search onSearch={handleSearch} isLoading={isLoading} searchProgress={searchProgress} resultsCount={medicines.length} />
 
             <div className="medicines">
                 {!isLoading &&
@@ -133,17 +148,20 @@ function App() {
                 {isLoading && (
                     <div className="loading-video">
                         <video
-                            src={LoadingAnimationOne}
+                            src={LoadingAnimationFour}
                             autoPlay
                             loop
                             muted
                             playsInline
                             onLoadedMetadata={e => {
-                                e.currentTarget.playbackRate = 2.25
+                                e.currentTarget.playbackRate = 1
                             }}
-                            style={{
-                                width: '320px',
-                            }}
+                            style={
+                                {
+                                    // scale: '1',
+                                    // width: '320px',
+                                }
+                            }
                         />
                     </div>
                 )}
