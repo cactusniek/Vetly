@@ -9,11 +9,11 @@ import { SearchIcon } from '../assets'
 type SearchProps = {
     onSearch: (query: string) => void
     isLoading: boolean
+    searchMessage: string
     searchProgress: number
-    resultsCount: number
 }
 
-export default function Search({ onSearch, isLoading, searchProgress, resultsCount }: SearchProps) {
+export default function Search({ onSearch, isLoading, searchProgress, searchMessage }: SearchProps) {
     const [searchActive, setSearchActive] = useState<boolean>(false)
     const [searchValue, setSearchValue] = useState<string>('')
     const [hideProgress, setHideProgress] = useState(false)
@@ -88,13 +88,9 @@ export default function Search({ onSearch, isLoading, searchProgress, resultsCou
             </div>
 
             <div className="container_results">
-                {!isLoading && resultsCount > 0 && (
-                    <span className="text_results">
-                        Er {resultsCount === 1 ? 'is' : 'zijn'} {resultsCount} {resultsCount === 1 ? 'resultaat' : 'resultaten'} gevonden
-                    </span>
-                )}
-
-                {isLoading && <span className="text_results">Zoeken…</span>}
+                <span key={searchMessage} className="text_results">
+                    {searchMessage}
+                </span>
             </div>
         </div>
     )

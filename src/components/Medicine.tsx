@@ -99,7 +99,7 @@ export default function Medicine(props: MedicineProps) {
                                 <div
                                     className="doeldieren_remaining"
                                     style={{
-                                        right: `${visibleIcons.length * 1.5}rem`,
+                                        right: `${visibleIcons.length * 1.5 + Math.max(0, remainingIcons - 10) * 0.5}rem`,
                                         zIndex: `${10 - visibleIcons.length}`,
                                         transform: (() => {
                                             if (!showMore || visibleIcons.length === 1) return 'translateX(0)'
