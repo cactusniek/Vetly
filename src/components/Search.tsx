@@ -16,45 +16,29 @@ type SearchProps = {
 export default function Search({ onSearch, isLoading, searchProgress, resultsCount }: SearchProps) {
     const [searchActive, setSearchActive] = useState<boolean>(false)
     const [searchValue, setSearchValue] = useState<string>('')
-    // const [searchProgress, setSearchProgress] = useState<number>(60)
+    const [hideProgress, setHideProgress] = useState(false)
 
     const searchRef = useRef<HTMLInputElement>(null)
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         setSearchValue(e.target.value)
-
-        console.log('Query in Search:', searchValue)
-
-        onSearch(searchValue)
-    }
-
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault()
-        onSearch(searchValue)
     }
 
     useEffect(() => {
         const input = searchRef.current
         if (!input) return
 
-        const close = () => {
-            setSearchActive(false)
-            input.blur()
+        const onEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setSearchActive(false)
+                input.blur()
+            }
         }
-
-        const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
-
-        input.addEventListener('keydown', onKey)
-        return () => input.removeEventListener('keydown', onKey)
-    }, [])
-
-    useEffect(() => {
-        const input = searchRef.current
-        if (!input) return
 
         const onSlash = (e: KeyboardEvent) => {
             const target = e.target as HTMLElement
             if (target.tagName === 'INPUT' || target.isContentEditable) return
+
             if (e.key === '/') {
                 e.preventDefault()
                 setSearchActive(true)
@@ -62,13 +46,32 @@ export default function Search({ onSearch, isLoading, searchProgress, resultsCou
             }
         }
 
+        input.addEventListener('keydown', onEscape)
         window.addEventListener('keydown', onSlash)
-        return () => window.removeEventListener('keydown', onSlash)
+
+        return () => {
+            input.addEventListener('keydown', onEscape)
+            window.addEventListener('keydown', onSlash)
+        }
     }, [])
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            // eventueel resultaten leeg maken als input leeg is
+            // setMedicines([])
+
+            console.log(isLoading)
+            console.log(searchProgress)
+
+            onSearch(searchValue)
+        }, 300)
+
+        return () => clearTimeout(timer)
+    }, [searchValue])
+
     return (
-        <div className="search" style={{ '--search-progress': `${searchProgress}%` } as React.CSSProperties}>
-            <div className="container_search">
+        <div className={`search ${!isLoading ? 'progress-hidden' : ''}`} style={{ '--search-progress': `${searchProgress}%` } as React.CSSProperties}>
+            <form className="container_search">
                 <img aria-hidden="true" alt="icon_Search" src={SearchIcon} className="icon_Search" />
                 <input
                     onChange={handleChange}
@@ -76,24 +79,22 @@ export default function Search({ onSearch, isLoading, searchProgress, resultsCou
                         setSearchActive(true)
                     }}
                     ref={searchRef}
+                    value={searchValue}
                     type="text"
                     spellCheck="false"
-                    value={searchValue}
                     placeholder="Zoek Medicijn"
                     className="input_search"
                 />
-            </div>
+            </form>
 
             <div className="container_results">
-                <span className="text_results">Er zijn 3 resultaten gevonden</span>
-
-                {/* {!isLoading && resultsCount > 0 && (
+                {!isLoading && resultsCount > 0 && (
                     <span className="text_results">
                         Er {resultsCount === 1 ? 'is' : 'zijn'} {resultsCount} {resultsCount === 1 ? 'resultaat' : 'resultaten'} gevonden
                     </span>
                 )}
 
-                {isLoading && <span className="text_results">Er zijn…</span>} */}
+                {isLoading && <span className="text_results">Zoeken…</span>}
             </div>
         </div>
     )

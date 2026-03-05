@@ -41,23 +41,23 @@ function parseDoeldieren(doeldieren: string) {
     }
 }
 
-function parseWachttermijnen(wachttermijnen_doeldier_product_termijn: string) {
-    const wachttermijnenArray = wachttermijnen_doeldier_product_termijn
+function parseWachttermijnen(wachttermijnen: string) {
+    const wachttijdenArray = wachttermijnen
         .split('#')
         .map(d => d.trim())
         .filter(Boolean)
         .map(d => d.split('~').join(' - '))
 
-    const wachttermijnen = wachttermijnenArray.map((item, index) => (index === wachttermijnenArray.length - 1 ? item : item + ','))
+    const wachttijden = wachttijdenArray.map((item, index) => (index === wachttijdenArray.length - 1 ? item : item + ','))
 
-    return { wachttermijnen }
+    return { wachttijden }
 }
 
 export default function Medicine(props: MedicineProps) {
     const [showMore, setShowMore] = useState<boolean>(false)
 
     const { diersoorten, visibleIcons, remainingIcons } = parseDoeldieren(props.doeldieren)
-    const { wachttermijnen } = parseWachttermijnen(props.wachttermijnen)
+    const { wachttijden } = parseWachttermijnen(props.wachttermijnen)
 
     return (
         <div className="medicine">
@@ -95,7 +95,7 @@ export default function Medicine(props: MedicineProps) {
                                 )
                             })}
 
-                            {remainingIcons > 0 && (
+                            {visibleIcons.length > 0 && remainingIcons > 0 && (
                                 <div
                                     className="doeldieren_remaining"
                                     style={{
@@ -135,12 +135,14 @@ export default function Medicine(props: MedicineProps) {
                             </a>
                         </div>
 
-                        <div className="medicine_info">
-                            <img src={CircleSmall} className="icon_CircleSmall" />
-                            <span className="medicine_doeldieren">Diersoorten: {diersoorten}</span>
-                        </div>
+                        {diersoorten.length > 1 && (
+                            <div className="medicine_info">
+                                <img src={CircleSmall} className="icon_CircleSmall" />
+                                <span className="medicine_doeldieren">Diersoorten: {diersoorten}</span>
+                            </div>
+                        )}
 
-                        {wachttermijnen.length > 1 && (
+                        {wachttijden.length > 1 && (
                             <div className="medicine_wachttermijnen">
                                 <div className="container_wachttermijnen">
                                     <img src={CircleSmall} className="icon_CircleSmall" />
@@ -148,7 +150,7 @@ export default function Medicine(props: MedicineProps) {
                                 </div>
 
                                 <div className="container_text">
-                                    {wachttermijnen.map((entry, index) => (
+                                    {wachttijden.map((entry, index) => (
                                         <span key={index} className="text_wachttermijnen">
                                             {entry}
                                         </span>

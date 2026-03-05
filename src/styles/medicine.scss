@@ -2,6 +2,18 @@
 
 @use './variables' as *;
 
+// zet dit in _variables.scss
+@keyframes medicineEnter {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .medicine {
     padding-inline: 1.25rem;
 
@@ -11,6 +23,8 @@
     z-index: 0;
 
     width: 100%;
+
+    animation: medicineEnter 0.5s ease;
 
     .container_medicine {
         padding-top: 0.875rem;
@@ -215,7 +229,9 @@
                         flex-direction: row;
                         gap: 0.625rem;
 
-                        .icon_CircleSmall {
+                        img {
+                            user-select: none;
+                            -webkit-user-drag: none;
                         }
 
                         .title_wachttermijnen {
