@@ -2,15 +2,6 @@
 
 @use './variables' as *;
 
-@keyframes medicineEnter {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 .search {
     padding-top: 1.5rem;
     padding-inline: 1.25rem;
@@ -43,7 +34,7 @@
 
         transition:
             width 0.5s ease-in-out,
-            opacity 0.1s ease-in-out;
+            opacity 0.35s ease-in-out;
     }
 
     &.progress-hidden::before {

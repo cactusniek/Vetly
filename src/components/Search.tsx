@@ -71,7 +71,7 @@ export default function Search({ onSearch, isLoading, searchProgress, resultsCou
 
     return (
         <div className={`search ${!isLoading ? 'progress-hidden' : ''}`} style={{ '--search-progress': `${searchProgress}%` } as React.CSSProperties}>
-            <form className="container_search">
+            <div className="container_search">
                 <img aria-hidden="true" alt="icon_Search" src={SearchIcon} className="icon_Search" />
                 <input
                     onChange={handleChange}
@@ -85,7 +85,7 @@ export default function Search({ onSearch, isLoading, searchProgress, resultsCou
                     placeholder="Zoek Medicijn"
                     className="input_search"
                 />
-            </form>
+            </div>
 
             <div className="container_results">
                 {!isLoading && resultsCount > 0 && (

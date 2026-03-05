@@ -42,6 +42,7 @@ export const doeldierenIconMap: Record<string, string> = {
     Zeugen: Pig,
 
     Duiven: Pigeon,
+    'Duiven, niet te consumeren': Pigeon,
 
     Gezelschapskonijnen: Rabbit,
     Konijnen: Rabbit,

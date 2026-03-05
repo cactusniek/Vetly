@@ -28,9 +28,8 @@ function App() {
         if (!query.trim()) return
 
         try {
-            setSearchProgress(0)
-
             setIsLoading(true)
+            setSearchProgress(0)
 
             const res = await fetch(`http://localhost:3000/search?q=${encodeURIComponent(query)}&max=100`)
 
@@ -60,11 +59,14 @@ function App() {
             setMedicines(mapped)
 
             setSearchProgress(100)
+
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 300)
         } catch (err) {
             console.error('Error fetching medicines', err)
         } finally {
             setTimeout(() => {
-                setIsLoading(false)
                 setSearchProgress(0)
             }, 500)
         }
