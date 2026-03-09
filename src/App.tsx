@@ -7,6 +7,8 @@ import Medicine from './components/Medicine'
 
 import './styles/global.scss'
 
+import { Background } from './assets'
+
 type MedicineType = {
     productnaam: string
     doeldierenArray: string[]
@@ -20,11 +22,12 @@ type MedicineType = {
 }
 
 function App() {
+    const [medicines, setMedicines] = useState<MedicineType[]>([])
+
     const [isLoading, setIsLoading] = useState(false)
     const [searchProgress, setSearchProgress] = useState<number>(0)
-    const [medicines, setMedicines] = useState<MedicineType[]>([])
     const [hasSearched, setHasSearched] = useState(false)
-    const [searchMessage, setSearchMessage] = useState<string>('-')
+    const [searchMessage, setSearchMessage] = useState<string>('')
 
     async function handleSearch(query: string) {
         if (!query.trim()) return
@@ -79,27 +82,13 @@ function App() {
     useEffect(() => {
         const resultCount = medicines.length
 
-        // 1. Nog nooit gezocht → niets tonen
-        if (!hasSearched) {
-            setSearchMessage('')
-            return
-        }
+        if (!hasSearched) return setSearchMessage('')
 
-        // 2. Aan het zoeken → "Zoeken..."
-        if (isLoading) {
-            setSearchMessage('Zoeken...')
-            return
-        }
+        if (isLoading) return setSearchMessage('Zoeken...')
 
-        // 3. Niet aan het zoeken, wél resultaten
-        if (resultCount > 0) {
-            const isSingle = resultCount === 1
-            setSearchMessage(`Er ${isSingle ? 'is' : 'zijn'} ${resultCount} ${isSingle ? 'resultaat' : 'resultaten'} gevonden`)
-            return
-        }
+        if (resultCount > 0) return setSearchMessage(`Er ${resultCount === 1 ? 'is' : 'zijn'} ${resultCount} ${resultCount === 1 ? 'resultaat' : 'resultaten'} gevonden`)
 
-        // 4. Niet aan het zoeken, geen resultaten
-        setSearchMessage('Geen resultaten gevonden')
+        if (resultCount <= 0) setSearchMessage('Geen resultaten gevonden')
     }, [isLoading, medicines.length, hasSearched])
 
     return (
@@ -120,6 +109,12 @@ function App() {
                         procedurenummer={med.procedurenummer}
                     />
                 ))}
+            </div>
+
+            <div className="background">
+                <div className="container_background">
+                    <img aria-hidden="true" alt="vector_Background" src={Background} className="vector_Background" />
+                </div>
             </div>
 
             <div className="ToS">
