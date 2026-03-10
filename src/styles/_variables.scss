@@ -46,7 +46,7 @@ $breakpoints-height: (
     }
 }
 
-@keyframes searchMessage {
+@keyframes SearchMessage {
     from {
         opacity: 0;
     }
@@ -55,7 +55,7 @@ $breakpoints-height: (
     }
 }
 
-@keyframes medicine {
+@keyframes Medicine {
     from {
         opacity: 0;
         transform: translateY(0.5rem);
@@ -63,5 +63,14 @@ $breakpoints-height: (
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes Background {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

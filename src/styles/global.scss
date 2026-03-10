@@ -85,14 +85,19 @@ svg circle {
     }
 
     .medicines {
-        margin-bottom: 1.5rem;
-        padding-top: 7.25rem; // the height of Search.tsx + 0.75rem
-
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
 
         width: 100%;
+
+        > :first-child {
+            padding-top: 7.25rem; // the height of Search.tsx + 0.75rem
+        }
+
+        > :last-child {
+            margin-bottom: 1.5rem;
+        }
 
         &::-webkit-scrollbar {
             display: none;
@@ -100,53 +105,24 @@ svg circle {
     }
 
     .background {
-        // position: relative;
-        // bottom: 5rem;
-        // display: flex;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         width: 100%;
-        // height: fit-content;
 
         overflow: hidden;
 
-        .container_background {
-            position: relative;
+        animation: Background 0.4s ease-in-out;
 
-            height: 100%;
+        .vector_Background {
+            height: auto;
 
-            // display: flex;
-            // height: fit-content;
+            pointer-events: none;
 
-            // width: 100%;
-
-            &::before,
-            &::after {
-                position: absolute;
-                top: 0;
-                bottom: 0; // better than height: 100%
-                width: 1rem;
-                z-index: 1;
-                content: '';
-                pointer-events: none;
-            }
-
-            &::before {
-                left: 0;
-                background: linear-gradient(to right, $color-bg-main 10%, rgba($color-bg-main, 0) 100%);
-            }
-
-            &::after {
-                right: 0;
-                background: linear-gradient(to left, $color-bg-main 10%, rgba($color-bg-main, 0) 100%);
-            }
-
-            .vector_Background {
-                // display: block; // IMPORTANT
-                // width: 100%;
-                // height: auto;
-
-                height: 225px;
-            }
+            user-select: none;
         }
     }
 
@@ -193,6 +169,4 @@ svg circle {
             }
         }
     }
-
-    // padding-top toevoegen aan background
 }

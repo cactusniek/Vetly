@@ -5,24 +5,14 @@ import { useRef, useEffect, useState } from 'react'
 import Search from './components/Search'
 import Medicine from './components/Medicine'
 
+import type { MedicineProps } from './global/types'
+
 import './styles/global.scss'
 
 import { Background } from './assets'
 
-type MedicineType = {
-    productnaam: string
-    doeldierenArray: string[]
-    handelsvergunninghouder: string
-    afleverstatus: string
-    doeldieren: string
-    wachttermijnen: string
-    bijsluiterUrl: string
-    registratienummer: string
-    procedurenummer: string
-}
-
 function App() {
-    const [medicines, setMedicines] = useState<MedicineType[]>([])
+    const [medicines, setMedicines] = useState<MedicineProps[]>([])
 
     const [isLoading, setIsLoading] = useState(false)
     const [searchProgress, setSearchProgress] = useState<number>(0)
@@ -30,7 +20,16 @@ function App() {
     const [searchMessage, setSearchMessage] = useState<string>('')
 
     async function handleSearch(query: string) {
-        if (!query.trim()) return
+        const trimmed = query.trim()
+
+        if (trimmed.length === 0) {
+            setHasSearched(false)
+            setIsLoading(false)
+            setSearchProgress(0)
+            setMedicines([])
+            setSearchMessage('')
+            return
+        }
 
         try {
             setHasSearched(true)
@@ -49,8 +48,7 @@ function App() {
 
             const raw = await res.json()
 
-            // Verwacht dat `raw` de array uit de CBG-API is:
-            const mapped: MedicineType[] = raw.map((med: any) => ({
+            const mapped: MedicineProps[] = raw.map((med: any) => ({
                 productnaam: med.productnaam,
                 handelsvergunninghouder: med.handelsvergunninghouder,
                 afleverstatus: med.afleverstatus,
@@ -59,8 +57,9 @@ function App() {
                 bijsluiterUrl: med.spc_etiket_en_bijsluiter,
                 registratienummer: med.registratienummer,
                 procedurenummer: med.procedurenummer,
-                doeldierenArray: [],
             }))
+
+            console.log(medicines)
 
             setMedicines(mapped)
 
@@ -111,11 +110,11 @@ function App() {
                 ))}
             </div>
 
-            <div className="background">
-                <div className="container_background">
+            {medicines.length === 0 && (
+                <div className="background">
                     <img aria-hidden="true" alt="vector_Background" src={Background} className="vector_Background" />
                 </div>
-            </div>
+            )}
 
             <div className="ToS">
                 <div className="container_ToS">
@@ -133,5 +132,3 @@ function App() {
 }
 
 export default App
-
-// optional: use URL params to change colors when loading in
