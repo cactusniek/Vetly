@@ -9,8 +9,6 @@ import type { MedicineProps } from './global/types'
 
 import './styles/global.scss'
 
-import { Background } from './assets'
-
 function App() {
     const [medicines, setMedicines] = useState<MedicineProps[]>([])
 
@@ -37,10 +35,13 @@ function App() {
             setSearchProgress(0)
 
             const res = await fetch(`http://localhost:3000/search?q=${encodeURIComponent(query)}&max=50`)
+            // const res = await fetch(`https://cbg-widget.bitsenbytes.net/api/search?q=${encodeURIComponent(query)}&max=50`)
 
             setSearchProgress(25)
 
             if (!res.ok) {
+                setSearchProgress(0)
+
                 throw new Error(`Request failed: ${res.status}`)
             }
 
@@ -110,11 +111,7 @@ function App() {
                 ))}
             </div>
 
-            {medicines.length === 0 && (
-                <div className="background">
-                    <img aria-hidden="true" alt="vector_Background" src={Background} className="vector_Background" />
-                </div>
-            )}
+            {medicines.length === 0 && <div className="background"></div>}
 
             <div className="ToS">
                 <div className="container_ToS">

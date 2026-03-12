@@ -2,21 +2,15 @@ import React from 'react'
 
 import { useRef, useEffect, useState } from 'react'
 
-import '../styles/search.scss'
+import type { SearchProps } from '../global/types'
 
 import { SearchIcon } from '../assets'
 
-type SearchProps = {
-    onSearch: (query: string) => void
-    isLoading: boolean
-    searchMessage: string
-    searchProgress: number
-}
+import '../styles/search.scss'
 
 export default function Search({ onSearch, isLoading, searchProgress, searchMessage }: SearchProps) {
     const [searchActive, setSearchActive] = useState<boolean>(false)
     const [searchValue, setSearchValue] = useState<string>('')
-    const [hideProgress, setHideProgress] = useState(false)
 
     const searchRef = useRef<HTMLInputElement>(null)
 
@@ -57,12 +51,6 @@ export default function Search({ onSearch, isLoading, searchProgress, searchMess
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            // eventueel resultaten leeg maken als input leeg is
-            // setMedicines([])
-
-            console.log(isLoading)
-            console.log(searchProgress)
-
             onSearch(searchValue)
         }, 300)
 

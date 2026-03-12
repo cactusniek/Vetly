@@ -22,6 +22,3 @@ export { default as SearchIcon } from './ui/search.svg'
 export { default as CircleSmall } from './ui/circle-small.svg'
 export { default as ArrowToggle } from './ui/arrow-toggle.svg'
 export { default as DisclaimerIcon } from './ui/disclaimer.svg'
-
-// backgrounds
-export { default as Background } from './backgrounds/background.svg'

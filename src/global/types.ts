@@ -21,6 +21,13 @@ export type MedicineResults = {
     besluiten: string | undefined | null
 }
 
+export type SearchProps = {
+    onSearch: (query: string) => void
+    isLoading: boolean
+    searchMessage: string
+    searchProgress: number
+}
+
 export type MedicineProps = {
     productnaam: string
     handelsvergunninghouder: string

@@ -6,9 +6,9 @@ import type { MedicineProps } from '../global/types'
 
 import { doeldierenIconMap } from '../global/mappings/doeldieren'
 
-import '../styles/medicine.scss'
-
 import { CircleSmall, ArrowToggle } from '../assets'
+
+import '../styles/medicine.scss'
 
 function parseDoeldieren(doeldieren: string) {
     const doeldierenArray = doeldieren
