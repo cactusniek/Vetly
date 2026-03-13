@@ -32,8 +32,10 @@ html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 
+    // scrollbar-width: none;
     -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable both-edges;
     scroll-behavior: smooth;
 }
 

@@ -17,6 +17,10 @@ function App() {
     const [hasSearched, setHasSearched] = useState(false)
     const [searchMessage, setSearchMessage] = useState<string>('')
 
+    // of zet alles onder /api
+    const [serverUrl, setServerUrl] = useState<string>('http://localhost:3000')
+    // const [serverUrl, setServerUrl] = useState<string>('https://cbg-widget.bitsenbytes.net/api')
+
     async function handleSearch(query: string) {
         const trimmed = query.trim()
 
@@ -34,8 +38,7 @@ function App() {
             setIsLoading(true)
             setSearchProgress(0)
 
-            const res = await fetch(`http://localhost:3000/search?q=${encodeURIComponent(query)}&max=50`)
-            // const res = await fetch(`https://cbg-widget.bitsenbytes.net/api/search?q=${encodeURIComponent(query)}&max=50`)
+            const res = await fetch(`${serverUrl}/search?q=${encodeURIComponent(query)}&max=50`)
 
             setSearchProgress(25)
 
@@ -104,7 +107,6 @@ function App() {
                         afleverstatus={med.afleverstatus}
                         doeldieren={med.doeldieren}
                         wachttermijnen={med.wachttermijnen}
-                        bijsluiterUrl={med.bijsluiterUrl}
                         registratienummer={med.registratienummer}
                         procedurenummer={med.procedurenummer}
                     />

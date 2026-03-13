@@ -34,7 +34,6 @@ export type MedicineProps = {
     afleverstatus: string
     doeldieren: string
     wachttermijnen: string
-    bijsluiterUrl: string
     registratienummer: string
     procedurenummer: string
 }
