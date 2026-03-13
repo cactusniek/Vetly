@@ -130,7 +130,7 @@ export default function Medicine(props: MedicineProps) {
 
                         <div className="medicine_info">
                             <img src={CircleSmall} className="icon_CircleSmall" />
-                            <a href={`http://localhost:3000/files/${props.registratienummer}/bijsluiter.pdf`} download target="_blank" rel="noopener noreferrer" className="medicine_spc-etiket-bijsluiter">
+                            <a href={props.bijsluiterUrl} download target="_blank" rel="noopener noreferrer" className="medicine_spc-etiket-bijsluiter">
                                 Download bijsluiter
                             </a>
                         </div>

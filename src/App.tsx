@@ -56,14 +56,12 @@ function App() {
                 productnaam: med.productnaam,
                 handelsvergunninghouder: med.handelsvergunninghouder,
                 afleverstatus: med.afleverstatus,
+                bijsluiterUrl: `${serverUrl}/files/${encodeURIComponent(String(med.registratienummer))}/bijsluiter.pdf`,
                 doeldieren: med.doeldieren,
                 wachttermijnen: med.wachttermijnen_doeldier_product_termijn,
-                bijsluiterUrl: med.spc_etiket_en_bijsluiter,
                 registratienummer: med.registratienummer,
                 procedurenummer: med.procedurenummer,
             }))
-
-            console.log(medicines)
 
             setMedicines(mapped)
 
@@ -105,6 +103,7 @@ function App() {
                         productnaam={med.productnaam}
                         handelsvergunninghouder={med.handelsvergunninghouder}
                         afleverstatus={med.afleverstatus}
+                        bijsluiterUrl={med.bijsluiterUrl}
                         doeldieren={med.doeldieren}
                         wachttermijnen={med.wachttermijnen}
                         registratienummer={med.registratienummer}

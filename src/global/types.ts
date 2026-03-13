@@ -24,14 +24,15 @@ export type MedicineResults = {
 export type SearchProps = {
     onSearch: (query: string) => void
     isLoading: boolean
-    searchMessage: string
     searchProgress: number
+    searchMessage: string
 }
 
 export type MedicineProps = {
     productnaam: string
     handelsvergunninghouder: string
     afleverstatus: string
+    bijsluiterUrl: string
     doeldieren: string
     wachttermijnen: string
     registratienummer: string
