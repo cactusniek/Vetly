@@ -35,7 +35,7 @@ html {
     // scrollbar-width: none;
     -ms-overflow-style: none;
     scrollbar-width: thin;
-    scrollbar-gutter: stable both-edges;
+    scrollbar-gutter: stable;
     scroll-behavior: smooth;
 }
 
@@ -106,12 +106,16 @@ svg circle {
         width: 100%;
         height: 100%;
 
-        background-image: url('../assets/backgrounds/background.svg');
+        background-image: url('../assets/backgrounds/background-small.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: overflow;
 
         animation: Background 0.4s ease-in-out;
+
+        @include respond-up-width(xxl) {
+            background-image: url('../assets/backgrounds/background-large.svg');
+        }
     }
 
     .ToS {

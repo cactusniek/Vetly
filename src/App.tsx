@@ -18,7 +18,7 @@ function App() {
     const [searchMessage, setSearchMessage] = useState<string>('')
 
     // of zet alles onder /api
-    const [serverUrl, setServerUrl] = useState<string>('http://localhost:3000')
+    const [serverUrl, setServerUrl] = useState<string>('http://localhost:3000/api')
     // const [serverUrl, setServerUrl] = useState<string>('https://cbg-widget.bitsenbytes.net/api')
 
     async function handleSearch(query: string) {
@@ -121,7 +121,7 @@ function App() {
                     </a>
 
                     <a href="#" className="anchor_copyright">
-                        Copyright
+                        Animale.eu
                     </a>
                 </div>
             </div>
