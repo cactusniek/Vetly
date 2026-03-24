@@ -121,7 +121,7 @@ function App() {
                     </a>
 
                     <a href="#" className="anchor_copyright">
-                        Animale.eu
+                        Animale.pet
                     </a>
                 </div>
             </div>
