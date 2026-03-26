@@ -11,7 +11,8 @@ import Medicine from '../../components/Medicine'
 
 import type { MedicineProps } from '../../global/types/types'
 
-import '../../styles/global.scss'
+import '../../styles/global/global.scss'
+import '../../styles/widget/widget.scss'
 
 function Widget() {
     const [medicines, setMedicines] = useState<MedicineProps[]>([])
@@ -20,10 +21,6 @@ function Widget() {
     const [searchProgress, setSearchProgress] = useState<number>(0)
     const [hasSearched, setHasSearched] = useState(false)
     const [searchMessage, setSearchMessage] = useState<string>('')
-
-    // of zet alles onder /api
-    const [serverUrl, setServerUrl] = useState<string>('http://localhost:3000/api')
-    // const [serverUrl, setServerUrl] = useState<string>('https://cbg-widget.bitsenbytes.net/api')
 
     async function handleSearch(query: string) {
         const trimmed = query.trim()

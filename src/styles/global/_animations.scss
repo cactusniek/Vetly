@@ -1,0 +1,30 @@
+@use 'sass:map';
+
+@keyframes SearchMessage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes Medicine {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes Background {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,66 +1,8 @@
-// this scss file contains all global styles
-
-@use './variables' as *;
-
-@font-face {
-    font-family: 'Nexa';
-    src: url('../assets/fonts/Nexa-Trial-Regular.ttf') format('truetype');
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    max-width: 100%;
-    overflow-x: hidden;
-
-    font-family: 'Nexa', 'Nunito', sans-serif;
-
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1;
-    letter-spacing: 0.02em;
-    color: $color-text-main;
-    font-optical-sizing: auto;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-
-    // scrollbar-width: none;
-    -ms-overflow-style: none;
-    scrollbar-width: thin;
-    scrollbar-gutter: stable;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: $color-bg-main;
-}
-
-input {
-    font-family: 'Nexa', sans-serif;
-}
-
-a {
-    text-underline-offset: 0.125rem;
-    text-decoration-thickness: 0.08rem;
-}
-
-svg,
-svg path,
-svg line,
-svg circle {
-    will-change: width height;
-    shape-rendering: crispEdges;
-    vector-effect: non-scaling-stroke;
-    backface-visibility: hidden;
-}
+@use '../global/colors' as *;
+@use '../global/typography' as *;
+@use '../global/spacing' as *;
+@use '../global/layout' as *;
+@use '../global/animations' as *;
 
 .widget {
     display: flex;
@@ -106,7 +48,7 @@ svg circle {
         width: 100%;
         height: 100%;
 
-        background-image: url('../assets/backgrounds/background-small.svg');
+        background-image: url('../../assets/backgrounds/background-small.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: overflow;
@@ -114,7 +56,7 @@ svg circle {
         animation: Background 0.4s ease-in-out;
 
         @include respond-up-width(xxl) {
-            background-image: url('../assets/backgrounds/background-large.svg');
+            background-image: url('../../assets/backgrounds/background-large.svg');
         }
     }
 

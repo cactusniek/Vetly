@@ -2,11 +2,12 @@ import React from 'react'
 
 import { useRef, useEffect, useState } from 'react'
 
-import type { SearchProps } from '../global/types'
+import type { SearchProps } from '../global/types/types'
 
 import { SearchIcon } from '../assets'
 
-import '../styles/search.scss'
+import '../styles/global/global.scss'
+import '../styles/widget/search.scss'
 
 export default function Search({ onSearch, isLoading, searchProgress, searchMessage }: SearchProps) {
     const [searchActive, setSearchActive] = useState<boolean>(false)

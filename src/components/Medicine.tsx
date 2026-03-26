@@ -2,13 +2,14 @@ import React from 'react'
 
 import { useRef, useEffect, useState } from 'react'
 
-import type { MedicineProps } from '../global/types'
+import type { MedicineProps } from '../global/types/types'
 
 import { doeldierenIconMap } from '../global/mappings/doeldieren'
 
 import { CircleSmall, ArrowToggle } from '../assets'
 
-import '../styles/medicine.scss'
+import '../styles/global/global.scss'
+import '../styles/widget/medicine.scss'
 
 function parseDoeldieren(doeldieren: string) {
     const doeldierenArray = doeldieren

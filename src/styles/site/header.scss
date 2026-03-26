@@ -1,0 +1,27 @@
+@use '../global/colors' as *;
+@use '../global/typography' as *;
+@use '../global/spacing' as *;
+@use '../global/layout' as *;
+@use '../global/animations' as *;
+
+// Mobile first!!!
+.header {
+    .container_header {
+        max-width: 20.625rem;
+
+        padding-inline: 3.75rem;
+        padding-top: 2.25rem;
+        padding-bottom: 2.25rem;
+
+        background-color: rgba(236, 248, 255, 0.5);
+
+        border-bottom-right-radius: $border-radius-md;
+
+        .logo {
+            font-size: 32px;
+            color: $color-text-main;
+
+            user-select: none;
+        }
+    }
+}

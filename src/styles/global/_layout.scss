@@ -1,0 +1,30 @@
+@use 'sass:map';
+
+$breakpoints-width: (
+    sm: 320px,
+    md: 440px,
+    lg: 540px,
+    xl: 640px,
+    xxl: 740px,
+);
+
+$breakpoints-height: (
+    md: 600px,
+);
+
+@mixin respond-up-width($size) {
+    $breakpoint: map.get($breakpoints-width, $size);
+
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin respond-up-width-height($w, $h) {
+    $min-width: map.get($breakpoints-width, $w);
+    $min-height: map.get($breakpoints-height, $h);
+
+    @media (min-width: $min-width) and (min-height: $min-height) {
+        @content;
+    }
+}

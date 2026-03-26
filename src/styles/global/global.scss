@@ -1,0 +1,38 @@
+@use './colors' as *;
+@use './typography' as *;
+@use './spacing' as *;
+@use './layout' as *;
+@use './animations' as *;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Nexa', 'Nunito', sans-serif;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: $color-text-main;
+    font-optical-sizing: auto;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}

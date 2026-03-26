@@ -9,7 +9,7 @@ export class Api {
             const response = await fetch(this.serverUrl + endpoint, {
                 method: method,
                 headers: {
-                    Accept: '*/*',
+                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 // credentials: 'include',

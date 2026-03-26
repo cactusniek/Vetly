@@ -1,0 +1,11 @@
+@use '../global/colors' as *;
+@use '../global/typography' as *;
+@use '../global/spacing' as *;
+@use '../global/layout' as *;
+@use '../global/animations' as *;
+
+.landing {
+    font-family: 'Gelica';
+
+    background-color: $color-bg-secondary;
+}
