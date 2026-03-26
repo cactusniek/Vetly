@@ -90,7 +90,7 @@ export default function Medicine(props: MedicineProps) {
                                             transition: 'transform 0.5s ease',
                                         }}
                                     >
-                                        <img aria-hidden="true" alt={`impressie_${entry.doeldier}`} src={entry.src} className="image_Doeldier" />
+                                        <img src={entry.src} className="image_Doeldier" />
                                         {index < visibleIcons.length - 1 && <div aria-hidden="true" className="fade_Doeldier" />}
                                     </div>
                                 )

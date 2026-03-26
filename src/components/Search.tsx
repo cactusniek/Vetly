@@ -61,7 +61,7 @@ export default function Search({ onSearch, isLoading, searchProgress, searchMess
     return (
         <div className={`search ${!isLoading ? 'progress-hidden' : ''}`} style={{ '--search-progress': `${searchProgress}%` } as React.CSSProperties}>
             <div className="container_search">
-                <img aria-hidden="true" alt="icon_Search" src={SearchIcon} className="icon_Search" />
+                <img src={SearchIcon} className="icon_Search" />
                 <input
                     onChange={handleChange}
                     onFocus={() => {

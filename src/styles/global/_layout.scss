@@ -1,5 +1,6 @@
 @use 'sass:map';
 
+// gebruik misschien: mobile-sm, tablet-lg & desktop etc.
 $breakpoints-width: (
     sm: 320px,
     md: 440px,
