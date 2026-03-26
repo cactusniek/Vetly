@@ -1,15 +1,13 @@
 @use 'sass:map';
 
-$color-primary: #121212;
-$color-secondary: #2c2c2c;
+$color-primary: #2c2c2c;
 $color-muted: #75706f;
 $color-muted-light: #949494;
 
 // rename these to bg-widget bg-site
-$color-bg-main: #ffffff;
-$color-bg-secondary: #fbfff7;
+$color-bg-widget: #ffffff;
+$color-bg-site: #fbfff7;
 
-$color-text-main: #121212;
-$color-text-main-hover: #505050;
+$color-text-main: #2c2c2c;
 $color-text-muted: #75706f;
-$color-text-muted-hover: #494949;
+$color-text-main-hover: #505050;

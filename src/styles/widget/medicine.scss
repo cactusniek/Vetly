@@ -104,7 +104,7 @@
                             width: 50px;
                             height: 34px;
 
-                            background-color: $color-bg-main;
+                            background-color: $color-bg-widget;
 
                             mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 1) 35%);
 
@@ -354,7 +354,7 @@
 
     @media (hover: hover) and (pointer: fine) {
         .container_medicine:hover {
-            border: 2px solid $color-secondary;
+            border: 2px solid $color-primary;
         }
     }
 }
