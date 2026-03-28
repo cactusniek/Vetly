@@ -5,6 +5,8 @@
 @use '../global/animations' as *;
 
 .landing {
+    height: 110vh;
+
     font-family: 'Gelica';
 
     background-color: $color-bg-site;

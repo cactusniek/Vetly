@@ -62,7 +62,7 @@ export default function Medicine(props: MedicineProps) {
 
     return (
         <div className="medicine">
-            <div className="container_medicine" onClick={() => setShowMore(true)}>
+            <div onClick={() => setShowMore(true)} className="container_medicine">
                 <div className="medicine_header">
                     <div className="medicine_titles">
                         <span className="medicine_productnaam">{props.productnaam}</span>

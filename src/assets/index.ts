@@ -21,7 +21,7 @@ export { default as Turtle } from './animals/turtle.svg'
 export { default as SearchIcon } from './ui/search.svg'
 export { default as CircleSmall } from './ui/circle-small.svg'
 export { default as ArrowToggle } from './ui/arrow-toggle.svg'
-export { default as DisclaimerIcon } from './ui/disclaimer.svg'
+export { default as MenuIcon } from './ui/menu.svg'
 
 // logo
 export { default as Logo } from './logo/logo.svg'

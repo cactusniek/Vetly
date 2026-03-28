@@ -4,24 +4,147 @@
 @use '../global/layout' as *;
 @use '../global/animations' as *;
 
-// Mobile first!!!
 .header {
+    padding-top: 1.5rem;
+    padding-inline: 1rem;
+    padding-bottom: 1.5rem;
+
+    position: fixed;
+
+    width: 100%;
+
     .container_header {
-        max-width: 20.625rem;
+        padding-top: 0.55rem;
+        padding-inline: 1.5rem;
+        padding-bottom: 0.55rem;
 
-        padding-inline: 3.75rem;
-        padding-top: 2.25rem;
-        padding-bottom: 2.25rem;
+        min-height: 50px;
 
-        background-color: rgba(236, 248, 255, 0.5);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
 
-        border-bottom-right-radius: $border-radius-md;
+        background-color: rgba($color-bg-header, 0.5);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
 
-        .container_logo {
-            font-size: 32px;
-            color: $color-text-main;
+        border-radius: $border-radius-xs;
+        border: 1px solid rgba(0, 0, 0, 0.05);
 
-            user-select: none;
+        .container_top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .container_logo {
+                .image_Logo {
+                    width: 5.625rem;
+                    height: 1.875rem;
+
+                    user-select: none;
+                    -webkit-user-drag: none;
+                }
+            }
+
+            .container_button {
+                display: flex;
+                align-items: center;
+
+                padding-left: 1rem;
+
+                .icon_Menu {
+                    transition: transform 0.4s;
+                    user-select: none;
+                    -webkit-user-drag: none;
+                }
+
+                .icon_Menu.rotate {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        .container_nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2.25rem;
+
+            width: 100%;
+            max-height: 0;
+            height: 0;
+            opacity: 0;
+            z-index: -100;
+            overflow: hidden;
+
+            // Bij sluiten:
+            // - eerst opacity (0.3s)
+            // - daarna height/max-height (0.4s delay)
+            transition:
+                opacity 0.3s ease,
+                max-height 0.3s ease 0.2s,
+                height 0.3s ease 0.2s;
+
+            .nav_route {
+                width: fit-content;
+                position: relative;
+
+                font-size: 36px;
+                color: rgba($color-text-muted, 0.4);
+                text-decoration: none;
+                line-height: 1.25;
+
+                transition: color 0.4s;
+
+                &::after {
+                    position: absolute;
+                    left: 0;
+                    bottom: -1px;
+
+                    width: 0;
+                    height: 0.2rem;
+
+                    content: '';
+                    background-color: rgba($color-text-muted, 0.6);
+
+                    transition:
+                        width 0.5s ease,
+                        background-color 0.5s ease;
+                }
+
+                &:hover {
+                    color: rgba($color-text-muted, 0.6);
+                }
+
+                &:hover::after {
+                    width: 100%;
+                    background-color: rgba($color-text-muted, 0.6);
+                }
+            }
+
+            .nav_route.active {
+                color: $color-text-secondary;
+
+                &::after {
+                    width: 100%;
+                    background-color: $color-text-secondary;
+                }
+            }
+        }
+
+        .container_nav.open {
+            max-height: 100dvh;
+            height: calc(100dvh - 6.25rem);
+            opacity: 1;
+            z-index: 10;
+
+            // Bij openen:
+            // - laat height meteen lopen (0.4s, zonder delay)
+            // - opacity met kleine delay zodat hij ietsje later “vol” is
+            transition:
+                opacity 0.5s ease 0.3s,
+                max-height 0.3s ease,
+                height 0.3s ease;
         }
     }
 }

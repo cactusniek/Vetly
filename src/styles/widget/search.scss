@@ -95,6 +95,7 @@
             outline: none;
 
             font-size: 18px;
+            font-weight: 600;
             text-indent: 0.25ch;
             color: $color-text-main;
 
@@ -106,6 +107,7 @@
         .input_search::placeholder {
             z-index: 10;
 
+            font-weight: 600;
             color: $color-text-muted;
 
             user-select: none;
@@ -130,6 +132,7 @@
 
         .text_results {
             font-size: 14px;
+            font-weight: 600;
             color: $color-text-muted;
 
             animation: SearchMessage 0.35s ease;
