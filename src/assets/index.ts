@@ -26,6 +26,7 @@ export { default as LinkedinIcon } from './ui/linkedin.svg'
 export { default as WhatsappIcon } from './ui/whatsapp.svg'
 export { default as MailIcon } from './ui/mail.svg'
 export { default as ArrowIcon } from './ui/arrow.svg'
+export { default as Divider } from './ui/divider.svg'
 
 // logo
 export { default as Logo } from './logo/logo.svg'

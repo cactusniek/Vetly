@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { Logo, LinkedinIcon, WhatsappIcon, MailIcon, CircleSmall, ArrowIcon } from '../assets'
+import { Logo, LinkedinIcon, WhatsappIcon, MailIcon, CircleSmall, ArrowIcon, Divider } from '../assets'
 
 import '../styles/global/global.scss'
 import '../styles/site/footer.scss'
@@ -17,28 +17,39 @@ export default function Footer() {
         <div className="footer">
             <div className="container_footer">
                 <div className="container_top">
-                    <div className="container_logo">
-                        <img alt="Vetly" src={Logo} className="image_Logo" />
-                    </div>
+                    <div className="container_flex">
+                        <div className="container_logo">
+                            <img alt="Vetly" src={Logo} className="image_Logo" />
+                        </div>
 
-                    <div className="nav_footer">
-                        {[
-                            { path: '/', label: 'Home' },
-                            { path: '/contact', label: 'Contact' },
-                            { path: '/ToS', label: 'ToS' },
-                            { path: '/login', label: 'Login' },
-                        ].map(({ path, label }) => (
-                            <NavLink key={label} to={path} className={({ isActive }) => `nav_route ${isActive ? ' active' : ''}`}>
-                                {label}
-                            </NavLink>
-                        ))}
+                        <img src={CircleSmall} className="icon_CircleSmall" />
+
+                        <div className="nav_footer">
+                            {[
+                                { path: '/', label: 'Home' },
+                                { path: '/contact', label: 'Contact' },
+                                { path: '/ToS', label: 'ToS' },
+                                { path: '/login', label: 'Login' },
+                            ].map(({ path, label }, index, arr) => (
+                                <div key={label} className="nav_route">
+                                    <NavLink to={path} className={({ isActive }) => `nav_route ${isActive ? ' active' : ''}`}>
+                                        {label}
+                                    </NavLink>
+                                    {index < arr.length - 1 && <img src={Divider} className="nav_divider" />}
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="container_socials">
                         <div className="container_updates">
-                            <input type="text" spellCheck="false" className="input_mail" />
+                            <span className="input_text">Ontvang updates in uw inbox</span>
 
-                            <img src={ArrowIcon} className="icon_Arrow" />
+                            <div className="container_input">
+                                <input type="text" spellCheck="false" className="input_mail" />
+
+                                <img src={ArrowIcon} className="icon_Arrow" />
+                            </div>
                         </div>
 
                         <img alt="Linkedin" src={LinkedinIcon} className="icon_Linkedin" />
@@ -47,22 +58,6 @@ export default function Footer() {
 
                         <img alt="Mail" src={MailIcon} className="icon_Mail" />
                     </div>
-
-                    {/* <div className="container_search">
-                        <img src={SearchIcon} className="icon_Search" />
-                        <input
-                            onChange={handleChange}
-                            onFocus={() => {
-                                setSearchActive(true)
-                            }}
-                            ref={searchRef}
-                            value={searchValue}
-                            type="text"
-                            spellCheck="false"
-                            placeholder="Zoek Medicijn"
-                            className="input_search"
-                        />
-                    </div> */}
                 </div>
 
                 <div className="container_bottom">
