@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { Logo, MenuIcon } from '../assets'
+import { Logo, MenuIcon, CircleSmall } from '../assets'
 
 import '../styles/global/global.scss'
 import '../styles/site/header.scss'
@@ -26,15 +26,19 @@ export default function Header() {
             <div onClick={handleHeaderClick} className="container_header">
                 <div className="container_top">
                     <div className="container_logo">
-                        <img alt="Animale" src={Logo} className="image_Logo" />
+                        <img alt="Vetly" src={Logo} className="image_Logo" />
                     </div>
 
-                    <div onClick={handleToggle} className="container_button">
+                    <div onClick={handleToggle} className="button_menu">
                         <img src={MenuIcon} className={`icon_Menu ${openNav ? 'rotate' : ''}`} />
                     </div>
+
+                    <NavLink to={'/login'} className="button_login">
+                        Login
+                    </NavLink>
                 </div>
 
-                <div className={`container_nav ${openNav ? 'open' : ''}`}>
+                <div className={`nav_mobile ${openNav ? 'open' : ''}`}>
                     {[
                         { path: '/', label: 'Home' },
                         { path: '/contact', label: 'Contact' },

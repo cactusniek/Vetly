@@ -5,9 +5,15 @@
 @use '../global/animations' as *;
 
 .landing {
-    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
 
     font-family: 'Gelica';
 
     background-color: $color-bg-site;
+
+    .container_page {
+        height: 50vh; // for testing; shouldn't be here, content will fill height
+    }
 }

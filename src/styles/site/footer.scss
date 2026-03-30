@@ -1,0 +1,77 @@
+@use '../global/colors' as *;
+@use '../global/typography' as *;
+@use '../global/spacing' as *;
+@use '../global/layout' as *;
+@use '../global/animations' as *;
+
+.footer {
+    padding-inline: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    .container_footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1.875rem;
+
+        .container_top {
+            .container_logo {
+                display: none;
+
+                .image_Logo {
+                    width: 100%;
+                    height: 100%;
+
+                    user-select: none;
+                    -webkit-user-drag: none;
+                }
+            }
+
+            .container_socials {
+                display: flex;
+                justify-content: center;
+                gap: 1.875rem;
+
+                img {
+                    cursor: pointer;
+
+                    user-select: none;
+                    -webkit-user-drag: none;
+                }
+
+                // hover effect scale here
+            }
+        }
+
+        .container_bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            .text_copyright {
+                font-family: 'Nexa', sans-serif;
+                font-size: 16px;
+            }
+
+            .icon_CircleSmall {
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+
+            .credits {
+                display: flex;
+                gap: 0.25rem;
+
+                .text_credit {
+                    font-size: 16px;
+                }
+
+                .anchor_credit {
+                    color: $color-text-secondary;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

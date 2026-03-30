@@ -22,6 +22,10 @@ export { default as SearchIcon } from './ui/search.svg'
 export { default as CircleSmall } from './ui/circle-small.svg'
 export { default as ArrowToggle } from './ui/arrow-toggle.svg'
 export { default as MenuIcon } from './ui/menu.svg'
+export { default as LinkedinIcon } from './ui/linkedin.svg'
+export { default as WhatsappIcon } from './ui/whatsapp.svg'
+export { default as MailIcon } from './ui/mail.svg'
+export { default as ArrowIcon } from './ui/arrow.svg'
 
 // logo
 export { default as Logo } from './logo/logo.svg'
