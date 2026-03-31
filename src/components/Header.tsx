@@ -32,12 +32,12 @@ export default function Header() {
                         <div onClick={handleToggle} className="button_menu">
                             <img src={MenuIcon} className={`icon_Menu ${openNav ? 'rotate' : ''}`} />
                         </div>
+
+                        <NavLink to={'/login'} className="button_login">
+                            Login
+                        </NavLink>
                     </div>
                 </div>
-
-                {/* <NavLink to={'/login'} className="button_login">
-                    Login
-                </NavLink> */}
 
                 <div className={`nav_mobile ${openNav ? 'open' : ''}`}>
                     {[
