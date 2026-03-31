@@ -9,6 +9,7 @@ import '../styles/site/header.scss'
 export default function Header() {
     const [openNav, setOpenNav] = useState(false)
     // if openNav = true page must not be scrollable
+    // if screensize goes below ... setOpenNav(false)
 
     const handleToggle = (e: React.MouseEvent) => {
         e.stopPropagation()
@@ -27,16 +28,16 @@ export default function Header() {
                 <div className="container_top">
                     <div className="container_logo">
                         <img alt="Vetly" src={Logo} className="image_Logo" />
-                    </div>
 
-                    <div onClick={handleToggle} className="button_menu">
-                        <img src={MenuIcon} className={`icon_Menu ${openNav ? 'rotate' : ''}`} />
+                        <div onClick={handleToggle} className="button_menu">
+                            <img src={MenuIcon} className={`icon_Menu ${openNav ? 'rotate' : ''}`} />
+                        </div>
                     </div>
-
-                    <NavLink to={'/login'} className="button_login">
-                        Login
-                    </NavLink>
                 </div>
+
+                {/* <NavLink to={'/login'} className="button_login">
+                    Login
+                </NavLink> */}
 
                 <div className={`nav_mobile ${openNav ? 'open' : ''}`}>
                     {[
