@@ -107,7 +107,7 @@ function Widget() {
                         </a>
 
                         <a href="#" className="anchor_landing">
-                            Animale.pet
+                            Vetly.nl
                         </a>
                     </div>
                 </div>

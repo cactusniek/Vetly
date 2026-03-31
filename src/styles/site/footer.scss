@@ -66,7 +66,7 @@
                     display: none;
 
                     @include respond-up-width(xxl) {
-                        display: block;
+                        display: flex;
                     }
 
                     .nav_route {
@@ -78,9 +78,13 @@
                         align-items: center;
                         justify-content: center;
 
+                        font-family: 'Nexa', sans-serif;
                         color: $color-text-main;
                         font-size: 16px;
-                        text-decoration: none;
+                        font-weight: 400;
+                        text-decoration: underline;
+                        text-decoration-thickness: 0.1rem;
+                        text-underline-offset: 0.1rem;
 
                         transition: color 0.2s ease-in-out;
 
@@ -140,8 +144,8 @@
                     position: relative;
 
                     .input_mail {
-                        padding-left: 1.5rem;
-                        padding-right: 1.5rem;
+                        padding-left: 0.75rem;
+                        padding-right: 2.5rem;
                         box-sizing: border-box;
 
                         width: 18.75rem;
@@ -153,26 +157,52 @@
                         outline: none;
 
                         font-size: 16px;
-                        font-weight: 600;
+                        font-weight: 500;
                         text-indent: 0.25ch;
                         color: $color-text-main;
 
                         transition: border-color 0.3s ease;
                         appearance: none;
                         -webkit-appearance: none;
+
+                        &::placeholder {
+                            z-index: 10;
+
+                            font-weight: 500;
+                            color: $color-text-muted;
+
+                            user-select: none;
+                        }
+
+                        &:focus,
+                        &:hover {
+                            border: 2px solid $color-primary;
+                        }
                     }
 
                     .icon_Arrow {
                         position: absolute;
                         top: 50%;
-                        right: 1.5rem;
+                        right: 1rem;
+
+                        padding-top: 0.5rem;
+                        padding-inline: 0.25rem;
+                        padding-bottom: 0.5rem;
 
                         transform: translateY(-50%);
-                        pointer-events: none;
+                        // pointer-events: none;
 
                         z-index: 10;
 
                         cursor: pointer;
+
+                        // color: green;
+
+                        transition: transform 0.3s ease-in-out;
+
+                        &:hover {
+                            transform: translateY(-50%) translateX(0.125rem);
+                        }
                     }
                 }
             }
@@ -215,11 +245,16 @@
 
                 .text_credit {
                     font-size: 16px;
+                    font-weight: 400;
                 }
 
                 .anchor_credit {
                     color: $color-text-secondary;
                     font-size: 16px;
+                    font-weight: 400;
+                    text-decoration: underline;
+                    text-decoration-thickness: 0.1rem;
+                    text-underline-offset: 0.1rem;
                 }
             }
         }
