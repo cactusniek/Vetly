@@ -7,6 +7,9 @@ import '../styles/global/global.scss'
 import '../styles/site/footer.scss'
 
 export default function Footer() {
+    // Header.tsx's nav to dissapear when hitting or the Footer.tsx is in view.
+    // draggable="false" on elements, maybe?
+
     const [routes] = useState([
         { label: 'Home', path: '/' },
         { label: 'Contact', path: '/contact' },
@@ -36,7 +39,9 @@ export default function Footer() {
                 <div className="container_top">
                     <div className="container_flex">
                         <div className="container_logo">
-                            <img alt="Vetly" src={Logo} className="image_Logo" />
+                            <NavLink to={'/'}>
+                                <img alt="Vetly" src={Logo} className="image_Logo" />
+                            </NavLink>
                         </div>
 
                         <img src={CircleSmall} className="icon_CircleSmall" />

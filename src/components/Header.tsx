@@ -16,7 +16,9 @@ export default function Header() {
             <div onClick={() => setShowNav(true)} className="container_header">
                 <div className="container_top">
                     <div className="container_logo">
-                        <img alt="Vetly" src={Logo} className="image_Logo" />
+                        <NavLink to={'/'}>
+                            <img alt="Vetly" src={Logo} className="image_Logo" />
+                        </NavLink>
 
                         <div
                             onClick={e => {
@@ -34,6 +36,7 @@ export default function Header() {
                     </div>
                 </div>
 
+                {/* make it like in Footer.tsx */}
                 <div className={`nav_mobile ${showNav ? 'show' : ''}`}>
                     {[
                         { path: '/', label: 'Home' },
