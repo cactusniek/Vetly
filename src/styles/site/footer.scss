@@ -62,49 +62,56 @@
                     }
                 }
 
-                .nav_footer {
+                .navigation {
                     display: none;
 
                     @include respond-up-width(xxl) {
                         display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        // gap: 1rem;
                     }
 
-                    .nav_route {
-                        position: relative;
-
-                        width: fit-content;
-
+                    .navigation_route {
                         display: flex;
-                        align-items: center;
-                        justify-content: center;
 
-                        font-family: 'Nexa', sans-serif;
-                        color: $color-text-main;
-                        font-size: 16px;
-                        font-weight: 400;
-                        text-decoration: underline;
-                        text-decoration-thickness: 0.1rem;
-                        text-underline-offset: 0.1rem;
+                        .route {
+                            position: relative;
 
-                        transition: color 0.2s ease-in-out;
+                            width: fit-content;
 
-                        &:hover {
-                            color: $color-muted;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            font-family: 'Nexa', sans-serif;
+                            color: $color-text-main;
+                            font-size: 16px;
+                            font-weight: 400;
+                            text-decoration: underline;
+                            text-decoration-thickness: 0.1rem;
+                            text-underline-offset: 0.1rem;
+
+                            transition: color 0.2s ease-in-out;
+
+                            &:hover {
+                                color: $color-muted;
+                            }
                         }
 
-                        .nav_divider {
+                        .divider {
                             margin-inline: 1rem;
 
                             user-select: none;
                             -webkit-user-drag: none;
                         }
-                    }
 
-                    .nav_route.active {
-                        color: $color-text-secondary;
+                        .route.active {
+                            color: $color-text-secondary;
 
-                        &::after {
-                            background-color: $color-text-secondary;
+                            &::after {
+                                background-color: $color-text-secondary;
+                            }
                         }
                     }
                 }
@@ -207,14 +214,14 @@
                 }
             }
 
-            img {
+            a {
+                align-self: center;
+
                 cursor: pointer;
 
                 user-select: none;
                 -webkit-user-drag: none;
             }
-
-            // hover effect scale here
         }
 
         .container_bottom {

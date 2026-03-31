@@ -16,8 +16,6 @@
     @include respond-up-width(xxl) {
         padding-top: 0rem;
         padding-inline: 0rem;
-
-        // position: static;
     }
 
     .container_header {
@@ -226,7 +224,7 @@
             }
         }
 
-        .nav_mobile.open {
+        .nav_mobile.show {
             max-height: 100dvh;
             height: calc(100dvh - 6.25rem);
 

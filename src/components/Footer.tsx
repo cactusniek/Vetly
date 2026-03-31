@@ -7,10 +7,27 @@ import '../styles/global/global.scss'
 import '../styles/site/footer.scss'
 
 export default function Footer() {
-    // const [openNav, setOpenNav] = useState(false)
+    const [routes] = useState([
+        { label: 'Home', path: '/' },
+        { label: 'Contact', path: '/contact' },
+        { label: 'ToS', path: '/ToS' },
+        { label: 'Login', path: '/login' },
+    ])
+
+    const [socials] = useState({
+        Linkedin: '#',
+        Whatsapp: '#',
+        Mail: '#',
+        Github: 'https://github.com/cactusniek',
+    })
 
     function getYear() {
         return new Date().getFullYear()
+    }
+
+    function handleSubscribe() {
+        // this needs to call api.ts
+        // then if success border green else red
     }
 
     return (
@@ -24,18 +41,13 @@ export default function Footer() {
 
                         <img src={CircleSmall} className="icon_CircleSmall" />
 
-                        <div className="nav_footer">
-                            {[
-                                { path: '/', label: 'Home' },
-                                { path: '/contact', label: 'Contact' },
-                                { path: '/ToS', label: 'ToS' },
-                                { path: '/login', label: 'Login' },
-                            ].map(({ path, label }, index, arr) => (
-                                <div key={label} className="nav_route">
-                                    <NavLink to={path} className={({ isActive }) => `nav_route ${isActive ? ' active' : ''}`}>
+                        <div className="navigation">
+                            {routes.map(({ path, label }, index) => (
+                                <div key={label} className="navigation_route">
+                                    <NavLink to={path} className={({ isActive }) => `route ${isActive ? 'active' : ''}`}>
                                         {label}
                                     </NavLink>
-                                    {index < arr.length - 1 && <img src={Divider} className="nav_divider" />}
+                                    {index < routes.length - 1 && <img src={Divider} className="divider" />}
                                 </div>
                             ))}
                         </div>
@@ -48,15 +60,21 @@ export default function Footer() {
                             <div className="container_input">
                                 <input type="text" spellCheck="false" className="input_mail" />
 
-                                <img src={ArrowIcon} className="icon_Arrow" />
+                                <img onClick={handleSubscribe} src={ArrowIcon} className="icon_Arrow" />
                             </div>
                         </div>
 
-                        <img alt="Linkedin" src={LinkedinIcon} className="icon_Linkedin" />
+                        <a href={socials.Linkedin} target="_blank" rel="noopener noreferrer" className="anchor_Linkedin">
+                            <img alt="Linkedin" src={LinkedinIcon} className="icon_Linkedin" />
+                        </a>
 
-                        <img alt="Whatsapp" src={WhatsappIcon} className="icon_Whatsapp" />
+                        <a href={socials.Whatsapp} target="_blank" rel="noopener noreferrer" className="anchor_Whatsapp">
+                            <img alt="Whatsapp" src={WhatsappIcon} className="icon_Whatsapp" />
+                        </a>
 
-                        <img alt="Mail" src={MailIcon} className="icon_Mail" />
+                        <a href={socials.Mail} target="_blank" rel="noopener noreferrer" className="anchor_Mail">
+                            <img alt="Mail" src={MailIcon} className="icon_Mail" />
+                        </a>
                     </div>
                 </div>
 
@@ -67,7 +85,7 @@ export default function Footer() {
 
                     <div className="credits">
                         <div className="text_credit">Designed & made by</div>
-                        <a href="https://github.com/cactusniek" target="_blank" rel="noopener noreferrer" className="anchor_credit">
+                        <a href={socials.Github} target="_blank" rel="noopener noreferrer" className="anchor_credit">
                             Niek
                         </a>
                     </div>
