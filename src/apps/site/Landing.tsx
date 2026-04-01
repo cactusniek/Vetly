@@ -22,7 +22,14 @@ function Landing() {
             <div className="landing">
                 <Header />
 
-                <div className="container_page">{/* voor nu om volledige hoogte in te nemen */}</div>
+                <div className="container_sections">
+                    <div className="section_1">
+                        <h1 className="hero_title">Met actuele diergeneesmiddeleninformatie direct op de website van uw praktijk..</h1>
+                        <h2 className="hero_subtitle">zorgt u voor overzichtelijke informatie zonder onnodig papier</h2>
+
+                        <video src=""></video>
+                    </div>
+                </div>
 
                 <Footer />
             </div>

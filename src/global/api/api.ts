@@ -45,4 +45,12 @@ export class Api {
 
         return mapped
     }
+
+    public static async Subscribe(email: string): Promise<Boolean> {
+        const endpoint = `/subscribe`
+
+        const response = await this.fetchData(endpoint, 'POST', { email })
+
+        return Boolean(response?.success)
+    }
 }

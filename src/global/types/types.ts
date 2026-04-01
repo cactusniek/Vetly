@@ -38,3 +38,8 @@ export type MedicineProps = {
     registratienummer: string
     procedurenummer: string
 }
+
+export type Route = {
+    label: string
+    path: string
+}
