@@ -5,6 +5,8 @@
 @use '../global/animations' as *;
 
 .footer {
+    display: none;
+
     .container_footer {
         padding-top: 1.5rem;
         padding-inline: 1.5rem;
