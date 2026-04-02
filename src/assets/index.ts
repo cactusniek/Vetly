@@ -30,3 +30,6 @@ export { default as Divider } from './ui/divider.svg'
 
 // logo
 export { default as Logo } from './logo/logo.svg'
+
+// video
+export { default as VideoPlaceholder } from './videos/video-placeholder.png'

@@ -28,6 +28,25 @@
                 justify-content: space-between;
             }
 
+            .container_logo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .image_Logo {
+                    width: 3.375rem;
+                    height: 1.875rem;
+
+                    user-select: none;
+                    -webkit-user-drag: none;
+
+                    @include respond-up-width(xxl) {
+                        width: auto;
+                        height: auto;
+                    }
+                }
+            }
+
             .container_nav {
                 display: flex;
                 flex-direction: row;
@@ -44,7 +63,8 @@
                     }
 
                     .image_Logo {
-                        height: 100%;
+                        width: auto;
+                        height: auto;
 
                         user-select: none;
                         -webkit-user-drag: none;
