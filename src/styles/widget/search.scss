@@ -65,7 +65,7 @@
         width: 100%;
         max-width: 21.25rem;
 
-        @include respond-up-width(md) {
+        @include respond-up-width(mobile-medium) {
             max-width: 26.25rem;
         }
 
@@ -126,7 +126,7 @@
         width: 100%;
         max-width: 21.25rem;
 
-        @include respond-up-width(md) {
+        @include respond-up-width(mobile-medium) {
             max-width: 26.25rem;
         }
 

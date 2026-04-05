@@ -78,11 +78,11 @@
             width: 100%;
             max-width: 37.5rem;
 
-            @include respond-up-width(md) {
+            @include respond-up-width(mobile-medium) {
                 padding-inline: 1.25rem;
             }
 
-            @include respond-up-width(xl) {
+            @include respond-up-width(tablet-small) {
                 max-width: 43.75rem;
             }
 

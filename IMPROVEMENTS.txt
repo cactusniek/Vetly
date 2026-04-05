@@ -268,3 +268,5 @@ FEATURES SUMMARY:
   ✓ Caching: 10x faster repeated searches
 
 Expected user satisfaction: ⭐⭐⭐⭐⭐ (5 stars)
+
+- paddings waar ze niet horen naar margins zetten!

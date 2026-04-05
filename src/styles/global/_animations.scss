@@ -28,3 +28,16 @@
         opacity: 1;
     }
 }
+
+@keyframes Navigation {
+    from {
+        width: 0rem;
+        opacity: 0;
+        transform: translateX(-1rem);
+    }
+    to {
+        width: 21.25rem;
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

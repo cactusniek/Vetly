@@ -5,20 +5,18 @@
 @use '../global/animations' as *;
 
 .footer {
-    display: none;
-
     .container_footer {
-        padding-top: 1.5rem;
-        padding-inline: 1.5rem;
-        padding-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        margin-inline: 1.5rem;
+        margin-bottom: 1.5rem;
 
         display: flex;
         flex-direction: column;
         gap: 1.875rem;
 
-        @include respond-up-width(xxl) {
-            padding-top: 2.25rem;
-            padding-inline: 3.75rem;
+        @include respond-up-width(tablet-large) {
+            margin-top: 2.25rem;
+            margin-inline: 3.75rem;
         }
 
         .container_top {
@@ -26,7 +24,7 @@
             align-items: center;
             justify-content: center;
 
-            @include respond-up-width(xxl) {
+            @include respond-up-width(tablet-large) {
                 justify-content: space-between;
             }
 
@@ -42,7 +40,7 @@
                     user-select: none;
                     -webkit-user-drag: none;
 
-                    @include respond-up-width(xxl) {
+                    @include respond-up-width(tablet-large) {
                         width: auto;
                         height: auto;
                     }
@@ -59,7 +57,7 @@
                 .logo {
                     display: none;
 
-                    @include respond-up-width(xxl) {
+                    @include respond-up-width(tablet-large) {
                         display: flex;
                         flex-direction: row;
                     }
@@ -79,7 +77,7 @@
                     user-select: none;
                     -webkit-user-drag: none;
 
-                    @include respond-up-width(xxl) {
+                    @include respond-up-width(tablet-large) {
                         display: flex;
                     }
                 }
@@ -87,15 +85,15 @@
                 .navigation {
                     display: none;
 
-                    @include respond-up-width(xxl) {
+                    @include respond-up-width(tablet-large) {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
-                        // gap: 1rem;
                     }
 
-                    .navigation_route {
+                    .container_route {
                         display: flex;
+                        align-items: center;
 
                         .route {
                             position: relative;
@@ -121,19 +119,19 @@
                             }
                         }
 
-                        .divider {
-                            margin-inline: 1rem;
-
-                            user-select: none;
-                            -webkit-user-drag: none;
-                        }
-
                         .route.active {
                             color: $color-text-secondary;
 
                             &::after {
                                 background-color: $color-text-secondary;
                             }
+                        }
+
+                        .divider {
+                            margin-inline: 1rem;
+
+                            user-select: none;
+                            -webkit-user-drag: none;
                         }
                     }
                 }
@@ -158,7 +156,7 @@
 
                 font-family: 'Nexa', sans-serif;
 
-                @include respond-up-width(xxxl) {
+                @include respond-up-width(desktop) {
                     display: flex;
                 }
 
@@ -256,7 +254,7 @@
             align-items: center;
             gap: 1rem;
 
-            @include respond-up-width(xxl) {
+            @include respond-up-width(tablet-large) {
                 flex-direction: row;
                 justify-content: start;
             }

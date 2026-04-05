@@ -15,3 +15,6 @@ export const socialsAtom = atom({
     Mail: '#',
     Github: 'https://github.com/cactusniek',
 })
+
+export const showNavAtom = atom(false)
+export const disappearNavAtom = atom(false)

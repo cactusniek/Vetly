@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { useAtom } from 'jotai'
-import { routesAtom, socialsAtom } from '../global/atoms/atoms'
+import { routesAtom, socialsAtom, showNavAtom, disappearNavAtom } from '../global/atoms/atoms'
 
 import { Api } from '../global/api/api'
 
@@ -11,14 +11,16 @@ import { Logo, LinkedInIcon, WhatsAppIcon, MailIcon, CircleSmall, ArrowIcon, Div
 import '../styles/global/global.scss'
 import '../styles/site/footer.scss'
 
-// fix for wider screens, set a max-width to container
 // Header.tsx's nav to dissapear when hitting or the Footer.tsx is in view.
-// draggable="false" on elements, maybe?
 
 export default function Footer() {
     const [routes] = useAtom(routesAtom)
 
     const [socials] = useAtom(socialsAtom)
+
+    const [showNav, setShowNav] = useAtom(showNavAtom)
+    const [disappearNav, setDisappearNav] = useAtom(disappearNavAtom)
+
     const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
     const [email, setEmail] = useState('')
 
@@ -55,7 +57,7 @@ export default function Footer() {
 
                         <div className="navigation">
                             {routes.map(({ path, label }, index) => (
-                                <div key={label} className="navigation_route">
+                                <div key={label} className="container_route">
                                     <NavLink to={path} className={({ isActive }) => `route ${isActive ? 'active' : ''}`}>
                                         {label}
                                     </NavLink>

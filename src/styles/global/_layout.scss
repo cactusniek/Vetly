@@ -1,18 +1,17 @@
 @use 'sass:map';
 
-// gebruik misschien: mobile-sm, tablet-lg & desktop etc.
 $breakpoints-width: (
-    sm: 320px,
-    md: 440px,
-    lg: 540px,
-    xl: 640px,
-    xxl: 740px,
-    xxxl: 1140px,
+    mobile-small: 320px,
+    mobile-medium: 440px,
+    mobile-large: 540px,
+    tablet-small: 640px,
+    tablet-large: 740px,
+    desktop: 1140px,
 );
 
-$breakpoints-height: (
-    md: 600px,
-);
+// $breakpoints-height: (
+//     md: 600px,
+// );
 
 @mixin respond-up-width($size) {
     $breakpoint: map.get($breakpoints-width, $size);
@@ -22,11 +21,11 @@ $breakpoints-height: (
     }
 }
 
-@mixin respond-up-width-height($w, $h) {
-    $min-width: map.get($breakpoints-width, $w);
-    $min-height: map.get($breakpoints-height, $h);
+// @mixin respond-up-width-height($w, $h) {
+//     $min-width: map.get($breakpoints-width, $w);
+//     $min-height: map.get($breakpoints-height, $h);
 
-    @media (min-width: $min-width) and (min-height: $min-height) {
-        @content;
-    }
-}
+//     @media (min-width: $min-width) and (min-height: $min-height) {
+//         @content;
+//     }
+// }
