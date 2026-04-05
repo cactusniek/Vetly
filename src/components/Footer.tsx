@@ -32,11 +32,8 @@ export default function Footer() {
         try {
             const success = await Api.Subscribe(email)
 
-            if (success) {
-                setStatus('success')
-            } else {
-                setStatus('error')
-            }
+            if (success) setStatus('success')
+            else setStatus('error')
         } catch (err) {
             setStatus('error')
         }
@@ -47,11 +44,9 @@ export default function Footer() {
             <div className="container_footer">
                 <div className="container_top">
                     <div className="container_nav">
-                        <div className="logo">
-                            <NavLink to={'/'}>
-                                <img alt="Vetly" src={Logo} className="image_Logo" />
-                            </NavLink>
-                        </div>
+                        <NavLink to={'/'} className="anchor_Logo">
+                            <img alt="Vetly" src={Logo} className="image_Logo" />
+                        </NavLink>
 
                         <img src={CircleSmall} className="icon_CircleSmall" />
 
