@@ -6,7 +6,7 @@
 
 .footer {
     margin-top: 1.5rem;
-    margin-inline: 1.5rem;
+    margin-inline: 1rem;
     margin-bottom: 1.5rem;
 
     @include respond-up-width(tablet-large) {
@@ -221,7 +221,7 @@
                         text-indent: 0.25ch;
                         color: $color-text-main;
 
-                        transition: border-color 0.3s ease;
+                        transition: border-color 0.3s ease-in-out;
                         appearance: none;
                         -webkit-appearance: none;
 
