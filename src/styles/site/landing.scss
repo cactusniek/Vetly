@@ -10,11 +10,12 @@
 
     font-family: 'Gelica';
 
+    height: 150vh;
+
     background-color: $color-bg-site;
 
     .container_sections {
-        // margin-top: 6.25rem; // the height of Header.tsx
-        padding-top: 5rem; // the height of Header.tsx
+        padding-top: 8rem; // the height of Header.tsx + 3rem
         padding-inline: 1rem;
 
         display: flex;
@@ -64,9 +65,9 @@
                 width: 100%;
                 max-width: 600px;
                 min-width: 270px;
+                min-height: 210px;
 
                 aspect-ratio: 16 / 9;
-                min-height: 210px;
             }
 
             video {
@@ -79,9 +80,9 @@
                 padding-inline: 1rem;
                 padding-bottom: 0.5rem;
 
-                text-decoration: none;
                 font-family: 'Nexa', sans-serif;
                 color: $color-text-main;
+                text-decoration: none;
 
                 border-radius: $border-radius-sm;
                 border: 2px solid $color-muted;
@@ -99,62 +100,5 @@
                 }
             }
         }
-
-        // .section_1 {
-        //     display: flex;
-        //     flex-direction: column;
-        //     align-items: center;
-        //     text-align: center;
-        //     gap: 3rem;
-
-        //     .container_titles {
-        //         display: flex;
-        //         flex-direction: column;
-        //         gap: 1rem;
-
-        //         .hero_title {
-        //             font-size: 38px;
-        //             font-weight: 400;
-        //             line-height: 1.5;
-        //         }
-
-        //         .hero_subtitle {
-        //             font-family: 'Nexa', sans-serif;
-        //             font-size: 22px;
-        //             font-weight: 400;
-        //             color: $color-text-muted;
-        //         }
-        //     }
-
-        //     video {
-        //         user-select: none;
-        //         -webkit-user-drag: none;
-        //     }
-
-        //     .button_login {
-        //         padding-top: 0.5rem;
-        //         padding-inline: 1rem;
-        //         padding-bottom: 0.5rem;
-
-        //         text-decoration: none;
-        //         font-family: 'Nexa', sans-serif;
-        //         color: $color-text-main;
-
-        //         border-radius: $border-radius-sm;
-        //         border: 2px solid $color-muted;
-
-        //         cursor: pointer;
-
-        //         transition: border-color 0.3s ease-in-out;
-
-        //         &:hover {
-        //             border-color: $color-primary;
-        //         }
-
-        //         @include respond-up-width(xxl) {
-        //             display: block;
-        //         }
-        //     }
-        // }
     }
 }
