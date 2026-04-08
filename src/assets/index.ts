@@ -28,8 +28,12 @@ export { default as MailIcon } from './ui/mail.svg'
 export { default as ArrowIcon } from './ui/arrow.svg'
 export { default as Divider } from './ui/divider.svg'
 
+// images
+export { default as VideoPlaceholder } from './images/video-placeholder.png'
+export { default as SearchBar } from './images/searchbar.svg'
+
 // logo
 export { default as Logo } from './logo/logo.svg'
 
 // video
-export { default as VideoPlaceholder } from './videos/video-placeholder.png'
+// export { default as VideoPlaceholder } from './images/video-placeholder.png'

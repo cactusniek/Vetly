@@ -9,10 +9,6 @@ $breakpoints-width: (
     desktop: 1140px,
 );
 
-// $breakpoints-height: (
-//     md: 600px,
-// );
-
 @mixin respond-up-width($size) {
     $breakpoint: map.get($breakpoints-width, $size);
 
@@ -20,12 +16,3 @@ $breakpoints-width: (
         @content;
     }
 }
-
-// @mixin respond-up-width-height($w, $h) {
-//     $min-width: map.get($breakpoints-width, $w);
-//     $min-height: map.get($breakpoints-height, $h);
-
-//     @media (min-width: $min-width) and (min-height: $min-height) {
-//         @content;
-//     }
-// }
