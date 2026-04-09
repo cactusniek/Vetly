@@ -30,7 +30,10 @@ export { default as Divider } from './ui/divider.svg'
 
 // images
 export { default as VideoPlaceholder } from './images/video-placeholder.png'
-export { default as SearchBar } from './images/searchbar.svg'
+export { default as SearchBarImage } from './images/searchbar.svg'
+export { default as UpToDateImage } from './images/up-to-date.svg'
+export { default as SustainableImage } from './images/sustainable.svg'
+export { default as StarsImage } from './images/stars.svg'
 
 // logo
 export { default as Logo } from './logo/logo.svg'
