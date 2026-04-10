@@ -24,7 +24,12 @@ html {
 
     scrollbar-width: thin;
     scrollbar-gutter: stable;
+
     scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+    -moz-scroll-behavior: smooth;
+    -ms-scroll-behavior: smooth;
+
     -ms-overflow-style: none;
 }
 

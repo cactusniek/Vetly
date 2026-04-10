@@ -34,6 +34,10 @@ export { default as SearchBarImage } from './images/searchbar.svg'
 export { default as UpToDateImage } from './images/up-to-date.svg'
 export { default as SustainableImage } from './images/sustainable.svg'
 export { default as StarsImage } from './images/stars.svg'
+export { default as DogImage } from './images/dog.png'
+export { default as CatImage } from './images/cat.png'
+export { default as CatsImage } from './images/cats.png'
+export { default as RabbitImage } from './images/rabbit.png'
 
 // logo
 export { default as Logo } from './logo/logo.svg'
