@@ -348,8 +348,45 @@
                 }
             }
 
+            .paragraph {
+            }
+
             .container_scroll {
+                position: relative;
+
                 overflow: hidden;
+
+                &::before {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+
+                    width: 0.625rem;
+                    height: 100%;
+
+                    z-index: 10;
+
+                    content: '';
+                    background: linear-gradient(to right, $color-bg-site 10%, rgba($color-bg-site, 0) 100%);
+
+                    pointer-events: none;
+                }
+
+                &::after {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+
+                    width: 0.625rem;
+                    height: 100%;
+
+                    z-index: 10;
+
+                    content: '';
+                    background: linear-gradient(to left, $color-bg-site 10%, rgba($color-bg-site, 0) 100%);
+
+                    pointer-events: none;
+                }
 
                 .container_flex {
                     display: flex;
@@ -362,6 +399,9 @@
                         -webkit-user-drag: none;
                     }
                 }
+            }
+
+            .container_arrows {
             }
         }
     }
