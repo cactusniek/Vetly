@@ -53,9 +53,9 @@
     }
 
     .background {
-        display: flex;
+        display: grid;
+        align-content: center;
         justify-content: center;
-        align-items: center;
         overflow: hidden;
 
         width: 100%;
@@ -66,16 +66,12 @@
         animation: Background 0.4s ease-in-out;
 
         .image_BackgroundSmall {
-            flex-shrink: 0;
-
             @include respond-up-width(desktop) {
                 display: none;
             }
         }
 
         .image_BackgroundLarge {
-            flex-shrink: 0;
-
             display: none;
 
             @include respond-up-width(desktop) {
@@ -93,52 +89,52 @@
         justify-content: center;
 
         width: 100%;
+    }
+}
 
-        .container_links {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: start;
+.container_links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
 
-            width: 100%;
-            max-width: 37.5rem;
+    width: 100%;
+    max-width: 37.5rem;
 
-            @include respond-up-width(mobile-medium) {
-                padding-inline: 1.25rem;
-            }
+    @include respond-up-width(mobile-medium) {
+        padding-inline: 1.25rem;
+    }
 
-            @include respond-up-width(tablet-small) {
-                max-width: 43.75rem;
-            }
+    @include respond-up-width(tablet-small) {
+        max-width: 43.75rem;
+    }
 
-            .button_disclaimer,
-            .anchor_landing {
-                width: fit-content;
+    .button_disclaimer,
+    .anchor_landing {
+        width: fit-content;
 
-                font-size: 14px;
-                font-weight: 600;
-                text-align: center;
-                color: $color-mediumgrey;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        color: $color-mediumgrey;
 
-                transition: color 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
 
-                &:hover {
-                    color: $color-black;
-                }
-            }
+        &:hover {
+            color: $color-black;
+        }
+    }
 
-            .button_disclaimer {
-                border: none;
-                background: none;
+    .button_disclaimer {
+        border: none;
+        background: none;
 
-                text-decoration: underline;
+        text-decoration: underline;
 
-                cursor: pointer;
+        cursor: pointer;
 
-                &.active {
-                    color: $color-black;
-                }
-            }
+        &.active {
+            color: $color-black;
         }
     }
 }

@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import type { FunctionComponent, SVGProps } from 'react'
 
+import { useAtom } from 'jotai'
+import { languageAtom } from '@/global/atoms/atoms'
+
+import { locales } from '@/global/translations'
+
 import type { MedicineProps } from '@/global/types/types'
 
 import { doeldierenIconMap } from '@/global/mappings/doeldieren'
@@ -53,6 +58,9 @@ function parseWachttermijnen(wachttermijnen: string): { wachttijden: string[] } 
 }
 
 export default function Medicine(props: MedicineProps) {
+    const [language] = useAtom(languageAtom)
+    const locale = locales[language].medicine
+
     const [showMore, setShowMore] = useState(false)
 
     const { diersoorten, visibleIcons, remainingIcons } = parseDoeldieren(props.doeldieren)
@@ -140,8 +148,13 @@ export default function Medicine(props: MedicineProps) {
                         <div className="medicine_info">
                             <CircleSmall className="icon_CircleSmall" />
 
-                            <a href={props.bijsluiterUrl} target="_blank" rel="noopener noreferrer" className="medicine_spc-etiket-bijsluiter">
-                                Open bijsluiter
+                            <a
+                                href={props.bijsluiterUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="medicine_spc-etiket-bijsluiter"
+                            >
+                                {locale.open_leaflet}
                             </a>
                         </div>
 
@@ -149,7 +162,9 @@ export default function Medicine(props: MedicineProps) {
                             <div className="medicine_info">
                                 <CircleSmall className="icon_CircleSmall" />
 
-                                <span className="medicine_doeldieren">Diersoorten: {diersoorten}</span>
+                                <span className="medicine_doeldieren">
+                                    {locale.species}: {diersoorten}
+                                </span>
                             </div>
                         )}
 
@@ -158,7 +173,7 @@ export default function Medicine(props: MedicineProps) {
                                 <div className="container_wachttermijnen">
                                     <CircleSmall className="icon_CircleSmall" />
 
-                                    <span className="title_wachttermijnen">Wachttermijnen:</span>
+                                    <span className="title_wachttermijnen">{locale.withdrawal_periods}:</span>
                                 </div>
 
                                 <div className="container_text">
@@ -172,11 +187,11 @@ export default function Medicine(props: MedicineProps) {
                         )}
 
                         <div className="medicine_disclaimer">
-                            <span className="text_disclaimer">Deze informatie is uitsluitend bedoeld als hulpmiddel en vervangt geen advies van een dierenarts.</span>
+                            <span className="text_disclaimer">{locale.disclaimer}</span>
                         </div>
 
                         <div className="medicine_bronvermelding">
-                            <span className="text_bronvermelding">Bronnen:</span>
+                            <span className="text_bronvermelding">{locale.sources}:</span>
 
                             <a
                                 href="https://diergeneesmiddeleninformatiebank.nl"
@@ -198,7 +213,9 @@ export default function Medicine(props: MedicineProps) {
                         </div>
 
                         <div className="medicine_references">
-                            <span className="medicine_registratienummer">REG NL: {props.registratienummer}</span>
+                            <span className="medicine_registratienummer">
+                                {locale.registration}: {props.registratienummer}
+                            </span>
 
                             <span className="medicine_procedurenummer">{props.procedurenummer}</span>
                         </div>
@@ -208,7 +225,7 @@ export default function Medicine(props: MedicineProps) {
                 <div onClick={handleToggle} className="medicine_toggle">
                     <ArrowToggle className={`icon_ArrowToggle ${showMore ? 'rotate' : ''}`} />
 
-                    <span className="text_toggle">{showMore ? 'Laat minder informatie zien' : 'Laat meer informatie zien'}</span>
+                    <span className="text_toggle">{showMore ? locale.show_less : locale.show_more}</span>
                 </div>
             </div>
         </div>

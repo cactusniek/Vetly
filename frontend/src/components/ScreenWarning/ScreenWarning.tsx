@@ -17,8 +17,8 @@ export default function ScreenWarning() {
     return (
         <div className="screenwarning">
             <div className="container_screenwarning">
-                <NavLink to={'/'} className="NavLink_Logo">
-                    <img alt="Vetly" src={Logo} className="image_Logo" />
+                <NavLink to={'/'} className="link_Logo">
+                    <img alt="image_Logo" src={Logo} className="image_Logo" />
                 </NavLink>
 
                 <p className="text_screenwarning">{locale.screenwarning.message}</p>

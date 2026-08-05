@@ -1,4 +1,4 @@
-import type { MedicineProps } from '../types/types'
+import type { MedicineProps, MedicineResponse } from '../types/types'
 
 export class medicinesApi {
     private static serverUrl: string = import.meta.env.VITE_SYNC_URL || 'http://localhost:4000'
@@ -27,7 +27,7 @@ export class medicinesApi {
 
         const raw = await this.fetchData(endpoint, 'GET')
 
-        const mapped: MedicineProps[] = raw.map((med: any) => ({
+        const mapped: MedicineProps[] = raw.map((med: MedicineResponse) => ({
             productnaam: med.productnaam,
             handelsvergunninghouder: med.handelsvergunninghouder,
             afleverstatus: med.afleverstatus,

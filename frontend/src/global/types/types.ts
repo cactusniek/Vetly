@@ -2,12 +2,12 @@ import { type FunctionComponent, type SVGProps } from 'react'
 
 export type SearchCategory = 'all' | 'medicine' | 'owner' | 'animal'
 
-export type SearchCategoryOption = {
+export interface SearchCategoryOption {
     value: SearchCategory
     icon: FunctionComponent<SVGProps<SVGSVGElement>>
 }
 
-export type SearchBarProps = {
+export interface SearchBarProps {
     onSearch: (query: string, category: SearchCategory) => void
     isLoading: boolean
     searchProgress: number
@@ -16,13 +16,24 @@ export type SearchBarProps = {
     dividerIcon?: FunctionComponent<SVGProps<SVGSVGElement>>
 }
 
-export type MedicineProps = {
+export interface MedicineProps {
     productnaam: string
     handelsvergunninghouder: string
     afleverstatus: string
     bijsluiterUrl: string
     doeldieren: string
     wachttermijnen: string
+    registratienummer: string
+    procedurenummer: string
+}
+
+// shape returned by the sync service, before it is mapped onto MedicineProps
+export interface MedicineResponse {
+    productnaam: string
+    handelsvergunninghouder: string
+    afleverstatus: string
+    doeldieren: string
+    wachttermijnen_doeldier_product_termijn: string
     registratienummer: string
     procedurenummer: string
 }

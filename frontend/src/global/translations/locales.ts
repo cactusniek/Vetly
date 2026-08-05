@@ -8,13 +8,24 @@ export const locales = {
 
         search: {
             title: 'Search',
-            placeholder: 'Search',
-            searching: 'Searching...',
+            placeholder: 'Brand name or registration number…',
+            searching: 'Searching…',
             result_singular: '1 result found',
             result_plural: '{count} results found',
             no_results: 'No results found',
             disclaimer_link: 'Disclaimer',
             landing_link: 'Vetly.nl',
+        },
+
+        medicine: {
+            open_leaflet: 'Open package leaflet',
+            species: 'Species',
+            withdrawal_periods: 'Withdrawal periods',
+            disclaimer: 'This information is intended as an aid only and does not replace the advice of a veterinarian.',
+            sources: 'Sources',
+            registration: 'REG NL',
+            show_more: 'Show more information',
+            show_less: 'Show less information',
         },
 
         disclaimer: {
@@ -64,13 +75,24 @@ export const locales = {
 
         search: {
             title: 'Zoeken',
-            placeholder: 'Zoeken',
-            searching: 'Zoeken...',
+            placeholder: 'Merknaam of registratienummer…',
+            searching: 'Zoeken…',
             result_singular: 'Er is 1 resultaat gevonden',
             result_plural: 'Er zijn {count} resultaten gevonden',
             no_results: 'Geen resultaten gevonden',
             disclaimer_link: 'Disclaimer',
             landing_link: 'Vetly.nl',
+        },
+
+        medicine: {
+            open_leaflet: 'Open bijsluiter',
+            species: 'Diersoorten',
+            withdrawal_periods: 'Wachttermijnen',
+            disclaimer: 'Deze informatie is uitsluitend bedoeld als hulpmiddel en vervangt geen advies van een dierenarts.',
+            sources: 'Bronnen',
+            registration: 'REG NL',
+            show_more: 'Laat meer informatie zien',
+            show_less: 'Laat minder informatie zien',
         },
 
         disclaimer: {

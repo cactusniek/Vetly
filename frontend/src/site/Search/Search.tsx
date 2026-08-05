@@ -19,7 +19,7 @@ import { BackgroundSmall, BackgroundLarge } from '@/assets'
 import '@/styles/global.scss'
 import './search.scss'
 
-function Search() {
+export default function Search() {
     const [language] = useAtom(languageAtom)
     const locale = locales[language]
 
@@ -99,7 +99,12 @@ function Search() {
             </Helmet>
 
             <div className="container_search">
-                <SearchBar onSearch={handleSearch} isLoading={isLoading} searchProgress={searchProgress} searchMessage={searchMessage} />
+                <SearchBar
+                    onSearch={handleSearch}
+                    isLoading={isLoading}
+                    searchProgress={searchProgress}
+                    searchMessage={searchMessage}
+                />
 
                 {showDisclaimer ? (
                     <Disclaimer />
@@ -146,5 +151,3 @@ function Search() {
         </>
     )
 }
-
-export default Search
