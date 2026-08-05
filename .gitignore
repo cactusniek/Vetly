@@ -1,0 +1,25 @@
+# node
+node_modules
+dist
+*.local
+.env
+
+# editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.claude
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# folders and files
+input
+output
+documents
+database.db
+/sync
+

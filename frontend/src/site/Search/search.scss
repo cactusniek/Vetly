@@ -1,0 +1,144 @@
+@use 'colors' as *;
+@use 'typography' as *;
+@use 'spacing' as *;
+@use 'layout' as *;
+@use 'animations' as *;
+
+.container_search {
+    padding-right: 0.3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+
+    width: 100%;
+    height: 100vh;
+
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+    -moz-scroll-behavior: smooth;
+    -ms-scroll-behavior: smooth;
+
+    -ms-overflow-style: none;
+
+    .searchbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+
+        width: 100%;
+
+        background-color: $background-white;
+    }
+
+    .results {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        width: 100%;
+
+        > :first-child {
+            padding-top: 0.5rem;
+        }
+
+        > :last-child {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .background {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        width: 100%;
+        height: 100%;
+
+        color: $color-mediumgrey;
+
+        animation: Background 0.4s ease-in-out;
+
+        .image_BackgroundSmall {
+            flex-shrink: 0;
+
+            @include respond-up-width(desktop) {
+                display: none;
+            }
+        }
+
+        .image_BackgroundLarge {
+            flex-shrink: 0;
+
+            display: none;
+
+            @include respond-up-width(desktop) {
+                display: block;
+            }
+        }
+    }
+
+    .container_bottom {
+        margin-top: auto;
+        padding-inline: 1.25rem;
+        padding-bottom: 1.5rem;
+
+        display: flex;
+        justify-content: center;
+
+        width: 100%;
+
+        .container_links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+
+            width: 100%;
+            max-width: 37.5rem;
+
+            @include respond-up-width(mobile-medium) {
+                padding-inline: 1.25rem;
+            }
+
+            @include respond-up-width(tablet-small) {
+                max-width: 43.75rem;
+            }
+
+            .button_disclaimer,
+            .anchor_landing {
+                width: fit-content;
+
+                font-size: 14px;
+                font-weight: 600;
+                text-align: center;
+                color: $color-mediumgrey;
+
+                transition: color 0.3s ease-in-out;
+
+                &:hover {
+                    color: $color-black;
+                }
+            }
+
+            .button_disclaimer {
+                border: none;
+                background: none;
+
+                text-decoration: underline;
+
+                cursor: pointer;
+
+                &.active {
+                    color: $color-black;
+                }
+            }
+        }
+    }
+}

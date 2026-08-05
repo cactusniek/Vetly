@@ -1,0 +1,31 @@
+@use './colors' as *;
+@use './typography' as *;
+@use './spacing' as *;
+@use './layout' as *;
+@use './animations' as *;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Nexa', sans-serif;
+    font-size: 16px;
+    color: $color-black;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    caret-color: $color-black;
+    text-underline-offset: 2px;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
