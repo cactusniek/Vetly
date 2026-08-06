@@ -20,6 +20,7 @@ export { default as Turtle } from './animals/turtle.svg?react'
 // backgrounds
 export { default as BackgroundSmall } from './backgrounds/background-small.svg?react'
 export { default as BackgroundLarge } from './backgrounds/background-large.svg?react'
+export { default as BackgroundCats } from './backgrounds/background-cats.svg?react'
 
 // ui
 export { default as SearchIcon } from './ui/search.svg?react'

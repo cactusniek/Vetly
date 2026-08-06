@@ -1,0 +1,43 @@
+@use 'colors' as *;
+@use 'typography' as *;
+@use 'spacing' as *;
+@use 'layout' as *;
+@use 'animations' as *;
+
+.container_landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+
+    color: $color-oceangrey;
+}
+
+.image_Background {
+    width: 100%;
+    height: auto;
+
+    // backwards toont tijdens de vertraging de beginstand, dus de lijn blijft
+    // onzichtbaar tot hij aan de beurt is. De eindstand is de eigen waarde
+    // van het pad, dus forwards is niet nodig
+    path {
+        stroke-dasharray: 1 2;
+        stroke-dashoffset: 0;
+
+        animation: DrawLine var(--dur) ease var(--wait) backwards;
+    }
+
+    .p_sweep { --dur: 1.9s; --wait: 0s; }
+    .p_lcat  { --dur: 1.4s; --wait: 0.2s; }
+    .p_rcat  { --dur: 1.4s; --wait: 1.9s; }
+    .p_tail  { --dur: 1.4s; --wait: 3.3s; }
+    .p_faint { --dur: 1.9s; --wait: 3.5s; }
+
+    @media (prefers-reduced-motion: reduce) {
+        path {
+            animation: none;
+        }
+    }
+}

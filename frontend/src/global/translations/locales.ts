@@ -6,9 +6,13 @@ export const locales = {
             message: 'Vetly is not yet optimized for mobile devices. Please use a computer or laptop for the best experience.',
         },
 
+        landing: {
+            title: 'Vetly',
+        },
+
         search: {
             title: 'Search',
-            placeholder: 'Brand name or registration number…',
+            placeholder: 'Brand name, registration number…',
             searching: 'Searching…',
             result_singular: '1 result found',
             result_plural: '{count} results found',
@@ -73,9 +77,13 @@ export const locales = {
             message: 'Vetly is nog niet geoptimaliseerd voor mobiele apparaten. Gebruik een computer of laptop voor de beste ervaring.',
         },
 
+        landing: {
+            title: 'Vetly',
+        },
+
         search: {
             title: 'Zoeken',
-            placeholder: 'Merknaam of registratienummer…',
+            placeholder: 'Merknaam, registratienummer…',
             searching: 'Zoeken…',
             result_singular: 'Er is 1 resultaat gevonden',
             result_plural: 'Er zijn {count} resultaten gevonden',
