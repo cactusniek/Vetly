@@ -5,9 +5,12 @@
 @use 'animations' as *;
 
 .container_landing {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
     width: 100%;
     height: 100vh;
@@ -15,9 +18,11 @@
     color: $color-oceangrey;
 }
 
+// slice in de svg zelf is het inline equivalent van background-size: cover, dus
+// vullen en bijsnijden in plaats van passend maken met randen eromheen
 .image_Background {
     width: 100%;
-    height: auto;
+    height: 100%;
 
     // backwards toont tijdens de vertraging de beginstand, dus de lijn blijft
     // onzichtbaar tot hij aan de beurt is. De eindstand is de eigen waarde
@@ -39,5 +44,25 @@
         path {
             animation: none;
         }
+    }
+}
+
+// backwards houdt hem tijdens de vertraging groot in het midden, daarna schuift hij
+// naar zijn eigen plek in de hoek toe terwijl de lijnen nog getekend worden. Die
+// eindstand is de gewone css hieronder, dus forwards is ook hier niet nodig
+.image_Logo {
+    --inset: 1.5rem;
+    --scale: 3.2;
+
+    position: absolute;
+    top: var(--inset);
+    left: var(--inset);
+
+    width: 5.625rem;
+
+    animation: MoveLogo 1.6s ease 0.8s backwards;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
     }
 }

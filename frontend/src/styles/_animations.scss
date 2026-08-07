@@ -50,3 +50,17 @@
         stroke-dashoffset: 0;
     }
 }
+
+// het logo staat met css al op zijn eindplek in de hoek, dus de from-stand rekent
+// terug hoeveel hij vanaf daar moet opschuiven om groot midden op het scherm te
+// staan. De 50% is de helft van het logo zelf, zodat het midden klopt en niet de
+// linkerbovenhoek
+@keyframes MoveLogo {
+    from {
+        transform: translate(calc(50vw - var(--inset) - 50%), calc(50vh - var(--inset) - 50%))
+            scale(var(--scale));
+    }
+    to {
+        transform: translate(0, 0) scale(1);
+    }
+}

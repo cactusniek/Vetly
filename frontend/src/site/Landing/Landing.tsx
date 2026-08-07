@@ -5,7 +5,7 @@ import { languageAtom } from '@/global/atoms/atoms'
 
 import { locales } from '@/global/translations'
 
-import { BackgroundCats } from '@/assets'
+import { BackgroundCats, Logo } from '@/assets'
 
 import '@/styles/global.scss'
 import './landing.scss'
@@ -22,6 +22,8 @@ export default function Landing() {
 
             <div className="container_landing">
                 <BackgroundCats className="image_Background" />
+
+                <img alt="image_Logo" src={Logo} className="image_Logo" />
             </div>
         </>
     )
