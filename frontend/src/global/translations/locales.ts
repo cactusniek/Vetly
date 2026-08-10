@@ -6,6 +6,11 @@ export const locales = {
             message: 'Vetly is not yet optimized for mobile devices. Please use a computer or laptop for the best experience.',
         },
 
+        header: {
+            home: 'Home',
+            search: 'Search',
+        },
+
         landing: {
             title: 'Vetly',
         },
@@ -75,6 +80,11 @@ export const locales = {
     nl: {
         screenwarning: {
             message: 'Vetly is nog niet geoptimaliseerd voor mobiele apparaten. Gebruik een computer of laptop voor de beste ervaring.',
+        },
+
+        header: {
+            home: 'Home',
+            search: 'Zoeken',
         },
 
         landing: {

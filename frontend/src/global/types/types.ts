@@ -1,5 +1,14 @@
 import { type FunctionComponent, type SVGProps } from 'react'
 
+export interface Route {
+    label: string
+    path: string
+}
+
+export interface HeaderProps {
+    intro?: boolean
+}
+
 export type SearchCategory = 'all' | 'medicine' | 'owner' | 'animal'
 
 export interface SearchCategoryOption {

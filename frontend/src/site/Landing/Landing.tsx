@@ -3,9 +3,11 @@ import { Helmet } from 'react-helmet-async'
 import { useAtom } from 'jotai'
 import { languageAtom } from '@/global/atoms/atoms'
 
+import Header from '@/components/Header/Header'
+
 import { locales } from '@/global/translations'
 
-import { BackgroundCats, Logo } from '@/assets'
+import { BackgroundCats, BackgroundCatsMobile } from '@/assets'
 
 import '@/styles/global.scss'
 import './landing.scss'
@@ -21,9 +23,11 @@ export default function Landing() {
             </Helmet>
 
             <div className="container_landing">
-                <BackgroundCats className="image_Background" />
+                <Header intro />
 
-                <img alt="image_Logo" src={Logo} className="image_Logo" />
+                <BackgroundCatsMobile className="image_BackgroundMobile" />
+
+                <BackgroundCats className="image_Background" />
             </div>
         </>
     )

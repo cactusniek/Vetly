@@ -20,7 +20,8 @@
 
 // slice in de svg zelf is het inline equivalent van background-size: cover, dus
 // vullen en bijsnijden in plaats van passend maken met randen eromheen
-.image_Background {
+.image_Background,
+.image_BackgroundMobile {
     width: 100%;
     height: 100%;
 
@@ -34,12 +35,6 @@
         animation: DrawLine var(--dur) ease var(--wait) backwards;
     }
 
-    .p_sweep { --dur: 1.9s; --wait: 0s; }
-    .p_lcat  { --dur: 1.4s; --wait: 0.2s; }
-    .p_rcat  { --dur: 1.4s; --wait: 1.9s; }
-    .p_tail  { --dur: 1.4s; --wait: 3.3s; }
-    .p_faint { --dur: 1.9s; --wait: 3.5s; }
-
     @media (prefers-reduced-motion: reduce) {
         path {
             animation: none;
@@ -47,22 +42,32 @@
     }
 }
 
-// backwards houdt hem tijdens de vertraging groot in het midden, daarna schuift hij
-// naar zijn eigen plek in de hoek toe terwijl de lijnen nog getekend worden. Die
-// eindstand is de gewone css hieronder, dus forwards is ook hier niet nodig
-.image_Logo {
-    --inset: 1.5rem;
-    --scale: 3.2;
-
-    position: absolute;
-    top: var(--inset);
-    left: var(--inset);
-
-    width: 5.625rem;
-
-    animation: MoveLogo 1.6s ease 0.8s backwards;
-
-    @media (prefers-reduced-motion: reduce) {
-        animation: none;
+// de mobiele tekening loopt van de onderste lijn naar de kat erboven, klimt dan naar
+// de kleine kat rechtsboven en gaat er via de staart weer uit. Ook 5.4s in totaal,
+// zodat beide schermen even lang doen over hetzelfde verhaal
+.image_BackgroundMobile {
+    @include respond-up-width(tablet-large) {
+        display: none;
     }
+
+    .p_sweep { --dur: 1.9s; --wait: 0s; }
+    .p_lcat  { --dur: 1.4s; --wait: 0.2s; }
+    .p_climb { --dur: 1.2s; --wait: 1.6s; }
+    .p_rcat  { --dur: 1.4s; --wait: 2.6s; }
+    .p_tail  { --dur: 1s;   --wait: 3.8s; }
+    .p_faint { --dur: 1.9s; --wait: 3.5s; }
+}
+
+.image_Background {
+    display: none;
+
+    @include respond-up-width(tablet-large) {
+        display: block;
+    }
+
+    .p_sweep { --dur: 1.9s; --wait: 0s; }
+    .p_lcat  { --dur: 1.4s; --wait: 0.2s; }
+    .p_rcat  { --dur: 1.4s; --wait: 1.9s; }
+    .p_tail  { --dur: 1.4s; --wait: 3.3s; }
+    .p_faint { --dur: 1.9s; --wait: 3.5s; }
 }

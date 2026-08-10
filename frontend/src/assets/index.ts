@@ -21,11 +21,14 @@ export { default as Turtle } from './animals/turtle.svg?react'
 export { default as BackgroundSmall } from './backgrounds/background-small.svg?react'
 export { default as BackgroundLarge } from './backgrounds/background-large.svg?react'
 export { default as BackgroundCats } from './backgrounds/background-cats.svg?react'
+export { default as BackgroundCatsMobile } from './backgrounds/background-cats-mobile.svg?react'
 
 // ui
 export { default as SearchIcon } from './ui/search.svg?react'
 export { default as CircleSmall } from './ui/circle-small.svg?react'
 export { default as ArrowToggle } from './ui/arrow-toggle.svg?react'
+export { default as MenuIcon } from './ui/menu.svg?react'
+export { default as Divider } from './ui/divider.svg?react'
 
 // images
 export { default as VideoPlaceholder } from './images/video-placeholder.png'
