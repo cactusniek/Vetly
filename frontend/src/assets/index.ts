@@ -29,6 +29,7 @@ export { default as CircleSmall } from './ui/circle-small.svg?react'
 export { default as ArrowToggle } from './ui/arrow-toggle.svg?react'
 export { default as MenuIcon } from './ui/menu.svg?react'
 export { default as Divider } from './ui/divider.svg?react'
+export { default as LanguageIcon } from './ui/language.svg?react'
 
 // images
 export { default as VideoPlaceholder } from './images/video-placeholder.png'

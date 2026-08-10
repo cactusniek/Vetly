@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom'
 import { useAtom } from 'jotai'
 import { languageAtom, showNavAtom } from '@/global/atoms/atoms'
 
+import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
+
 import { locales } from '@/global/translations'
 
 import { type HeaderProps, type Route } from '@/global/types/types'
@@ -90,6 +92,8 @@ export default function Header({ intro }: HeaderProps) {
                     </div>
                 </div>
             </div>
+
+            <SwitchLanguage />
         </div>
     )
 }

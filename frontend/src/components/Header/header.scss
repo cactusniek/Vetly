@@ -16,6 +16,21 @@
     @include respond-up-width(tablet-large) {
         padding-inline: 2.5rem;
     }
+
+    // even ver uit de rechterhoek als het logo uit de linker: 2.5rem van .header plus
+    // 1.25rem van het paneel opzij, en 0.625rem omlaag bovenop de 1.5rem die .header
+    // zelf al zakt. Op mobiel valt hij weg, daar staat de menuknop op die plek
+    .switch_language {
+        position: absolute;
+        top: 0.625rem;
+        right: 3.75rem;
+
+        display: none;
+
+        @include respond-up-width(tablet-large) {
+            display: block;
+        }
+    }
 }
 
 .header_mobile {
@@ -330,6 +345,7 @@
     // op mobiel is container_navigation het uitklapmenu, dat hoort dicht te blijven,
     // daar komt alleen de menuknop op
     .button_menu,
+    .switch_language,
     .header_desktop .container_navigation {
         animation: Navigation 0.6s ease calc(var(--start) + 0.8s) backwards;
     }
@@ -339,6 +355,7 @@
         .header_mobile::before,
         .header_desktop::before,
         .button_menu,
+        .switch_language,
         .header_desktop .container_navigation {
             animation: none;
         }
