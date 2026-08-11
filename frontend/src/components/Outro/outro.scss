@@ -1,0 +1,116 @@
+@use 'colors' as *;
+@use 'typography' as *;
+@use 'spacing' as *;
+@use 'layout' as *;
+@use 'animations' as *;
+
+.container_outro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.875rem;
+
+    width: 100%;
+
+    .container_nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2.5rem;
+
+        color: rgba($color-mediumgrey, 0.5);
+    }
+
+    .link_Logo {
+        height: 2.5rem;
+    }
+
+    .image_Logo {
+        width: 4.5rem;
+        height: 2.5rem;
+
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    .container_routes {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container_route {
+        display: flex;
+        align-items: center;
+    }
+
+    .route {
+        position: relative;
+
+        width: fit-content;
+
+        font-family: 'Nexa', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba($color-mediumgrey, 0.8);
+        text-decoration: none;
+
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: rgba($color-black, 0.8);
+        }
+
+        &.active {
+            color: $color-blue;
+        }
+    }
+
+    .divider {
+        margin-inline: 1rem;
+
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    .container_bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        color: rgba($color-mediumgrey, 0.5);
+
+        @include respond-up-width(tablet-large) {
+            flex-direction: row;
+        }
+    }
+
+    .text_copyright {
+        font-size: 16px;
+        color: $color-mediumgrey;
+    }
+
+    .container_credits {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    .text_credit {
+        font-size: 16px;
+        color: $color-mediumgrey;
+    }
+
+    .anchor_credit {
+        font-size: 16px;
+        color: $color-blue;
+        text-decoration: none;
+
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: rgba($color-blue, 0.8);
+        }
+    }
+}

@@ -18,16 +18,14 @@
     color: $color-oceangrey;
 }
 
-// slice in de svg zelf is het inline equivalent van background-size: cover, dus
-// vullen en bijsnijden in plaats van passend maken met randen eromheen
 .image_Background,
 .image_BackgroundMobile {
+    position: absolute;
+    inset: 0;
+
     width: 100%;
     height: 100%;
 
-    // backwards toont tijdens de vertraging de beginstand, dus de lijn blijft
-    // onzichtbaar tot hij aan de beurt is. De eindstand is de eigen waarde
-    // van het pad, dus forwards is niet nodig
     path {
         stroke-dasharray: 1 2;
         stroke-dashoffset: 0;
@@ -42,9 +40,6 @@
     }
 }
 
-// de mobiele tekening loopt van de onderste lijn naar de kat erboven, klimt dan naar
-// de kleine kat rechtsboven en gaat er via de staart weer uit. Ook 5.4s in totaal,
-// zodat beide schermen even lang doen over hetzelfde verhaal
 .image_BackgroundMobile {
     @include respond-up-width(tablet-large) {
         display: none;

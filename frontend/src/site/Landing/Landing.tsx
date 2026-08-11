@@ -4,6 +4,7 @@ import { useAtom } from 'jotai'
 import { languageAtom } from '@/global/atoms/atoms'
 
 import Header from '@/components/Header/Header'
+import Sections from '@/components/Sections/Sections'
 
 import { locales } from '@/global/translations'
 
@@ -28,6 +29,8 @@ export default function Landing() {
                 <BackgroundCatsMobile className="image_BackgroundMobile" />
 
                 <BackgroundCats className="image_Background" />
+
+                <Sections />
             </div>
         </>
     )

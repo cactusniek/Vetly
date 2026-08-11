@@ -70,8 +70,6 @@
     }
 }
 
-// het paneel gaat open van links naar rechts. inset klopt hier beter dan scaleX,
-// want die zou de afgeronde hoeken tijdens de beweging platdrukken
 @keyframes Panel {
     from {
         clip-path: inset(0 100% 0 0 round $border-radius-xs);

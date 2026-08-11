@@ -29,7 +29,7 @@ export default function SwitchLanguage() {
 
             <div className="languages">
                 {others.map(locale => (
-                    <button onClick={() => handleLanguageChange(locale)} key={locale} type="button" className="language">
+                    <button key={locale} onClick={() => handleLanguageChange(locale)} type="button" className="language">
                         {locale.toUpperCase()}
                     </button>
                 ))}

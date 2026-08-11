@@ -5,6 +5,9 @@
 @use 'animations' as *;
 
 .header {
+    display: flex;
+    justify-content: space-between;
+
     padding-inline: 1rem;
 
     position: fixed;
@@ -15,21 +18,6 @@
 
     @include respond-up-width(tablet-large) {
         padding-inline: 2.5rem;
-    }
-
-    // even ver uit de rechterhoek als het logo uit de linker: 2.5rem van .header plus
-    // 1.25rem van het paneel opzij, en 0.625rem omlaag bovenop de 1.5rem die .header
-    // zelf al zakt. Op mobiel valt hij weg, daar staat de menuknop op die plek
-    .switch_language {
-        position: absolute;
-        top: 0.625rem;
-        right: 3.75rem;
-
-        display: none;
-
-        @include respond-up-width(tablet-large) {
-            display: block;
-        }
     }
 }
 
@@ -50,8 +38,6 @@
         display: none;
     }
 
-    // het paneel zit op een eigen laag achter de inhoud, zodat de achtergrond kan
-    // opengaan terwijl het logo er al staat
     &::before {
         position: absolute;
         inset: 0;
@@ -99,7 +85,7 @@
         width: fit-content;
         height: fit-content;
 
-        color: rgba($color-grey, 0.4);
+        color: rgba($color-mediumgrey, 0.4);
 
         cursor: pointer;
     }
@@ -155,7 +141,7 @@
         font-family: 'Gelica';
         font-size: 36px;
         line-height: 1.25;
-        color: rgba($color-grey, 0.4);
+        color: rgba($color-mediumgrey, 0.4);
         text-decoration: none;
 
         transition: color 0.4s ease-in-out;
@@ -169,7 +155,7 @@
             height: 3px;
 
             content: '';
-            background-color: rgba($color-grey, 0.6);
+            background-color: rgba($color-mediumgrey, 0.6);
 
             transition:
                 width 0.5s ease,
@@ -177,7 +163,7 @@
         }
 
         &:hover {
-            color: rgba($color-grey, 0.6);
+            color: rgba($color-mediumgrey, 0.6);
         }
 
         &:hover::after {
@@ -251,8 +237,10 @@
         display: flex;
         align-items: center;
         gap: 2.5rem;
+    }
 
-        color: rgba($color-grey, 0.4);
+    .icon_CircleSmall {
+        color: rgba($color-mediumgrey, 0.5);
     }
 
     .container_routes {
@@ -274,7 +262,7 @@
         font-family: 'Nexa', sans-serif;
         font-size: 16px;
         font-weight: 400;
-        color: rgba($color-grey, 0.8);
+        color: rgba($color-mediumgrey, 0.8);
         text-decoration: none;
 
         transition: color 0.2s ease-in-out;
@@ -289,7 +277,7 @@
             height: 2px;
 
             content: '';
-            background-color: rgba($color-grey, 0.8);
+            background-color: rgba($color-mediumgrey, 0.8);
             border-radius: $border-radius-xs;
 
             transition:
@@ -321,15 +309,13 @@
     .divider {
         margin-inline: 1rem;
 
+        color: rgba($color-mediumgrey, 0.5);
+
         user-select: none;
         -webkit-user-drag: none;
     }
 }
 
-// het logo komt kort op, daarna gaat het paneel eronder open en komen de links op als
-// dat bijna klaar is. backwards houdt elke stap in zijn beginstand tot hij aan de
-// beurt is. start bepaalt hoelang de hele header wacht na het laden, de stappen
-// rekenen daar vanaf zodat er maar een getal te verzetten is
 .header.intro {
     --start: 0.6s;
 
@@ -342,8 +328,6 @@
         animation: Panel 0.6s ease calc(var(--start) + 0.3s) backwards;
     }
 
-    // op mobiel is container_navigation het uitklapmenu, dat hoort dicht te blijven,
-    // daar komt alleen de menuknop op
     .button_menu,
     .switch_language,
     .header_desktop .container_navigation {

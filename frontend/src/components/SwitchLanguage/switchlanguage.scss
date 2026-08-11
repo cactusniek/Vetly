@@ -4,16 +4,21 @@
 @use 'layout' as *;
 @use 'animations' as *;
 
-// geen eigen padding, zodat de plek waar dit component staat hem exact kan uitlijnen
 .switch_language {
+    align-self: center;
+
     position: relative;
 
     width: fit-content;
 
-    color: $color-grey;
+    color: $color-mediumgrey;
 
     user-select: none;
     -webkit-user-drag: none;
+
+    @include respond-up-width(tablet-large) {
+        display: block;
+    }
 
     .current_language {
         display: flex;
@@ -29,6 +34,11 @@
 
     .languages {
         margin-top: 0.2rem;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        overflow: hidden;
 
         max-height: 0;
 
@@ -53,7 +63,6 @@
         }
     }
 
-    // focus-within erbij, anders is de tweede taal met een toetsenbord niet te bereiken
     &:hover .languages,
     &:focus-within .languages {
         display: flex;

@@ -26,8 +26,6 @@ export default function Header({ intro }: HeaderProps) {
         { label: locale.header.search, path: '/search' },
     ]
 
-    // 740px is the tablet-large breakpoint at which header_mobile is hidden, without
-    // this an opened menu is still open once the viewport is made small again
     useEffect(() => {
         const desktop = window.matchMedia('(min-width: 740px)')
 
@@ -62,7 +60,7 @@ export default function Header({ intro }: HeaderProps) {
 
                 <div className={`container_navigation ${showNav ? 'show' : ''}`}>
                     {routes.map(route => (
-                        <NavLink onClick={closeNav} key={route.path} to={route.path} className={({ isActive }) => `route ${isActive ? 'active' : ''}`}>
+                        <NavLink key={route.path} onClick={closeNav} to={route.path} className={({ isActive }) => `route ${isActive ? 'active' : ''}`}>
                             {route.label}
                         </NavLink>
                     ))}

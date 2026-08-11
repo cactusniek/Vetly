@@ -2,13 +2,21 @@ import type { LocaleLanguage } from '../types/types'
 
 export const locales = {
     en: {
-        screenwarning: {
-            message: 'Vetly is not yet optimized for mobile devices. Please use a computer or laptop for the best experience.',
-        },
-
         header: {
             home: 'Home',
             search: 'Search',
+        },
+
+        sections: {
+            hero_title: 'a search tool for veterinary medicines',
+            hero_subtitle: 'with data that comes from the official database',
+            search_title: 'Searching',
+            search_text: 'By brand name, by registration number or by species.',
+            current_title: 'Up to date',
+            current_text: 'The data is kept in step with the source as it changes.',
+            leaflets_title: 'Package leaflets',
+            leaflets_text: 'The official leaflet sits with every medicine that has one.',
+            credits: 'Designed and made by',
         },
 
         landing: {
@@ -78,13 +86,21 @@ export const locales = {
     },
 
     nl: {
-        screenwarning: {
-            message: 'Vetly is nog niet geoptimaliseerd voor mobiele apparaten. Gebruik een computer of laptop voor de beste ervaring.',
-        },
-
         header: {
             home: 'Home',
             search: 'Zoeken',
+        },
+
+        sections: {
+            hero_title: 'een zoekhulp voor diergeneesmiddelen',
+            hero_subtitle: 'met gegevens die uit de officiële databank komen',
+            search_title: 'Zoeken',
+            search_text: 'Op merknaam, op registratienummer of op diersoort.',
+            current_title: 'Actueel',
+            current_text: 'De gegevens lopen mee met de bron zodra daar iets verandert.',
+            leaflets_title: 'Bijsluiters',
+            leaflets_text: 'Bij elk middel dat er een heeft, staat de officiële bijsluiter erbij.',
+            credits: 'Ontworpen en gemaakt door',
         },
 
         landing: {
