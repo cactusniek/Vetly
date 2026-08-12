@@ -17,7 +17,8 @@
     z-index: 100;
 
     @include respond-up-width(tablet-large) {
-        padding-inline: 2.5rem;
+        padding-left: 2.5rem;
+        padding-right: 3.75rem;
     }
 }
 

@@ -31,6 +31,11 @@ export { default as MenuIcon } from './ui/menu.svg?react'
 export { default as Divider } from './ui/divider.svg?react'
 export { default as LanguageIcon } from './ui/language.svg?react'
 
+// socials
+export { default as LinkedInIcon } from './socials/linkedin.svg?react'
+export { default as GithubIcon } from './socials/github.svg?react'
+export { default as MailIcon } from './socials/mail.svg?react'
+
 // images
 export { default as VideoPlaceholder } from './images/video-placeholder.png'
 export { default as SearchBarImage } from './images/searchbar.svg'

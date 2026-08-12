@@ -1,65 +1,54 @@
-import { NavLink } from 'react-router-dom'
-
 import { useAtom } from 'jotai'
-import { languageAtom } from '@/global/atoms/atoms'
+import { languageAtom, socialsAtom } from '@/global/atoms/atoms'
 
 import { locales } from '@/global/translations'
 
-import { type Route } from '@/global/types/types'
-
-import { CircleSmall, Divider, Logo } from '@/assets'
+import { CircleSmall, GithubIcon, LinkedInIcon, MailIcon } from '@/assets'
 
 import '@/styles/global.scss'
 import './outro.scss'
-
-const github = 'https://github.com/cactusniek'
 
 export default function Outro() {
     const [language] = useAtom(languageAtom)
     const locale = locales[language]
 
-    const routes: Route[] = [
-        { label: locale.header.home, path: '/' },
-        { label: locale.header.search, path: '/search' },
-    ]
+    const [socials] = useAtom(socialsAtom)
 
     const year = new Date().getFullYear()
 
     return (
         <div className="container_outro">
-            <div className="container_nav">
-                <NavLink to={'/'} className="link_Logo">
-                    <img alt="image_Logo" src={Logo} className="image_Logo" />
-                </NavLink>
+            <div className="container_footer">
+                <div className="container_socials">
+                    <a href={socials.LinkedIn} target="_blank" rel="noopener noreferrer" className="anchor_social">
+                        <LinkedInIcon className="icon_Social" />
+                    </a>
 
-                <CircleSmall className="icon_CircleSmall" />
+                    <a href={socials.Github} target="_blank" rel="noopener noreferrer" className="anchor_social">
+                        <GithubIcon className="icon_Social" />
+                    </a>
 
-                <div className="container_routes">
-                    {routes.map((route, index) => (
-                        <div key={route.path} className="container_route">
-                            <NavLink to={route.path} className={({ isActive }) => `route ${isActive ? 'active' : ''}`}>
-                                {route.label}
-                            </NavLink>
-
-                            {index < routes.length - 1 && <Divider className="divider" />}
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="container_bottom">
-                <span className="text_copyright">&copy; {year}</span>
-
-                <CircleSmall className="icon_CircleSmall" />
-
-                <div className="container_credits">
-                    <span className="text_credit">{locale.sections.credits}</span>
-
-                    <a href={github} target="_blank" rel="noopener noreferrer" className="anchor_credit">
-                        Niek
+                    <a href={socials.Mail} target="_blank" rel="noopener noreferrer" className="anchor_social">
+                        <MailIcon className="icon_Social" />
                     </a>
                 </div>
+
+                <div className="container_copyright">
+                    <span className="text_copyright">&copy; {year}</span>
+
+                    <CircleSmall className="icon_CircleSmall" />
+
+                    <div className="container_credits">
+                        <span className="text_credit">{locale.sections.credits}</span>
+
+                        <a href={socials.Github} target="_blank" rel="noopener noreferrer" className="anchor_credit">
+                            Niek
+                        </a>
+                    </div>
+                </div>
             </div>
+
+            <span className="text_wordmark">Vetly</span>
         </div>
     )
 }

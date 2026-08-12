@@ -60,13 +60,13 @@ export default function Sections() {
                 <p className="text_section">{locale.sections.current_text}</p>
             </section>
 
-            <section className="section">
-                <h2 className="title_section">{locale.sections.leaflets_title}</h2>
+            <section className="section_outro">
+                <div className="container_titles">
+                    <h2 className="title_section">{locale.sections.leaflets_title}</h2>
 
-                <p className="text_section">{locale.sections.leaflets_text}</p>
-            </section>
+                    <p className="text_section">{locale.sections.leaflets_text}</p>
+                </div>
 
-            <section className="section">
                 <Outro />
             </section>
         </div>
