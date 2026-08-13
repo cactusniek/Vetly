@@ -24,7 +24,7 @@ export default function Landing() {
             </Helmet>
 
             <div className="container_landing">
-                <Header intro />
+                <Header />
 
                 <BackgroundCatsMobile className="image_BackgroundMobile" />
 

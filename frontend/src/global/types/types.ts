@@ -5,24 +5,29 @@ export interface Route {
     path: string
 }
 
-export interface HeaderProps {
-    intro?: boolean
+export type SwarmGroup = 'birds' | 'cat' | 'duck' | 'fish' | 'turtle'
+
+export interface SwarmAnimal {
+    id: string
+    group: SwarmGroup
+    Icon: FunctionComponent<SVGProps<SVGSVGElement>>
+    left: number
+    top: number
+    width: number
 }
 
-export type SearchCategory = 'all' | 'medicine' | 'owner' | 'animal'
+export const supportedLanguages = ['nl', 'en'] as const
 
-export interface SearchCategoryOption {
-    value: SearchCategory
-    icon: FunctionComponent<SVGProps<SVGSVGElement>>
-}
+export type LocaleLanguage = (typeof supportedLanguages)[number]
 
-export interface SearchBarProps {
-    onSearch: (query: string, category: SearchCategory) => void
-    isLoading: boolean
-    searchProgress: number
-    searchMessage: string
-    categories?: SearchCategoryOption[]
-    dividerIcon?: FunctionComponent<SVGProps<SVGSVGElement>>
+export interface MedicineResponse {
+    productnaam: string
+    handelsvergunninghouder: string
+    afleverstatus: string
+    doeldieren: string
+    wachttermijnen_doeldier_product_termijn: string
+    registratienummer: string
+    procedurenummer: string
 }
 
 export interface MedicineProps {
@@ -35,18 +40,3 @@ export interface MedicineProps {
     registratienummer: string
     procedurenummer: string
 }
-
-// shape returned by the sync service, before it is mapped onto MedicineProps
-export interface MedicineResponse {
-    productnaam: string
-    handelsvergunninghouder: string
-    afleverstatus: string
-    doeldieren: string
-    wachttermijnen_doeldier_product_termijn: string
-    registratienummer: string
-    procedurenummer: string
-}
-
-export const supportedLanguages = ['nl', 'en'] as const
-
-export type LocaleLanguage = (typeof supportedLanguages)[number]

@@ -7,6 +7,7 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
     server: {
         port: 8000,
+        host: true,
     },
     plugins: [react(), svgr()],
     resolve: {

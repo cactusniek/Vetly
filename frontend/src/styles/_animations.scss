@@ -41,14 +41,42 @@
     }
 }
 
-// 1.02 in plaats van 1: bij precies 1 valt de ronde eindkap van de streep op het
-// beginpunt van het pad, en die zie je dan als stip staan voordat de lijn begint
 @keyframes DrawLine {
     from {
         stroke-dashoffset: 1.02;
     }
     to {
         stroke-dashoffset: 0;
+    }
+}
+
+@keyframes Section {
+    from {
+        opacity: 0;
+        transform: translateY(1.25rem);
+        filter: blur(5px);
+    }
+    30%,
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-1.25rem);
+        filter: blur(5px);
+    }
+}
+
+@keyframes Swarm {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 

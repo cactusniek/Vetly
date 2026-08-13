@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { useAtom } from 'jotai'
@@ -8,14 +7,14 @@ import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
 
 import { locales } from '@/global/translations'
 
-import { type HeaderProps, type Route } from '@/global/types/types'
+import { type Route } from '@/global/types/types'
 
 import { CircleSmall, Divider, Logo, MenuIcon } from '@/assets'
 
 import '@/styles/global.scss'
 import './header.scss'
 
-export default function Header({ intro }: HeaderProps) {
+export default function Header() {
     const [language] = useAtom(languageAtom)
     const locale = locales[language]
 
@@ -26,17 +25,6 @@ export default function Header({ intro }: HeaderProps) {
         { label: locale.header.search, path: '/search' },
     ]
 
-    useEffect(() => {
-        const desktop = window.matchMedia('(min-width: 740px)')
-
-        const handleBreakpoint = (e: MediaQueryListEvent) => {
-            if (e.matches) setShowNav(false)
-        }
-
-        desktop.addEventListener('change', handleBreakpoint)
-        return () => desktop.removeEventListener('change', handleBreakpoint)
-    }, [setShowNav])
-
     function toggleShowNav() {
         setShowNav(prev => !prev)
     }
@@ -46,7 +34,7 @@ export default function Header({ intro }: HeaderProps) {
     }
 
     return (
-        <div className={`header ${intro ? 'intro' : ''}`}>
+        <div className="header">
             <div className="header_mobile">
                 <div className="container_top">
                     <NavLink to={'/'} className="link_Logo">
@@ -91,7 +79,9 @@ export default function Header({ intro }: HeaderProps) {
                 </div>
             </div>
 
-            <SwitchLanguage />
+            <div className="container_switchlanguage">
+                <SwitchLanguage />
+            </div>
         </div>
     )
 }

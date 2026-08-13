@@ -4,6 +4,7 @@ import { useAtom } from 'jotai'
 import { languageAtom } from '@/global/atoms/atoms'
 
 import Outro from '@/components/Outro/Outro'
+import Swarm from '@/components/Swarm/Swarm'
 
 import { locales } from '@/global/translations'
 
@@ -33,6 +34,14 @@ export default function Sections() {
 
                     <h2 className="subtitle_hero">{locale.sections.hero_subtitle}</h2>
                 </div>
+            </section>
+
+            <section className="section">
+                <div className="container_titles">
+                    <h2 className="title_section">{locale.sections.search_title}</h2>
+
+                    <p className="text_section">{locale.sections.search_text}</p>
+                </div>
 
                 <video
                     onClick={toggleVideo}
@@ -42,22 +51,14 @@ export default function Sections() {
                     muted
                     playsInline
                     preload="auto"
-                    className="video_hero"
+                    className="video_section"
                 >
                     <source src="https://mdn.github.io/shared-assets/videos/flower.mp4" type="video/mp4" />
                 </video>
             </section>
 
             <section className="section">
-                <h2 className="title_section">{locale.sections.search_title}</h2>
-
-                <p className="text_section">{locale.sections.search_text}</p>
-            </section>
-
-            <section className="section">
-                <h2 className="title_section">{locale.sections.current_title}</h2>
-
-                <p className="text_section">{locale.sections.current_text}</p>
+                <Swarm />
             </section>
 
             <section className="section_outro">

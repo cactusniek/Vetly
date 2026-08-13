@@ -16,9 +16,17 @@
     right: 0;
     z-index: 100;
 
+    .container_switchlanguage {
+        display: none;
+    }
+
     @include respond-up-width(tablet-large) {
         padding-left: 2.5rem;
         padding-right: 3.75rem;
+
+        .container_switchlanguage {
+            display: flex;
+        }
     }
 }
 
@@ -317,7 +325,7 @@
     }
 }
 
-.header.intro {
+.header {
     --start: 0.6s;
 
     .image_Logo {
