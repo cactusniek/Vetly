@@ -4,7 +4,7 @@ import { useAtom } from 'jotai'
 import { languageAtom } from '@/global/atoms/atoms'
 
 import Outro from '@/components/Outro/Outro'
-import Swarm from '@/components/Swarm/Swarm'
+import Species from '@/components/Species/Species'
 
 import { locales } from '@/global/translations'
 
@@ -58,7 +58,7 @@ export default function Sections() {
             </section>
 
             <section className="section">
-                <Swarm />
+                <Species />
             </section>
 
             <section className="section_outro">

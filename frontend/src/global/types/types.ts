@@ -5,15 +5,11 @@ export interface Route {
     path: string
 }
 
-export type SwarmGroup = 'birds' | 'cat' | 'duck' | 'fish' | 'turtle'
+export type SpeciesId = 'cat' | 'duck' | 'fish' | 'goose' | 'parrot' | 'pigeon' | 'turtle'
 
-export interface SwarmAnimal {
-    id: string
-    group: SwarmGroup
+export interface SpeciesAnimal {
+    id: SpeciesId
     Icon: FunctionComponent<SVGProps<SVGSVGElement>>
-    left: number
-    top: number
-    width: number
 }
 
 export const supportedLanguages = ['nl', 'en'] as const

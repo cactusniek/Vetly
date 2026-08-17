@@ -13,6 +13,8 @@
 
     scrollbar-width: none;
 
+    scroll-behavior: smooth;
+
     &::-webkit-scrollbar {
         display: none;
     }
@@ -50,17 +52,20 @@
         text-align: center;
     }
 
-    .container_titles,
-    .video_section {
-        animation-name: Section;
-        animation-duration: auto;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: both;
-        animation-timeline: view();
-        animation-range: cover 0% cover 100%;
+    @supports (animation-timeline: view()) {
+        .container_titles,
+        .container_species,
+        .video_section {
+            animation-name: Section;
+            animation-duration: auto;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 100%;
 
-        @media (prefers-reduced-motion: reduce) {
-            animation: none;
+            @media (prefers-reduced-motion: reduce) {
+                animation: none;
+            }
         }
     }
 

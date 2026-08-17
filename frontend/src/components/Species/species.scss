@@ -4,10 +4,10 @@
 @use 'layout' as *;
 @use 'animations' as *;
 
-.container_swarm {
+.container_species {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
     position: relative;
 
     width: 100%;
@@ -15,7 +15,7 @@
     @include respond-up-width(tablet-large) {
         flex-direction: row;
         align-items: center;
-        justify-content: flex-end;
+        gap: 2.5rem;
 
         height: 100%;
     }
@@ -24,13 +24,11 @@
         position: relative;
 
         width: 100%;
-        height: 12rem;
+        height: 9rem;
 
         @include respond-up-width(tablet-large) {
-            position: absolute;
-            inset: 0;
-
-            height: auto;
+            width: 60%;
+            height: 100%;
         }
     }
 
@@ -54,6 +52,55 @@
         }
     }
 
+    .button_cat {
+        left: 8%;
+        top: 18%;
+
+        width: 30%;
+    }
+
+    .button_duck {
+        left: 22%;
+        top: 13%;
+
+        width: 28%;
+    }
+
+    .button_pigeon {
+        left: 32%;
+        top: 20%;
+
+        width: 36%;
+    }
+
+    .button_parrot {
+        left: 15%;
+        top: 34%;
+
+        width: 29%;
+    }
+
+    .button_goose {
+        left: 26%;
+        top: 39%;
+
+        width: 27%;
+    }
+
+    .button_turtle {
+        left: 7%;
+        top: 53%;
+
+        width: 34%;
+    }
+
+    .button_fish {
+        left: 20%;
+        top: 59%;
+
+        width: 25%;
+    }
+
     .icon_Animal {
         width: 100%;
         height: 100%;
@@ -68,18 +115,15 @@
             opacity 0.4s ease-in-out;
     }
 
-    .container_species {
+    .container_details {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
 
-        animation: Swarm 0.4s ease;
+        animation: Species 0.4s ease;
 
         @include respond-up-width(tablet-large) {
-            position: relative;
-            z-index: 10;
-
-            width: 22rem;
+            width: 40%;
 
             text-align: left;
         }
@@ -87,7 +131,7 @@
 
     .title_species {
         font-family: 'Gelica';
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 500;
         line-height: 1.3;
         color: $color-black;
@@ -102,13 +146,13 @@
 
     .text_medicines {
         font-family: 'Gelica';
-        font-size: 28px;
+        font-size: 24px;
         line-height: 1;
         color: $color-purple;
     }
 
     @media (prefers-reduced-motion: reduce) {
-        .container_species {
+        .container_details {
             animation: none;
         }
     }

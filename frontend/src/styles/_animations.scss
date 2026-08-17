@@ -69,7 +69,7 @@
     }
 }
 
-@keyframes Swarm {
+@keyframes Species {
     from {
         opacity: 0;
         transform: translateY(0.5rem);
@@ -77,6 +77,19 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes Outro {
+    from {
+        opacity: 0;
+        transform: translateY(1.25rem);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
     }
 }
 
@@ -111,9 +124,9 @@
 
 @keyframes Panel {
     from {
-        clip-path: inset(0 100% 0 0 round $border-radius-xs);
+        clip-path: inset(0 100% 0 0);
     }
     to {
-        clip-path: inset(0 0 0 0 round $border-radius-xs);
+        clip-path: inset(0 0 0 0);
     }
 }

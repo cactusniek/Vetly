@@ -28,8 +28,19 @@
     }
 
     .icon_Language {
+        width: auto;
+        height: 2rem;
+
         user-select: none;
         -webkit-user-drag: none;
+
+        [stroke='#2C2C2C'] {
+            stroke: currentColor;
+        }
+
+        [fill='#2C2C2C'] {
+            fill: currentColor;
+        }
     }
 
     .languages {

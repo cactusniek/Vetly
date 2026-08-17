@@ -329,18 +329,31 @@
     --start: 0.6s;
 
     .image_Logo {
-        animation: Logo 1.2s ease var(--start) backwards;
+        animation-name: Logo;
+        animation-duration: 1.2s;
+        animation-timing-function: ease;
+        animation-delay: var(--start);
+        animation-fill-mode: backwards;
     }
 
     .header_mobile::before,
     .header_desktop::before {
-        animation: Panel 0.6s ease calc(var(--start) + 0.3s) backwards;
+        animation-name: Panel;
+        animation-duration: 0.6s;
+        animation-timing-function: ease;
+        animation-delay: calc(var(--start) + 0.3s);
+        animation-fill-mode: backwards;
+        will-change: clip-path;
     }
 
     .button_menu,
     .switch_language,
     .header_desktop .container_navigation {
-        animation: Navigation 0.6s ease calc(var(--start) + 0.8s) backwards;
+        animation-name: Navigation;
+        animation-duration: 0.6s;
+        animation-timing-function: ease;
+        animation-delay: calc(var(--start) + 0.8s);
+        animation-fill-mode: backwards;
     }
 
     @media (prefers-reduced-motion: reduce) {
