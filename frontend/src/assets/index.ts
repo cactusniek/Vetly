@@ -46,6 +46,9 @@ export { default as DogImage } from './images/dog.png'
 export { default as CatImage } from './images/cat.png'
 export { default as CatsImage } from './images/cats.png'
 export { default as RabbitImage } from './images/rabbit.png'
+export { default as SearchOneImage } from './images/search-1.png'
+export { default as SearchTwoImage } from './images/search-2.png'
+export { default as SearchThreeImage } from './images/search-3.png'
 
 // logo
 export { default as Logo } from './logo/logo.svg'

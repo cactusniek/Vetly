@@ -126,7 +126,7 @@ export default function Medicine(props: MedicineProps) {
                                         transition: 'transform 0.5s ease',
                                     }}
                                 >
-                                    <span className="text_remaining">+{remainingIcons}</span>
+                                    <span className="text_remaining">{remainingIcons}</span>
                                 </div>
                             )}
                         </div>

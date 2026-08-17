@@ -103,6 +103,12 @@
         -webkit-user-drag: none;
     }
 
+    .text_remaining::before {
+        content: '+';
+
+        font-family: system-ui, sans-serif;
+    }
+
     .doeldieren_remaining {
         display: flex;
         align-items: center;

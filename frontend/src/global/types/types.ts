@@ -5,7 +5,7 @@ export interface Route {
     path: string
 }
 
-export type SpeciesId = 'cat' | 'duck' | 'fish' | 'goose' | 'parrot' | 'pigeon' | 'turtle'
+export type SpeciesId = 'cat' | 'duck' | 'fish' | 'parrot' | 'rabbit' | 'turtle'
 
 export interface SpeciesAnimal {
     id: SpeciesId
