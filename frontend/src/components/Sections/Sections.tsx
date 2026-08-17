@@ -8,7 +8,7 @@ import Species from '@/components/Species/Species'
 
 import { locales } from '@/global/translations'
 
-import { SearchOneImage, SearchThreeImage, SearchTwoImage } from '@/assets'
+import { SearchExampleOneImage, SearchExampleThreeImage, SearchExampleTwoImage } from '@/assets'
 
 import '@/styles/global.scss'
 import './sections.scss'
@@ -38,11 +38,11 @@ export default function Sections() {
                 </div>
 
                 <div className="container_preview">
-                    <img alt="image_SearchIsothesia" src={SearchOneImage} className="image_Preview" />
+                    <img alt="image_SearchIsothesia" src={SearchExampleOneImage} className="image_Preview" />
 
-                    <img alt="image_SearchCyclavance" src={SearchTwoImage} className="image_Preview" />
+                    <img alt="image_SearchCyclavance" src={SearchExampleTwoImage} className="image_Preview" />
 
-                    <img alt="image_SearchAurizon" src={SearchThreeImage} className="image_Preview" />
+                    <img alt="image_SearchAurizon" src={SearchExampleThreeImage} className="image_Preview" />
                 </div>
             </section>
 

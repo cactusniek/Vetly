@@ -57,38 +57,53 @@
         align-items: flex-end;
         justify-content: center;
 
-        margin-bottom: -14%;
-        width: min(58rem, 104%);
+        margin-bottom: -15%;
+        width: min(105rem, 155%);
     }
 
     .image_Preview {
-        width: 34%;
-
-        background-color: $background-white;
-        border: 2px solid $color-mistgrey;
-        border-radius: $border-radius-xs;
+        width: 35%;
 
         user-select: none;
         -webkit-user-drag: none;
+        transition:
+            rotate 0.4s ease-in-out,
+            scale 0.4s ease-in-out;
 
         &:first-child {
             z-index: 1;
 
             rotate: -8deg;
-            translate: 26% 8%;
+            translate: 25% 10%;
+
+            &:hover {
+                rotate: -11deg;
+            }
         }
 
         &:nth-child(2) {
             z-index: 3;
 
             width: 40%;
+
+            &:hover {
+                rotate: -3deg;
+            }
         }
 
         &:last-child {
             z-index: 2;
 
             rotate: 8deg;
-            translate: -26% 8%;
+            translate: -25% 10%;
+
+            &:hover {
+                rotate: 11deg;
+            }
+        }
+
+        &:hover {
+            scale: 1.05;
         }
     }
 
