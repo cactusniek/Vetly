@@ -9,10 +9,11 @@
     padding-inline: 1.25rem;
     padding-bottom: 0.75rem;
 
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    position: relative;
     z-index: 10;
 
     width: 100%;
@@ -58,9 +59,10 @@
 }
 
 .container_searchbar {
-    position: relative;
     display: flex;
     justify-content: center;
+
+    position: relative;
 
     width: 100%;
     max-width: 25rem;
@@ -72,8 +74,8 @@
 
         color: $color-mediumgrey;
 
-        transform: translateY(-45%);
         pointer-events: none;
+        transform: translateY(-45%);
     }
 
     .input_search {
@@ -92,80 +94,24 @@
         background-color: $background-white;
         border: 2px solid $color-mediumgrey;
         border-radius: $border-radius-md;
-        outline: none;
 
-        transition: border-color 0.3s ease;
+        outline: none;
         appearance: none;
         -webkit-appearance: none;
-    }
+        transition: border-color 0.3s ease;
 
-    .input_search::placeholder {
-        z-index: 10;
+        &::placeholder {
+            z-index: 10;
 
-        font-weight: 600;
-        color: $color-mediumgrey;
+            font-weight: 600;
+            color: $color-mediumgrey;
 
-        user-select: none;
-    }
-
-    .input_search:focus,
-    .input_search:hover {
-        border: 2px solid $color-black;
-    }
-
-    &.categories .input_search {
-        padding-right: 8.75rem;
-    }
-}
-
-.container_categories {
-    position: absolute;
-    top: 50%;
-    right: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    transform: translateY(-50%);
-
-    .icon_Divider {
-        width: 0.125rem;
-        height: 1.375rem;
-
-        color: rgba($color-mediumgrey, 0.75);
-
-        pointer-events: none;
-    }
-}
-
-.container_buttons {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-
-    .button_category {
-        padding: 0;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        background: none;
-        border: none;
-
-        cursor: pointer;
-
-        .icon_Category {
-            width: 1.375rem;
-            height: 1.375rem;
-
-            color: $color-lightgrey;
-
-            transition: color 0.2s ease;
+            user-select: none;
         }
 
-        &.active .icon_Category {
-            color: $color-purple;
+        &:focus,
+        &:hover {
+            border: 2px solid $color-black;
         }
     }
 }
@@ -176,9 +122,9 @@
 
     overflow: hidden;
 
-    height: 1.125rem;
     width: 100%;
     max-width: 25rem;
+    height: 1.125rem;
 
     transition:
         height 0.35s ease,

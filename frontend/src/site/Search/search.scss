@@ -20,11 +20,6 @@
     scrollbar-gutter: stable;
 
     scroll-behavior: smooth;
-    -webkit-scroll-behavior: smooth;
-    -moz-scroll-behavior: smooth;
-    -ms-scroll-behavior: smooth;
-
-    -ms-overflow-style: none;
 
     .searchbar {
         position: sticky;
@@ -64,6 +59,10 @@
         color: $color-mediumgrey;
 
         animation: Background 0.4s ease-in-out;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
 
         .image_BackgroundSmall {
             @include respond-up-width(desktop) {
@@ -110,7 +109,7 @@
     }
 
     .button_disclaimer,
-    .anchor_landing {
+    .link_landing {
         width: fit-content;
 
         font-size: 14px;

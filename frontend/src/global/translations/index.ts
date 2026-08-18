@@ -1,5 +1,5 @@
 export { messages } from './messages'
 export { locales } from './locales'
 
-export type { MessageLanguage, MessageKey } from './messages'
-export type { LocaleLanguage } from '../types/types'
+export type { MessageKey, MessageLanguage } from './messages'
+export type { LocaleLanguage } from '@/global/types/types'

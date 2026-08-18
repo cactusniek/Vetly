@@ -16,10 +16,6 @@
     user-select: none;
     -webkit-user-drag: none;
 
-    @include respond-up-width(tablet-large) {
-        display: block;
-    }
-
     .current_language {
         display: flex;
         align-items: center;
@@ -46,10 +42,14 @@
     .languages {
         margin-top: 0.2rem;
 
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow: hidden;
+
         position: absolute;
         top: 100%;
         left: 0;
-        overflow: hidden;
 
         max-height: 0;
 
@@ -76,10 +76,6 @@
 
     &:hover .languages,
     &:focus-within .languages {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-
         max-height: 10rem;
 
         opacity: 1;

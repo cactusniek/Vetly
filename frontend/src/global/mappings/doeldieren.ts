@@ -1,8 +1,6 @@
-// mapping of doeldieren to their corresponding icons
+import { type FunctionComponent, type SVGProps } from 'react'
 
-import type { FunctionComponent, SVGProps } from 'react'
-
-import { Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '../../assets'
+import { Bee, Cat, Chicken, Cow, Dog, Duck, Fish, Goat, Goose, Horse, Parrot, Pig, Pigeon, Rabbit, Sheep, Turkey, Turtle } from '@/assets'
 
 export const doeldierenIconMap: Record<string, FunctionComponent<SVGProps<SVGSVGElement>>> = {
     Bijen: Bee,
@@ -56,9 +54,5 @@ export const doeldierenIconMap: Record<string, FunctionComponent<SVGProps<SVGSVG
 
     Reptielen: Turtle,
 
-    // later toevoegen:
-    // Fazanten,
-    // Kuikens,
-    // Biggetjes,
-    // Lammeren
+    // to add later: Fazanten, Kuikens, Biggetjes, Lammeren
 }

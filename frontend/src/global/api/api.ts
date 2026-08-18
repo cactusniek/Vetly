@@ -1,4 +1,4 @@
-import type { MedicineProps, MedicineResponse } from '../types/types'
+import { type MedicineProps, type MedicineResponse } from '@/global/types/types'
 
 export class medicinesApi {
     private static serverUrl: string = import.meta.env.VITE_SYNC_URL || 'http://localhost:4000'
@@ -11,7 +11,6 @@ export class medicinesApi {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-                // credentials: 'include',
                 body: body ? JSON.stringify(body) : undefined,
             })
 
@@ -19,6 +18,17 @@ export class medicinesApi {
         } catch (err) {
             console.error(`Failed to fetch: error: ${err}, endpoint: ${endpoint}, method: (${method})`)
             throw err
+        }
+    }
+
+    public static async getDoeldieren(): Promise<Record<string, number>> {
+        try {
+            const response = await this.fetchData('/doeldieren', 'GET')
+
+            return response
+        } catch (err) {
+            console.error('API fetch error: ', err)
+            return {}
         }
     }
 

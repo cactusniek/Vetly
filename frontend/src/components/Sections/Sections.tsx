@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import { useAtom } from 'jotai'
 import { languageAtom } from '@/global/atoms/atoms'
@@ -8,7 +8,7 @@ import Species from '@/components/Species/Species'
 
 import { locales } from '@/global/translations'
 
-import { SearchExampleOneImage, SearchExampleThreeImage, SearchExampleTwoImage } from '@/assets'
+import { SearchExampleOneImage, SearchExampleThreeImage, SearchExampleTwoImage, SearchIcon } from '@/assets'
 
 import '@/styles/global.scss'
 import './sections.scss'
@@ -16,17 +16,6 @@ import './sections.scss'
 export default function Sections() {
     const [language] = useAtom(languageAtom)
     const locale = locales[language]
-
-    const videoRef = useRef<HTMLVideoElement>(null)
-
-    function toggleVideo() {
-        const video = videoRef.current
-
-        if (!video) return
-
-        if (video.paused) video.play()
-        else video.pause()
-    }
 
     return (
         <div className="container_sections">
@@ -47,35 +36,22 @@ export default function Sections() {
             </section>
 
             <section className="section">
-                <div className="container_titles">
-                    <h2 className="title_section">{locale.sections.search_title}</h2>
-
-                    <p className="text_section">{locale.sections.search_text}</p>
-                </div>
-
-                <video
-                    onClick={toggleVideo}
-                    ref={videoRef}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="video_section"
-                >
-                    <source src="https://mdn.github.io/shared-assets/videos/flower.mp4" type="video/mp4" />
-                </video>
-            </section>
-
-            <section className="section">
                 <Species />
             </section>
 
             <section className="section_outro">
-                <div className="container_titles">
-                    <h2 className="title_section">{locale.sections.leaflets_title}</h2>
+                <div className="container_leaflets">
+                    <div className="container_titles">
+                        <h2 className="title_section">{locale.sections.leaflets_title}</h2>
 
-                    <p className="text_section">{locale.sections.leaflets_text}</p>
+                        <p className="text_section">{locale.sections.leaflets_text}</p>
+                    </div>
+
+                    <NavLink to={'/search'} className="link_search">
+                        <SearchIcon className="icon_Search" />
+
+                        {locale.sections.search_link}
+                    </NavLink>
                 </div>
 
                 <Outro />

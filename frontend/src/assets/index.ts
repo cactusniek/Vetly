@@ -18,37 +18,28 @@ export { default as Turkey } from './animals/turkey.svg?react'
 export { default as Turtle } from './animals/turtle.svg?react'
 
 // backgrounds
-export { default as BackgroundSmall } from './backgrounds/background-small.svg?react'
-export { default as BackgroundLarge } from './backgrounds/background-large.svg?react'
 export { default as BackgroundCats } from './backgrounds/background-cats.svg?react'
 export { default as BackgroundCatsMobile } from './backgrounds/background-cats-mobile.svg?react'
-
-// ui
-export { default as SearchIcon } from './ui/search.svg?react'
-export { default as CircleSmall } from './ui/circle-small.svg?react'
-export { default as ArrowToggle } from './ui/arrow-toggle.svg?react'
-export { default as MenuIcon } from './ui/menu.svg?react'
-export { default as Divider } from './ui/divider.svg?react'
-export { default as LanguageIcon } from './ui/language.svg?react'
-
-// socials
-export { default as LinkedInIcon } from './socials/linkedin.svg?react'
-export { default as GithubIcon } from './socials/github.svg?react'
-export { default as MailIcon } from './socials/mail.svg?react'
+export { default as BackgroundLarge } from './backgrounds/background-large.svg?react'
+export { default as BackgroundSmall } from './backgrounds/background-small.svg?react'
 
 // images
-export { default as VideoPlaceholder } from './images/video-placeholder.png'
-export { default as SearchBarImage } from './images/searchbar.svg'
-export { default as UpToDateImage } from './images/up-to-date.svg'
-export { default as SustainableImage } from './images/sustainable.svg'
-export { default as StarsImage } from './images/stars.svg'
-export { default as DogImage } from './images/dog.png'
-export { default as CatImage } from './images/cat.png'
-export { default as CatsImage } from './images/cats.png'
-export { default as RabbitImage } from './images/rabbit.png'
 export { default as SearchExampleOneImage } from './images/search-example-1.svg'
-export { default as SearchExampleTwoImage } from './images/search-example-2.svg'
 export { default as SearchExampleThreeImage } from './images/search-example-3.svg'
+export { default as SearchExampleTwoImage } from './images/search-example-2.svg'
 
 // logo
 export { default as Logo } from './logo/logo.svg'
+
+// socials
+export { default as GithubIcon } from './socials/github.svg?react'
+export { default as LinkedInIcon } from './socials/linkedin.svg?react'
+export { default as MailIcon } from './socials/mail.svg?react'
+
+// ui
+export { default as ArrowToggle } from './ui/arrow-toggle.svg?react'
+export { default as CircleSmall } from './ui/circle-small.svg?react'
+export { default as Divider } from './ui/divider.svg?react'
+export { default as LanguageIcon } from './ui/language.svg?react'
+export { default as MenuIcon } from './ui/menu.svg?react'
+export { default as SearchIcon } from './ui/search.svg?react'

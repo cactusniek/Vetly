@@ -10,10 +10,9 @@ import './outro.scss'
 
 export default function Outro() {
     const [language] = useAtom(languageAtom)
-    const locale = locales[language]
-
     const [socials] = useAtom(socialsAtom)
 
+    const locale = locales[language]
     const year = new Date().getFullYear()
 
     return (

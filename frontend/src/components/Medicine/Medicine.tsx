@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
-import type { FunctionComponent, SVGProps } from 'react'
+import { type FunctionComponent, type MouseEvent, type SVGProps, useState } from 'react'
 
 import { useAtom } from 'jotai'
 import { languageAtom } from '@/global/atoms/atoms'
 
-import { locales } from '@/global/translations'
-
-import type { MedicineProps } from '@/global/types/types'
-
 import { doeldierenIconMap } from '@/global/mappings/doeldieren'
 
-import { CircleSmall, ArrowToggle } from '@/assets'
+import { locales } from '@/global/translations'
+
+import { type MedicineProps } from '@/global/types/types'
+
+import { ArrowToggle, CircleSmall } from '@/assets'
 
 import '@/styles/global.scss'
 import './medicine.scss'
@@ -87,7 +86,6 @@ export default function Medicine(props: MedicineProps) {
                     right: `${index * 1.5}rem`,
                     zIndex: 10 - index,
                     transform: getIconTransform(index),
-                    transition: 'transform 0.5s ease',
                 }}
             >
                 <entry.icon className="image_Doeldier" />
@@ -101,7 +99,7 @@ export default function Medicine(props: MedicineProps) {
         setShowMore(true)
     }
 
-    function handleToggle(e: React.MouseEvent) {
+    function handleToggle(e: MouseEvent) {
         e.stopPropagation()
         setShowMore(prev => !prev)
     }
@@ -123,7 +121,6 @@ export default function Medicine(props: MedicineProps) {
                                         right: `${visibleIcons.length * 1.5 + Math.max(0, remainingIcons - 10) * 0.5}rem`,
                                         zIndex: 10 - visibleIcons.length,
                                         transform: getRemainingTransform(),
-                                        transition: 'transform 0.5s ease',
                                     }}
                                 >
                                     <span className="text_remaining">{remainingIcons}</span>

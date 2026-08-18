@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useAtom } from 'jotai'
 import { languageAtom } from '@/global/atoms/atoms'
+
+import { medicinesApi } from '@/global/api/api'
 
 import { locales } from '@/global/translations'
 
@@ -21,22 +23,24 @@ const animals: SpeciesAnimal[] = [
     { id: 'fish', Icon: Fish },
 ]
 
-const medicines: Record<SpeciesId, number> = {
-    cat: 859,
-    duck: 18,
-    fish: 8,
-    parrot: 26,
-    rabbit: 48,
-    turtle: 14,
-}
-
 export default function Species() {
     const [language] = useAtom(languageAtom)
-    const locale = locales[language]
 
     const [selected, setSelected] = useState<SpeciesId>('turtle')
+    const [medicines, setMedicines] = useState<Record<string, number>>({})
 
+    const locale = locales[language]
     const details = locale.sections.species[selected]
+
+    useEffect(() => {
+        async function load() {
+            const counts = await medicinesApi.getDoeldieren()
+
+            setMedicines(counts)
+        }
+
+        load()
+    }, [])
 
     return (
         <div className="container_species">
@@ -56,7 +60,7 @@ export default function Species() {
                 <p className="text_species">{details.text}</p>
 
                 <span className="text_medicines">
-                    {medicines[selected]} {locale.sections.species_medicines}
+                    {medicines[selected] ?? '—'} {locale.sections.species_medicines}
                 </span>
             </div>
         </div>

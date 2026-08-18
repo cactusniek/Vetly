@@ -1,7 +1,6 @@
 import { atom } from 'jotai'
 
-import type { LocaleLanguage } from '../types/types'
-import { supportedLanguages } from '../types/types'
+import { type LocaleLanguage, supportedLanguages } from '@/global/types/types'
 
 export const showNavAtom = atom(false)
 

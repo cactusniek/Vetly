@@ -1,3 +1,4 @@
+import { type MouseEvent } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { useAtom } from 'jotai'
@@ -16,9 +17,9 @@ import './header.scss'
 
 export default function Header() {
     const [language] = useAtom(languageAtom)
-    const locale = locales[language]
-
     const [showNav, setShowNav] = useAtom(showNavAtom)
+
+    const locale = locales[language]
 
     const routes: Route[] = [
         { label: locale.header.home, path: '/' },
@@ -29,6 +30,14 @@ export default function Header() {
         setShowNav(prev => !prev)
     }
 
+    function openNav() {
+        if (!showNav) setShowNav(true)
+    }
+
+    function keepNav(e: MouseEvent) {
+        e.stopPropagation()
+    }
+
     function closeNav() {
         setShowNav(false)
     }
@@ -36,8 +45,8 @@ export default function Header() {
     return (
         <div className="header">
             <div className="header_mobile">
-                <div className="container_top">
-                    <NavLink to={'/'} className="link_Logo">
+                <div onClick={openNav} className="container_top">
+                    <NavLink onClick={keepNav} to={'/'} className="link_Logo">
                         <img alt="image_Logo" src={Logo} className="image_Logo" />
                     </NavLink>
 
@@ -56,8 +65,8 @@ export default function Header() {
             </div>
 
             <div className="header_desktop">
-                <div className="container_top">
-                    <NavLink to={'/'} className="link_Logo">
+                <div onClick={openNav} className="container_top">
+                    <NavLink onClick={keepNav} to={'/'} className="link_Logo">
                         <img alt="image_Logo" src={Logo} className="image_Logo" />
                     </NavLink>
 

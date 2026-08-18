@@ -21,6 +21,7 @@ html {
     letter-spacing: 0.02em;
     caret-color: $color-black;
     text-underline-offset: 2px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 input,

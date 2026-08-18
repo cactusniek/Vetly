@@ -17,6 +17,10 @@
 
     animation: Disclaimer 0.5s ease;
 
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+
     @media (hover: hover) and (pointer: fine) {
         .container_disclaimer:hover {
             border: 2px solid $color-black;

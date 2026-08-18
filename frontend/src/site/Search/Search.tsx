@@ -1,20 +1,21 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 
 import { useAtom } from 'jotai'
 import { languageAtom } from '@/global/atoms/atoms'
 
+import Disclaimer from '@/components/Disclaimer/Disclaimer'
+import Medicine from '@/components/Medicine/Medicine'
+import SearchBar from '@/components/SearchBar/SearchBar'
+
 import { medicinesApi } from '@/global/api/api'
 
-import { messages, locales } from '@/global/translations'
+import { locales, messages } from '@/global/translations'
 
-import type { MedicineProps } from '@/global/types/types'
+import { type MedicineProps } from '@/global/types/types'
 
-import SearchBar from '@/components/SearchBar/SearchBar'
-import Medicine from '@/components/Medicine/Medicine'
-import Disclaimer from '@/components/Disclaimer/Disclaimer'
-
-import { BackgroundSmall, BackgroundLarge } from '@/assets'
+import { BackgroundLarge, BackgroundSmall } from '@/assets'
 
 import '@/styles/global.scss'
 import './search.scss'
@@ -79,13 +80,22 @@ export default function Search() {
     useEffect(() => {
         const resultCount = medicines.length
 
-        if (showDisclaimer || !hasSearched) return setSearchMessage('')
+        if (showDisclaimer || !hasSearched) {
+            setSearchMessage('')
+            return
+        }
 
-        if (isLoading) return setSearchMessage(locale.search.searching)
+        if (isLoading) {
+            setSearchMessage(locale.search.searching)
+            return
+        }
 
-        if (resultCount > 0) return setSearchMessage(resultCount === 1 ? locale.search.result_singular : locale.search.result_plural.replace('{count}', String(resultCount)))
+        if (resultCount === 0) {
+            setSearchMessage(locale.search.no_results)
+            return
+        }
 
-        if (resultCount <= 0) setSearchMessage(locale.search.no_results)
+        setSearchMessage(resultCount === 1 ? locale.search.result_singular : locale.search.result_plural.replace('{count}', String(resultCount)))
     }, [isLoading, medicines.length, hasSearched, locale, showDisclaimer])
 
     function handleToggleDisclaimer() {
@@ -142,9 +152,9 @@ export default function Search() {
                             {locale.search.disclaimer_link}
                         </button>
 
-                        <a href="#" className="anchor_landing">
+                        <NavLink to={'/'} className="link_landing">
                             {locale.search.landing_link}
-                        </a>
+                        </NavLink>
                     </div>
                 </div>
             </div>

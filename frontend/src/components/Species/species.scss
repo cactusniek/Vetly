@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+
     position: relative;
 
     width: 100%;
@@ -43,6 +44,10 @@
         max-width: 24rem;
 
         animation: Species 0.4s ease;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
 
         @include respond-up-width(tablet-large) {
             margin-inline: 0;
@@ -84,12 +89,6 @@
         line-height: 1;
         color: $color-purple;
     }
-
-    @media (prefers-reduced-motion: reduce) {
-        .container_details {
-            animation: none;
-        }
-    }
 }
 
 .container_animals {
@@ -125,22 +124,22 @@
     }
 
     .button_parrot {
-        left: 47.5%;
         top: 15%;
+        left: 47.5%;
 
         width: 2.75rem;
 
         @include respond-up-width(tablet-large) {
-            left: 45%;
             top: 15%;
+            left: 45%;
 
             width: 6.25rem;
         }
     }
 
     .button_cat {
-        left: 12.5%;
         top: 35%;
+        left: 12.5%;
 
         width: 3rem;
 
@@ -149,58 +148,58 @@
         }
 
         @include respond-up-width(tablet-large) {
-            left: 7.5%;
             top: 35%;
+            left: 7.5%;
 
             width: 7.25rem;
         }
     }
 
     .button_duck {
-        left: 87.5%;
         top: 40%;
+        left: 87.5%;
 
         width: 3.25rem;
 
         @include respond-up-width(tablet-large) {
-            left: 80%;
             top: 40%;
+            left: 80%;
 
             width: 6.5rem;
         }
     }
 
     .button_turtle {
-        left: 50%;
         top: 50%;
+        left: 50%;
 
         width: 4.5rem;
 
         @include respond-up-width(tablet-large) {
-            left: 45%;
             top: 50%;
+            left: 45%;
 
             width: 9.5rem;
         }
     }
 
     .button_fish {
-        left: 20%;
         top: 75%;
+        left: 20%;
 
         width: 2.875rem;
 
         @include respond-up-width(tablet-large) {
-            left: 15%;
             top: 80%;
+            left: 15%;
 
             width: 5.5rem;
         }
     }
 
     .button_rabbit {
-        left: 77.5%;
         top: 72.5%;
+        left: 77.5%;
 
         width: 3rem;
 
@@ -209,8 +208,8 @@
         }
 
         @include respond-up-width(tablet-large) {
-            left: 65%;
             top: 82.5%;
+            left: 65%;
 
             width: 7rem;
         }

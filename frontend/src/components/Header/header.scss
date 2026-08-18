@@ -5,10 +5,13 @@
 @use 'animations' as *;
 
 .header {
+    --start: 0.6s;
+
     padding-inline: 1rem;
 
     display: flex;
     justify-content: space-between;
+
     position: fixed;
     top: 1.5rem;
     left: 0;
@@ -19,12 +22,51 @@
         display: none;
     }
 
+    .image_Logo {
+        animation-name: Logo;
+        animation-duration: 1.2s;
+        animation-timing-function: ease;
+        animation-delay: var(--start);
+        animation-fill-mode: backwards;
+    }
+
+    .header_mobile::before,
+    .header_desktop::before {
+        animation-name: Panel;
+        animation-duration: 0.6s;
+        animation-timing-function: ease;
+        animation-delay: calc(var(--start) + 0.3s);
+        animation-fill-mode: backwards;
+        will-change: clip-path;
+    }
+
+    .button_menu,
+    .switch_language,
+    .header_desktop .container_navigation {
+        animation-name: Navigation;
+        animation-duration: 0.6s;
+        animation-timing-function: ease;
+        animation-delay: calc(var(--start) + 0.8s);
+        animation-fill-mode: backwards;
+    }
+
     @include respond-up-width(tablet-large) {
         padding-left: 2.5rem;
         padding-right: 3.75rem;
 
         .container_switchlanguage {
             display: flex;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .image_Logo,
+        .header_mobile::before,
+        .header_desktop::before,
+        .button_menu,
+        .switch_language,
+        .header_desktop .container_navigation {
+            animation: none;
         }
     }
 }
@@ -38,6 +80,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
     position: relative;
 
     width: 100%;
@@ -80,7 +123,7 @@
         -webkit-user-drag: none;
     }
 
-    // all: unset moet hier bovenaan, anders wist hij de regels erboven weer uit
+    // all: unset has to stay on top, it wipes every declaration above it
     .button_menu {
         all: unset;
         box-sizing: border-box;
@@ -197,6 +240,7 @@
     padding-bottom: 0.625rem;
 
     display: none;
+
     position: relative;
 
     width: fit-content;
@@ -321,48 +365,5 @@
 
         user-select: none;
         -webkit-user-drag: none;
-    }
-}
-
-.header {
-    --start: 0.6s;
-
-    .image_Logo {
-        animation-name: Logo;
-        animation-duration: 1.2s;
-        animation-timing-function: ease;
-        animation-delay: var(--start);
-        animation-fill-mode: backwards;
-    }
-
-    .header_mobile::before,
-    .header_desktop::before {
-        animation-name: Panel;
-        animation-duration: 0.6s;
-        animation-timing-function: ease;
-        animation-delay: calc(var(--start) + 0.3s);
-        animation-fill-mode: backwards;
-        will-change: clip-path;
-    }
-
-    .button_menu,
-    .switch_language,
-    .header_desktop .container_navigation {
-        animation-name: Navigation;
-        animation-duration: 0.6s;
-        animation-timing-function: ease;
-        animation-delay: calc(var(--start) + 0.8s);
-        animation-fill-mode: backwards;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .image_Logo,
-        .header_mobile::before,
-        .header_desktop::before,
-        .button_menu,
-        .switch_language,
-        .header_desktop .container_navigation {
-            animation: none;
-        }
     }
 }

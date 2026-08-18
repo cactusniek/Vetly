@@ -1,4 +1,4 @@
-import type { LocaleLanguage } from '../types/types'
+import { type LocaleLanguage } from '@/global/types/types'
 
 export const locales = {
     en: {
@@ -10,8 +10,6 @@ export const locales = {
         sections: {
             hero_title: 'a search tool for veterinary medicines',
             hero_subtitle: 'with data that comes from the official database',
-            search_title: 'Searching',
-            search_text: 'By brand name, by registration number or by species.',
             species_medicines: 'registered medicines',
             species: {
                 cat: { title: 'Cats', text: 'From a pill to a drop in the neck.' },
@@ -21,8 +19,9 @@ export const locales = {
                 rabbit: { title: 'Rabbits', text: 'Rabbits & pet rabbits belong to the same group.' },
                 turtle: { title: 'Reptiles', text: 'Turtles, lizards & snakes belong to this group.' },
             },
-            leaflets_title: 'Package leaflets',
-            leaflets_text: 'The official leaflet sits with every medicine that has one.',
+            leaflets_title: 'Updated every hour',
+            leaflets_text: 'If something changes at the CBG, it is here within the hour.',
+            search_link: 'Search for a medicine',
             credits: 'Designed and made by',
         },
 
@@ -101,8 +100,6 @@ export const locales = {
         sections: {
             hero_title: 'een zoekhulp voor diergeneesmiddelen',
             hero_subtitle: 'met gegevens die uit de officiële databank komen',
-            search_title: 'Zoeken',
-            search_text: 'Op merknaam, op registratienummer of op diersoort.',
             species_medicines: 'geregistreerde middelen',
             species: {
                 cat: { title: 'Katten', text: 'Van een pil tot een druppel in de nek.' },
@@ -112,8 +109,9 @@ export const locales = {
                 rabbit: { title: 'Konijnen', text: 'Konijnen & gezelschapskonijnen vallen onder dezelfde groep.' },
                 turtle: { title: 'Reptielen', text: 'Bij deze groep horen schildpadden, hagedissen & slangen.' },
             },
-            leaflets_title: 'Bijsluiters',
-            leaflets_text: 'Bij elk middel dat er een heeft, staat de officiële bijsluiter erbij.',
+            leaflets_title: 'Elk uur bijgewerkt',
+            leaflets_text: 'Verandert er iets bij het CBG, dan staat het hier binnen het uur.',
+            search_link: 'Zoek een middel',
             credits: 'Ontworpen en gemaakt door',
         },
 

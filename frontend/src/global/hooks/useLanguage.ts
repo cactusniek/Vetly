@@ -1,18 +1,22 @@
 import { useEffect } from 'react'
+
 import { useAtom } from 'jotai'
+import { languageAtom, supportedLanguages } from '@/global/atoms/atoms'
 
-import { languageAtom, supportedLanguages } from '../atoms/atoms'
+import { type LocaleLanguage } from '@/global/types/types'
 
-import type { LocaleLanguage } from '../types/types'
+function isSupported(value: string | null): value is LocaleLanguage {
+    return supportedLanguages.includes(value as LocaleLanguage)
+}
 
 export function useLanguage() {
     const [, setLanguage] = useAtom(languageAtom)
 
     useEffect(() => {
-        const saved = localStorage.getItem('language') as LocaleLanguage
-        const browser = navigator.language.toLowerCase() as LocaleLanguage
+        const saved = localStorage.getItem('language')
+        const browser = navigator.language.toLowerCase()
 
-        if (supportedLanguages.includes(saved)) setLanguage(saved)
-        else if (supportedLanguages.includes(browser)) setLanguage(browser)
+        if (isSupported(saved)) setLanguage(saved)
+        else if (isSupported(browser)) setLanguage(browser)
     }, [setLanguage])
 }
