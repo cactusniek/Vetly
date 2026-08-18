@@ -5,11 +5,10 @@
 @use 'animations' as *;
 
 .header {
-    display: flex;
-    justify-content: space-between;
-
     padding-inline: 1rem;
 
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     top: 1.5rem;
     left: 0;

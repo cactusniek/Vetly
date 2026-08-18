@@ -4,6 +4,8 @@
 @use 'layout' as *;
 @use 'animations' as *;
 
+$section-height: 75vh;
+
 .container_sections {
     position: relative;
     overflow-y: auto;
@@ -21,6 +23,7 @@
 
     .section_hero,
     .section {
+        margin-inline: auto;
         padding-inline: 1.25rem;
 
         display: flex;
@@ -30,8 +33,7 @@
         gap: 1.25rem;
 
         width: 80%;
-        height: 75%;
-        margin-inline: auto;
+        height: $section-height;
 
         text-align: center;
 
@@ -43,9 +45,7 @@
     }
 
     .section_hero {
-        overflow: hidden;
-
-        margin-top: 12.5vh;
+        margin-top: calc((100vh - #{$section-height}) / 2);
 
         @include respond-up-width(tablet-large) {
             margin-top: 0;
@@ -54,11 +54,12 @@
 
     .container_preview {
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: center;
+        overflow: hidden;
 
-        margin-bottom: -15%;
         width: min(105rem, 155%);
+        aspect-ratio: 40 / 9;
     }
 
     .image_Preview {
@@ -114,7 +115,7 @@
         justify-items: center;
 
         width: 100%;
-        height: 75%;
+        height: $section-height;
 
         text-align: center;
 

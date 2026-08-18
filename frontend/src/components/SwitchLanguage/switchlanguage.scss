@@ -34,11 +34,11 @@
         user-select: none;
         -webkit-user-drag: none;
 
-        [stroke='#2C2C2C'] {
+        [stroke='#{$color-black}' i] {
             stroke: currentColor;
         }
 
-        [fill='#2C2C2C'] {
+        [fill='#{$color-black}' i] {
             fill: currentColor;
         }
     }

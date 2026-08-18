@@ -104,9 +104,9 @@
     }
 
     .text_remaining::before {
-        content: '+';
-
         font-family: system-ui, sans-serif;
+
+        content: '+';
     }
 
     .doeldieren_remaining {
@@ -359,7 +359,7 @@
         user-select: none;
         -webkit-user-drag: none;
 
-        transition: transform 0.4s;
+        transition: transform 0.4s ease-in-out;
 
         &.rotate {
             transform: rotate(180deg);

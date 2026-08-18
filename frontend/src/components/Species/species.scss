@@ -33,155 +33,21 @@
         }
     }
 
-    .container_animals {
-        position: relative;
-
-        width: 100%;
-        height: 16rem;
-
-        @include respond-up-width(tablet-large) {
-            max-width: 40rem;
-            height: 100%;
-            max-height: 25rem;
-        }
-
-        .button_animal {
-            all: unset;
-            box-sizing: border-box;
-
-            position: absolute;
-
-            aspect-ratio: 420 / 290;
-
-            cursor: pointer;
-            transform: translate(-50%, -50%);
-
-            &:hover .icon_Animal {
-                color: $color-oceangrey;
-            }
-
-            &.active .icon_Animal {
-                color: $color-purple;
-            }
-        }
-
-        .button_parrot {
-            left: 47.5%;
-            top: 15%;
-
-            width: 44px;
-
-            @include respond-up-width(tablet-large) {
-                left: 45%;
-                top: 15%;
-
-                width: 100px;
-            }
-        }
-
-        .button_cat {
-            left: 12.5%;
-            top: 35%;
-
-            width: 50px;
-
-            .icon_Animal {
-                scale: -1 1;
-            }
-
-            @include respond-up-width(tablet-large) {
-                left: 7.5%;
-                top: 35%;
-
-                width: 115px;
-            }
-        }
-
-        .button_duck {
-            left: 87.5%;
-            top: 40%;
-
-            width: 52px;
-
-            @include respond-up-width(tablet-large) {
-                left: 80%;
-                top: 40%;
-
-                width: 105px;
-            }
-        }
-
-        .button_turtle {
-            left: 50%;
-            top: 50%;
-
-            width: 72px;
-
-            @include respond-up-width(tablet-large) {
-                left: 45%;
-                top: 50%;
-
-                width: 150px;
-            }
-        }
-
-        .button_fish {
-            left: 20%;
-            top: 75%;
-
-            width: 46px;
-
-            @include respond-up-width(tablet-large) {
-                left: 15%;
-                top: 80%;
-
-                width: 90px;
-            }
-        }
-
-        .button_rabbit {
-            left: 77.5%;
-            top: 72.5%;
-
-            width: 50px;
-
-            .icon_Animal {
-                scale: -1 1;
-            }
-
-            @include respond-up-width(tablet-large) {
-                left: 65%;
-                top: 82.5%;
-
-                width: 110px;
-            }
-        }
-
-        .icon_Animal {
-            width: 100%;
-            height: 100%;
-
-            color: $color-mistgrey;
-
-            user-select: none;
-            -webkit-user-drag: none;
-            transition: color 0.4s ease-in-out;
-        }
-    }
-
     .container_details {
+        margin-inline: auto;
+
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
 
         max-width: 24rem;
-        margin-inline: auto;
 
         animation: Species 0.4s ease;
 
         @include respond-up-width(tablet-large) {
-            width: 40%;
             margin-inline: 0;
+
+            width: 40%;
 
             text-align: left;
         }
@@ -223,5 +89,141 @@
         .container_details {
             animation: none;
         }
+    }
+}
+
+.container_animals {
+    position: relative;
+
+    width: 100%;
+    height: 16rem;
+
+    @include respond-up-width(tablet-large) {
+        max-width: 40rem;
+        height: 100%;
+        max-height: 25rem;
+    }
+
+    .button_animal {
+        all: unset;
+        box-sizing: border-box;
+
+        position: absolute;
+
+        aspect-ratio: 420 / 290;
+
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+
+        &:hover .icon_Animal {
+            color: $color-oceangrey;
+        }
+
+        &.active .icon_Animal {
+            color: $color-purple;
+        }
+    }
+
+    .button_parrot {
+        left: 47.5%;
+        top: 15%;
+
+        width: 2.75rem;
+
+        @include respond-up-width(tablet-large) {
+            left: 45%;
+            top: 15%;
+
+            width: 6.25rem;
+        }
+    }
+
+    .button_cat {
+        left: 12.5%;
+        top: 35%;
+
+        width: 3rem;
+
+        .icon_Animal {
+            scale: -1 1;
+        }
+
+        @include respond-up-width(tablet-large) {
+            left: 7.5%;
+            top: 35%;
+
+            width: 7.25rem;
+        }
+    }
+
+    .button_duck {
+        left: 87.5%;
+        top: 40%;
+
+        width: 3.25rem;
+
+        @include respond-up-width(tablet-large) {
+            left: 80%;
+            top: 40%;
+
+            width: 6.5rem;
+        }
+    }
+
+    .button_turtle {
+        left: 50%;
+        top: 50%;
+
+        width: 4.5rem;
+
+        @include respond-up-width(tablet-large) {
+            left: 45%;
+            top: 50%;
+
+            width: 9.5rem;
+        }
+    }
+
+    .button_fish {
+        left: 20%;
+        top: 75%;
+
+        width: 2.875rem;
+
+        @include respond-up-width(tablet-large) {
+            left: 15%;
+            top: 80%;
+
+            width: 5.5rem;
+        }
+    }
+
+    .button_rabbit {
+        left: 77.5%;
+        top: 72.5%;
+
+        width: 3rem;
+
+        .icon_Animal {
+            scale: -1 1;
+        }
+
+        @include respond-up-width(tablet-large) {
+            left: 65%;
+            top: 82.5%;
+
+            width: 7rem;
+        }
+    }
+
+    .icon_Animal {
+        width: 100%;
+        height: 100%;
+
+        color: $color-mistgrey;
+
+        user-select: none;
+        -webkit-user-drag: none;
+        transition: color 0.4s ease-in-out;
     }
 }
