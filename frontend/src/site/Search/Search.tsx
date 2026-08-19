@@ -106,6 +106,8 @@ export default function Search() {
         <>
             <Helmet>
                 <title>{locale.search.title}</title>
+
+                <meta name="robots" content="noindex, nofollow" />
             </Helmet>
 
             <div className="container_search">

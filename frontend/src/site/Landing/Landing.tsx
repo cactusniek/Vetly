@@ -21,6 +21,8 @@ export default function Landing() {
         <>
             <Helmet>
                 <title>{locale.landing.title}</title>
+
+                <link rel="canonical" href="https://vetly.nl/" />
             </Helmet>
 
             <div className="container_landing">

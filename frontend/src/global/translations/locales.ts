@@ -12,7 +12,7 @@ export const locales = {
             hero_subtitle: 'with data that comes from the official database',
             species_medicines: 'registered medicines',
             species: {
-                cat: { title: 'Cats', text: 'From a pill to a drop in the neck.' },
+                cat: { title: 'Cats', text: 'Cats are in there as one group, without any subdivision.' },
                 duck: { title: 'Ducks', text: 'Separate waiting periods apply for the meat and for the eggs.' },
                 fish: { title: 'Fish', text: 'Fish & aquarium fish sit apart from each other in the list.' },
                 parrot: { title: 'Birds', text: 'Cage birds & ornamental birds belong to this group.' },
@@ -26,11 +26,11 @@ export const locales = {
         },
 
         landing: {
-            title: 'Vetly',
+            title: 'Vetly | a search tool for veterinary medicines',
         },
 
         search: {
-            title: 'Search',
+            title: 'Search | Vetly',
             placeholder: 'Brand name, registration number…',
             searching: 'Searching…',
             result_singular: '1 result found',
@@ -53,7 +53,7 @@ export const locales = {
 
         disclaimer: {
             title: 'Disclaimer',
-            updated: 'Last updated: 5 August 2026',
+            updated: 'Last updated: 19 August 2026',
             sections: [
                 {
                     title: 'What Vetly is intended for',
@@ -74,6 +74,18 @@ export const locales = {
                 {
                     title: 'Package leaflets',
                     body: 'The package leaflets offered are copies of documents published by the marketing authorisation holder. No rights may be derived from these copies; the original held by the CBG prevails.',
+                },
+                {
+                    title: 'Rights in Vetly',
+                    body: 'The data of the CBG is public, but the compilation, ordering, presentation and search index of Vetly are not. These are ours and are protected by copyright and database rights.',
+                },
+                {
+                    title: 'Reuse and automated access',
+                    body: 'Reproducing, copying or automatically reading out Vetly is not permitted without our prior written consent. This includes scraping, crawling outside of the usual search engines, calling our search function from other applications, and embedding Vetly in another website.',
+                },
+                {
+                    title: 'Referring to Vetly',
+                    body: 'Referring to Vetly as a source is only permitted with our prior consent. Without that consent, Vetly may not be named or shown as the source of data you publish or process elsewhere.',
                 },
                 {
                     title: 'Availability',
@@ -102,7 +114,7 @@ export const locales = {
             hero_subtitle: 'met gegevens die uit de officiële databank komen',
             species_medicines: 'geregistreerde middelen',
             species: {
-                cat: { title: 'Katten', text: 'Van een pil tot een druppel in de nek.' },
+                cat: { title: 'Katten', text: 'Katten staan er als één groep in, zonder onderverdeling.' },
                 duck: { title: 'Eenden', text: 'Voor het vlees en voor de eieren gelden aparte wachttermijnen.' },
                 fish: { title: 'Vissen', text: 'Vissen & aquariumvissen staan los van elkaar in de lijst.' },
                 parrot: { title: 'Vogels', text: 'Onder vogels horen kooivogels & siervogels.' },
@@ -116,11 +128,11 @@ export const locales = {
         },
 
         landing: {
-            title: 'Vetly',
+            title: 'Vetly | zoekhulp voor diergeneesmiddelen',
         },
 
         search: {
-            title: 'Zoeken',
+            title: 'Zoeken | Vetly',
             placeholder: 'Merknaam, registratienummer…',
             searching: 'Zoeken…',
             result_singular: 'Er is 1 resultaat gevonden',
@@ -143,7 +155,7 @@ export const locales = {
 
         disclaimer: {
             title: 'Disclaimer',
-            updated: 'Laatst bijgewerkt: 5 augustus 2026',
+            updated: 'Laatst bijgewerkt: 19 augustus 2026',
             sections: [
                 {
                     title: 'Waarvoor Vetly bedoeld is',
@@ -164,6 +176,18 @@ export const locales = {
                 {
                     title: 'Bijsluiters',
                     body: 'Aangeboden bijsluiters zijn kopieën van door de registratiehouder gepubliceerde documenten. Aan deze kopieën kunnen geen rechten worden ontleend; het origineel bij het CBG is leidend.',
+                },
+                {
+                    title: 'Rechten op Vetly',
+                    body: 'De gegevens van het CBG zijn openbaar, maar de samenstelling, ordening, vormgeving en zoekindex van Vetly zijn dat niet. Die zijn van ons en worden beschermd door auteursrecht en databankenrecht.',
+                },
+                {
+                    title: 'Overnemen en uitlezen',
+                    body: 'Het overnemen, kopiëren of geautomatiseerd uitlezen van Vetly is niet toegestaan zonder voorafgaande schriftelijke toestemming. Dit geldt onder meer voor scrapen, crawlen buiten de gebruikelijke zoekmachines om, het aanroepen van onze zoekfunctie vanuit andere toepassingen, en het insluiten van Vetly in een andere website.',
+                },
+                {
+                    title: 'Verwijzen naar Vetly',
+                    body: 'Verwijzen naar Vetly als bron mag alleen met onze voorafgaande toestemming. Zonder die toestemming mag Vetly niet worden genoemd of getoond als bron van de gegevens die u elders publiceert of verwerkt.',
                 },
                 {
                     title: 'Beschikbaarheid',

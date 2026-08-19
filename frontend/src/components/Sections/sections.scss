@@ -53,10 +53,10 @@ $section-height: 75vh;
     }
 
     .section_hero {
-        margin-top: calc((100vh - #{$section-height}) / 2);
+        padding-top: calc(100vh - #{$section-height});
 
         @include respond-up-width(tablet-large) {
-            margin-top: 0;
+            padding-top: 0;
         }
     }
 
@@ -98,6 +98,7 @@ $section-height: 75vh;
 
         width: 125%;
         max-width: 35rem;
+        min-height: 0;
 
         @include respond-up-width(desktop) {
             width: min(105rem, 155%);
@@ -122,6 +123,9 @@ $section-height: 75vh;
             z-index: 1;
 
             width: 100%;
+            max-height: 100%;
+
+            object-fit: contain;
         }
 
         &:nth-child(2) {
@@ -137,6 +141,7 @@ $section-height: 75vh;
 
             &:first-child {
                 width: 35%;
+                max-height: none;
 
                 rotate: -8deg;
                 translate: 25% 10%;
@@ -267,7 +272,7 @@ $section-height: 75vh;
         .section_hero .container_titles,
         .container_preview {
             animation-name: Hero;
-            animation-range: exit 0% exit 100%;
+            animation-range: cover 65% cover 100%;
         }
     }
 }
