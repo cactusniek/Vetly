@@ -23,15 +23,15 @@ export default function Sections() {
                 <div className="container_titles">
                     <h1 className="title_hero">{locale.sections.hero_title}</h1>
 
-                    <h2 className="subtitle_hero">{locale.sections.hero_subtitle}</h2>
+                    <p className="subtitle_hero">{locale.sections.hero_subtitle}</p>
                 </div>
 
                 <div className="container_preview">
-                    <img alt="image_SearchIsothesia" src={SearchExampleOneImage} className="image_Preview" />
+                    <img alt="image_SearchIsothesia" src={SearchExampleOneImage} width="400" height="300" className="image_Preview" />
 
-                    <img alt="image_SearchCyclavance" src={SearchExampleTwoImage} className="image_Preview" />
+                    <img alt="image_SearchCyclavance" src={SearchExampleTwoImage} width="400" height="300" className="image_Preview" />
 
-                    <img alt="image_SearchAurizon" src={SearchExampleThreeImage} className="image_Preview" />
+                    <img alt="image_SearchAurizon" src={SearchExampleThreeImage} width="400" height="250" className="image_Preview" />
                 </div>
             </section>
 

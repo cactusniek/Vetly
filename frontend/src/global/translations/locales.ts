@@ -26,11 +26,13 @@ export const locales = {
         },
 
         landing: {
-            title: 'Vetly | a search tool for veterinary medicines',
+            title: 'Search tool for veterinary medicines - Vetly',
+            description: 'Search veterinary medicines by brand name or registration number. Target species, withdrawal periods and the leaflet for every medicine. Updated hourly.',
         },
 
         search: {
-            title: 'Search | Vetly',
+            title: 'Search - Vetly',
+            description: 'Search a veterinary medicine by brand name or registration number and see the target species, the withdrawal periods and the matching leaflet.',
             placeholder: 'Brand name, registration number…',
             searching: 'Searching…',
             result_singular: '1 result found',
@@ -128,11 +130,13 @@ export const locales = {
         },
 
         landing: {
-            title: 'Vetly | zoekhulp voor diergeneesmiddelen',
+            title: 'Zoekhulp voor diergeneesmiddelen - Vetly',
+            description: 'Zoek diergeneesmiddelen op merknaam of registratienummer. Doeldieren, wachttermijnen en de bijsluiter bij elk middel. Elk uur bijgewerkt.',
         },
 
         search: {
-            title: 'Zoeken | Vetly',
+            title: 'Zoeken - Vetly',
+            description: 'Zoek een diergeneesmiddel op merknaam of registratienummer en zie meteen de doeldieren, de wachttermijnen en de bijsluiter die erbij hoort.',
             placeholder: 'Merknaam, registratienummer…',
             searching: 'Zoeken…',
             result_singular: 'Er is 1 resultaat gevonden',

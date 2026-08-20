@@ -21,6 +21,10 @@ export default function Landing() {
         <>
             <Helmet>
                 <title>{locale.landing.title}</title>
+                <meta name="description" content={locale.landing.description} />
+
+                <meta property="og:title" content={locale.landing.title} />
+                <meta property="og:description" content={locale.landing.description} />
 
                 <link rel="canonical" href="https://vetly.nl/" />
             </Helmet>

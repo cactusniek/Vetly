@@ -101,7 +101,7 @@ $section-height: 75vh;
         min-height: 0;
 
         @include respond-up-width(desktop) {
-            width: min(105rem, 155%);
+            width: min(105rem, 155%, 150vh);
             max-width: none;
         }
     }
@@ -269,10 +269,18 @@ $section-height: 75vh;
             animation-range: cover 22% cover 78%;
         }
 
-        .section_hero .container_titles,
-        .container_preview {
+        .section_hero .container_titles {
             animation-name: Hero;
-            animation-range: cover 65% cover 100%;
+            animation-range: cover 67% cover 90%;
+
+            @include respond-up-width(tablet-large) {
+                animation-range: cover 74% cover 95%;
+            }
+        }
+
+        .section_hero .container_preview {
+            animation-name: Hero;
+            animation-range: cover 52% cover 92%;
         }
     }
 }

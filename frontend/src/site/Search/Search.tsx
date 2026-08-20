@@ -29,6 +29,7 @@ export default function Search() {
     const [isLoading, setIsLoading] = useState(false)
     const [searchProgress, setSearchProgress] = useState<number>(0)
     const [hasSearched, setHasSearched] = useState(false)
+    const [hasError, setHasError] = useState(false)
     const [searchMessage, setSearchMessage] = useState<string>('')
 
     const [showDisclaimer, setShowDisclaimer] = useState(false)
@@ -39,6 +40,7 @@ export default function Search() {
 
             if (trimmed.length === 0) {
                 setHasSearched(false)
+                setHasError(false)
                 setIsLoading(false)
                 setSearchProgress(0)
                 setMedicines([])
@@ -49,6 +51,7 @@ export default function Search() {
             try {
                 setShowDisclaimer(false)
                 setHasSearched(true)
+                setHasError(false)
                 setIsLoading(true)
                 setSearchProgress(0)
 
@@ -61,20 +64,21 @@ export default function Search() {
                 setMedicines(response)
 
                 setSearchProgress(100)
-
+            } catch (err) {
+                console.error(err)
+                setMedicines([])
+                setHasError(true)
+            } finally {
                 setTimeout(() => {
                     setIsLoading(false)
                 }, 300)
-            } catch (err) {
-                console.error(err)
-                setSearchMessage(messages[language].connection_error)
-            } finally {
+
                 setTimeout(() => {
                     setSearchProgress(0)
                 }, 500)
             }
         },
-        [language],
+        [],
     )
 
     useEffect(() => {
@@ -90,13 +94,18 @@ export default function Search() {
             return
         }
 
+        if (hasError) {
+            setSearchMessage(messages[language].connection_error)
+            return
+        }
+
         if (resultCount === 0) {
             setSearchMessage(locale.search.no_results)
             return
         }
 
         setSearchMessage(resultCount === 1 ? locale.search.result_singular : locale.search.result_plural.replace('{count}', String(resultCount)))
-    }, [isLoading, medicines.length, hasSearched, locale, showDisclaimer])
+    }, [isLoading, hasError, medicines.length, hasSearched, locale, language, showDisclaimer])
 
     function handleToggleDisclaimer() {
         setShowDisclaimer(prev => !prev)
@@ -106,6 +115,10 @@ export default function Search() {
         <>
             <Helmet>
                 <title>{locale.search.title}</title>
+                <meta name="description" content={locale.search.description} />
+
+                <meta property="og:title" content={locale.search.title} />
+                <meta property="og:description" content={locale.search.description} />
 
                 <meta name="robots" content="noindex, nofollow" />
             </Helmet>
