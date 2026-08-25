@@ -7,7 +7,7 @@ export const showNavAtom = atom(false)
 export const socialsAtom = atom({
     LinkedIn: '#',
     Mail: '#',
-    Github: 'https://github.com/cactusniek',
+    Github: 'https://github.com/cactusniek/Vetly',
 })
 
 export const languageAtom = atom<LocaleLanguage>('nl')

@@ -1,0 +1,9 @@
+www.vetly.nl {
+    redir https://vetly.nl{uri} permanent
+}
+
+vetly.nl {
+    encode zstd gzip
+
+    reverse_proxy 127.0.0.1:4000
+}

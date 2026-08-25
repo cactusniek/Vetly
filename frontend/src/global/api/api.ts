@@ -1,16 +1,13 @@
 import { type MedicineProps, type MedicineResponse } from '@/global/types/types'
 
 export class medicinesApi {
-    private static serverUrl: string = import.meta.env.VITE_SYNC_URL || 'http://localhost:4000'
+    private static serverUrl: string = import.meta.env.VITE_SYNC_URL || '/api'
 
     private static async fetchData(endpoint: string, method: string, body?: any): Promise<any> {
         try {
             const response = await fetch(this.serverUrl + endpoint, {
                 method: method,
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
+                headers: body ? { Accept: 'application/json', 'Content-Type': 'application/json' } : { Accept: 'application/json' },
                 body: body ? JSON.stringify(body) : undefined,
             })
 

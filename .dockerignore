@@ -1,0 +1,12 @@
+**/node_modules
+**/dist
+sync/data
+frontend/public
+public
+.git
+.github
+.vscode
+.claude
+**/.env
+**/*.local
+**/.DS_Store

@@ -1,5 +1,5 @@
 services:
-    sync:
+    vetly:
         build:
             context: .
             dockerfile: sync/Dockerfile
@@ -8,8 +8,22 @@ services:
             - ./sync/.env
         volumes:
             - sync-data:/app/sync/data
+            - ./public:/app/sync/public:ro
         ports:
             - '127.0.0.1:4000:4000'
 
+    caddy:
+        image: caddy:alpine
+        restart: unless-stopped
+        depends_on:
+            - vetly
+        network_mode: host
+        volumes:
+            - ./Caddyfile:/etc/caddy/Caddyfile:ro
+            - caddy-data:/data
+            - caddy-config:/config
+
 volumes:
     sync-data:
+    caddy-data:
+    caddy-config:
