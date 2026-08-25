@@ -112,7 +112,7 @@ export const locales = {
         },
 
         sections: {
-            hero_title: 'een zoekhulp voor diergeneesmiddelen',
+            hero_title: 'de zoekhulp voor diergeneesmiddelen',
             hero_subtitle: 'met gegevens uit de officiële databank',
             species_medicines: 'geregistreerde middelen',
             species: {
