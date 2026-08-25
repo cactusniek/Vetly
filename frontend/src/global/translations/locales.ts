@@ -20,7 +20,7 @@ export const locales = {
                 turtle: { title: 'Reptiles', text: 'Turtles, lizards and snakes belong to this group.' },
             },
             leaflets_title: 'Updated hourly',
-            leaflets_text: 'If something changes at CBG, it appears here within the hour.',
+            leaflets_text: 'If something changes at CBG, it appears here within an hour.',
             search_link: 'Search for a medicine',
             credits: 'Designed and built by',
         },
