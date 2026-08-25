@@ -8,30 +8,30 @@ export const locales = {
         },
 
         sections: {
-            hero_title: 'a search tool for veterinary medicines',
-            hero_subtitle: 'with data that comes from the official database',
+            hero_title: 'the search tool for veterinary medicines',
+            hero_subtitle: 'with data from the official database',
             species_medicines: 'registered medicines',
             species: {
-                cat: { title: 'Cats', text: 'Cats are in there as one group, without any subdivision.' },
-                duck: { title: 'Ducks', text: 'Separate waiting periods apply for the meat and for the eggs.' },
-                fish: { title: 'Fish', text: 'Fish & aquarium fish sit apart from each other in the list.' },
-                parrot: { title: 'Birds', text: 'Cage birds & ornamental birds belong to this group.' },
-                rabbit: { title: 'Rabbits', text: 'Rabbits & pet rabbits belong to the same group.' },
-                turtle: { title: 'Reptiles', text: 'Turtles, lizards & snakes belong to this group.' },
+                cat: { title: 'Cats', text: 'Cats are listed as one group, without subdivision.' },
+                duck: { title: 'Ducks', text: 'Separate withdrawal periods apply to the meat and the eggs.' },
+                fish: { title: 'Fish', text: 'Fish and aquarium fish are listed separately.' },
+                parrot: { title: 'Birds', text: 'Cage birds and ornamental birds belong to this group.' },
+                rabbit: { title: 'Rabbits', text: 'Rabbits and pet rabbits fall under the same group.' },
+                turtle: { title: 'Reptiles', text: 'Turtles, lizards and snakes belong to this group.' },
             },
-            leaflets_title: 'Updated every hour',
-            leaflets_text: 'If something changes at the CBG, it is here within the hour.',
+            leaflets_title: 'Updated hourly',
+            leaflets_text: 'If something changes at CBG, it appears here within the hour.',
             search_link: 'Search for a medicine',
-            credits: 'Designed and made by',
+            credits: 'Designed and built by',
         },
 
         landing: {
-            title: 'Search tool for veterinary medicines - Vetly',
+            title: 'Search tool for veterinary medicines | Vetly',
             description: 'Search veterinary medicines by brand name or registration number. Target species, withdrawal periods and the leaflet for every medicine. Updated hourly.',
         },
 
         search: {
-            title: 'Search - Vetly',
+            title: 'Search Medicine | Vetly',
             description: 'Search a veterinary medicine by brand name or registration number and see the target species, the withdrawal periods and the matching leaflet.',
             placeholder: 'Brand name, registration number…',
             searching: 'Searching…',
@@ -113,15 +113,15 @@ export const locales = {
 
         sections: {
             hero_title: 'een zoekhulp voor diergeneesmiddelen',
-            hero_subtitle: 'met gegevens die uit de officiële databank komen',
+            hero_subtitle: 'met gegevens uit de officiële databank',
             species_medicines: 'geregistreerde middelen',
             species: {
                 cat: { title: 'Katten', text: 'Katten staan er als één groep in, zonder onderverdeling.' },
                 duck: { title: 'Eenden', text: 'Voor het vlees en voor de eieren gelden aparte wachttermijnen.' },
-                fish: { title: 'Vissen', text: 'Vissen & aquariumvissen staan los van elkaar in de lijst.' },
-                parrot: { title: 'Vogels', text: 'Onder vogels horen kooivogels & siervogels.' },
-                rabbit: { title: 'Konijnen', text: 'Konijnen & gezelschapskonijnen vallen onder dezelfde groep.' },
-                turtle: { title: 'Reptielen', text: 'Bij deze groep horen schildpadden, hagedissen & slangen.' },
+                fish: { title: 'Vissen', text: 'Vissen en aquariumvissen staan los van elkaar in de lijst.' },
+                parrot: { title: 'Vogels', text: 'Onder vogels horen kooivogels en siervogels.' },
+                rabbit: { title: 'Konijnen', text: 'Konijnen en gezelschapskonijnen vallen onder dezelfde groep.' },
+                turtle: { title: 'Reptielen', text: 'Bij deze groep horen schildpadden, hagedissen en slangen.' },
             },
             leaflets_title: 'Elk uur bijgewerkt',
             leaflets_text: 'Verandert er iets bij het CBG, dan staat het hier binnen het uur.',
@@ -130,12 +130,12 @@ export const locales = {
         },
 
         landing: {
-            title: 'Zoekhulp voor diergeneesmiddelen - Vetly',
+            title: 'Zoekhulp voor diergeneesmiddelen | Vetly',
             description: 'Zoek diergeneesmiddelen op merknaam of registratienummer. Doeldieren, wachttermijnen en de bijsluiter bij elk middel. Elk uur bijgewerkt.',
         },
 
         search: {
-            title: 'Zoeken - Vetly',
+            title: 'Zoek Medicijn | Vetly',
             description: 'Zoek een diergeneesmiddel op merknaam of registratienummer en zie meteen de doeldieren, de wachttermijnen en de bijsluiter die erbij hoort.',
             placeholder: 'Merknaam, registratienummer…',
             searching: 'Zoeken…',
