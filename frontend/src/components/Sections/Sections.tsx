@@ -27,11 +27,11 @@ export default function Sections() {
                 </div>
 
                 <div className="container_preview">
-                    <img alt="image_SearchIsothesia" src={SearchExampleOneImage} width="400" height="300" className="image_Preview" />
+                    <img alt="Zoekresultaat voor Isothesia in Vetly" src={SearchExampleOneImage} width="400" height="300" className="image_Preview" />
 
-                    <img alt="image_SearchCyclavance" src={SearchExampleTwoImage} width="400" height="300" className="image_Preview" />
+                    <img alt="Zoekresultaat voor Cyclavance in Vetly" src={SearchExampleTwoImage} width="400" height="300" className="image_Preview" />
 
-                    <img alt="image_SearchAurizon" src={SearchExampleThreeImage} width="400" height="250" className="image_Preview" />
+                    <img alt="Zoekresultaat voor Aurizon in Vetly" src={SearchExampleThreeImage} width="400" height="250" className="image_Preview" />
                 </div>
             </section>
 
