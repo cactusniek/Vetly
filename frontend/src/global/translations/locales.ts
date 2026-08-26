@@ -9,10 +9,10 @@ export const locales = {
 
         sections: {
             hero_title: 'the search tool for veterinary medicines',
-            hero_subtitle: 'with data from the official database',
+            hero_subtitle: 'searches the official database, even if you mistype',
             species_medicines: 'registered medicines',
             species: {
-                cat: { title: 'Cats', text: 'Cats are listed as one group, without subdivision.' },
+                cat: { title: 'Cats', text: 'Almost three quarters of the medicines for cats are also meant for dogs.' },
                 duck: { title: 'Ducks', text: 'Separate withdrawal periods apply to the meat and the eggs.' },
                 fish: { title: 'Fish', text: 'Fish and aquarium fish are listed separately.' },
                 parrot: { title: 'Birds', text: 'Cage birds and ornamental birds belong to this group.' },
@@ -113,10 +113,10 @@ export const locales = {
 
         sections: {
             hero_title: 'de zoekhulp voor diergeneesmiddelen',
-            hero_subtitle: 'met gegevens uit de officiële databank',
+            hero_subtitle: 'zoekt in de officiële databank, ook als je het fout typt',
             species_medicines: 'geregistreerde middelen',
             species: {
-                cat: { title: 'Katten', text: 'Katten staan er als één groep in, zonder onderverdeling.' },
+                cat: { title: 'Katten', text: 'Bijna driekwart van de middelen voor katten is ook voor honden bedoeld.' },
                 duck: { title: 'Eenden', text: 'Voor het vlees en voor de eieren gelden aparte wachttermijnen.' },
                 fish: { title: 'Vissen', text: 'Vissen en aquariumvissen staan los van elkaar in de lijst.' },
                 parrot: { title: 'Vogels', text: 'Onder vogels horen kooivogels en siervogels.' },
