@@ -109,14 +109,14 @@ export default function Medicine(props: MedicineProps) {
             <div onClick={handleExpand} className="container_medicine">
                 <div className="medicine_header">
                     <div className="medicine_titles">
-                        <span className="medicine_productnaam">{props.productnaam}</span>
+                        <span className="text_productnaam">{props.productnaam}</span>
 
                         <div className={`container_doeldieren ${showMore ? 'open' : ''}`}>
                             {visibleIcons.map((entry, index) => renderDoeldierIcon(entry, index))}
 
                             {visibleIcons.length > 0 && remainingIcons > 0 && (
                                 <div
-                                    className="doeldieren_remaining"
+                                    className="container_remaining"
                                     style={{
                                         right: `${visibleIcons.length * 1.5 + Math.max(0, remainingIcons - 10) * 0.5}rem`,
                                         zIndex: 10 - visibleIcons.length,
@@ -130,36 +130,36 @@ export default function Medicine(props: MedicineProps) {
                     </div>
 
                     <div className="medicine_subtitles">
-                        <span className="medicine_handelsvergunninghouder">{props.handelsvergunninghouder}</span>
+                        <span className="text_handelsvergunninghouder">{props.handelsvergunninghouder}</span>
                     </div>
                 </div>
 
                 <div className={`medicine_main ${showMore ? 'show' : ''}`}>
                     <div className="container_main">
-                        <div className="medicine_info">
+                        <div className="medicine_afleverstatus">
                             <CircleSmall className="icon_CircleSmall" />
 
-                            <span className="medicine_afleverstatus">{props.afleverstatus}</span>
+                            <span className="text_afleverstatus">{props.afleverstatus}</span>
                         </div>
 
-                        <div className="medicine_info">
+                        <div className="medicine_bijsluiter">
                             <CircleSmall className="icon_CircleSmall" />
 
                             <a
                                 href={props.bijsluiterUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="medicine_spc-etiket-bijsluiter"
+                                className="anchor_bijsluiter"
                             >
                                 {locale.open_leaflet}
                             </a>
                         </div>
 
                         {diersoorten.length > 1 && (
-                            <div className="medicine_info">
+                            <div className="medicine_doeldieren">
                                 <CircleSmall className="icon_CircleSmall" />
 
-                                <span className="medicine_doeldieren">
+                                <span className="text_doeldieren">
                                     {locale.species}: {diersoorten}
                                 </span>
                             </div>
@@ -210,11 +210,11 @@ export default function Medicine(props: MedicineProps) {
                         </div>
 
                         <div className="medicine_references">
-                            <span className="medicine_registratienummer">
+                            <span className="text_registratienummer">
                                 {locale.registration}: {props.registratienummer}
                             </span>
 
-                            <span className="medicine_procedurenummer">{props.procedurenummer}</span>
+                            <span className="text_procedurenummer">{props.procedurenummer}</span>
                         </div>
                     </div>
                 </div>
