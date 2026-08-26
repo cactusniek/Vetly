@@ -9,10 +9,24 @@ $breakpoints-width: (
     desktop: 1140px,
 );
 
+$breakpoints-height: (
+    small: 600px,
+    medium: 700px,
+    large: 900px,
+);
+
 @mixin respond-up-width($size) {
     $breakpoint: map.get($breakpoints-width, $size);
 
     @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin respond-up-height($size) {
+    $breakpoint: map.get($breakpoints-height, $size);
+
+    @media (min-height: $breakpoint) {
         @content;
     }
 }
