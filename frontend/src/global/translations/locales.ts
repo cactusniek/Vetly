@@ -26,7 +26,7 @@ export const locales = {
         },
 
         landing: {
-            title: 'Search tool for veterinary medicines | Vetly',
+            title: 'The search tool for veterinary medicines',
             description: 'Search veterinary medicines by brand name or registration number. Target species, withdrawal periods and the leaflet for every medicine. Updated hourly.',
         },
 
@@ -130,7 +130,7 @@ export const locales = {
         },
 
         landing: {
-            title: 'Zoekhulp voor diergeneesmiddelen | Vetly',
+            title: 'De zoekhulp voor diergeneesmiddelen',
             description: 'Zoek diergeneesmiddelen op merknaam of registratienummer. Doeldieren, wachttermijnen en de bijsluiter bij elk middel. Elk uur bijgewerkt.',
         },
 

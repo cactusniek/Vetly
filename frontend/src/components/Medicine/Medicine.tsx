@@ -111,7 +111,7 @@ export default function Medicine(props: MedicineProps) {
                     <div className="medicine_titles">
                         <span className="medicine_productnaam">{props.productnaam}</span>
 
-                        <div className={`medicine_doeldieren ${showMore ? 'open' : ''}`}>
+                        <div className={`container_doeldieren ${showMore ? 'open' : ''}`}>
                             {visibleIcons.map((entry, index) => renderDoeldierIcon(entry, index))}
 
                             {visibleIcons.length > 0 && remainingIcons > 0 && (
