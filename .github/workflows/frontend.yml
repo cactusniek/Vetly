@@ -44,6 +44,7 @@ jobs:
                   mkdir -p ~/.ssh
                   echo "$VPS_SSH_KEY" > ~/.ssh/deploy
                   chmod 600 ~/.ssh/deploy
+                  ssh-keygen -lf ~/.ssh/deploy
 
                   rsync -az --delete-after \
                     -e "ssh -i ~/.ssh/deploy -o StrictHostKeyChecking=accept-new" \
