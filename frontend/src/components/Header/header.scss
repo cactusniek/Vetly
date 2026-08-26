@@ -40,7 +40,7 @@
         will-change: clip-path;
     }
 
-    .button_menu,
+    .icon_Menu,
     .switch_language,
     .header_desktop .container_navigation {
         animation-name: Navigation;
@@ -63,7 +63,7 @@
         .image_Logo,
         .header_mobile::before,
         .header_desktop::before,
-        .button_menu,
+        .icon_Menu,
         .switch_language,
         .header_desktop .container_navigation {
             animation: none;
@@ -123,7 +123,6 @@
         -webkit-user-drag: none;
     }
 
-    // all: unset has to stay on top, it wipes every declaration above it
     .button_menu {
         all: unset;
         box-sizing: border-box;
