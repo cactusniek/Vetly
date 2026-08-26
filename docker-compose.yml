@@ -1,5 +1,6 @@
 services:
     vetly:
+        container_name: Vetly
         build:
             context: .
             dockerfile: sync/Dockerfile
