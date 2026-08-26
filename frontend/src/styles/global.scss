@@ -19,6 +19,7 @@ html {
     font-weight: 400;
     line-height: 1;
     letter-spacing: 0.02em;
+    font-variant-ligatures: none;
     caret-color: $color-black;
     text-underline-offset: 2px;
     -webkit-tap-highlight-color: transparent;

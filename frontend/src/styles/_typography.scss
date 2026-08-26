@@ -5,7 +5,19 @@
 }
 
 @font-face {
+    font-family: 'Nexa';
+    src: local('Arial'), local('Helvetica Neue');
+    unicode-range: U+0025, U+0026, U+0028-0029, U+002B, U+002F, U+00E0, U+00E9, U+00EB, U+00EF, U+00F3, U+20AC;
+}
+
+@font-face {
     font-family: 'Gelica';
     src: url('@/assets/fonts/Gelica-Trial-Regular.otf') format('opentype');
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gelica';
+    src: local('Georgia'), local('Times New Roman');
+    unicode-range: U+0025, U+0026, U+0028-0029, U+002B, U+002F;
 }

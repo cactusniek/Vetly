@@ -33,7 +33,7 @@ export default function Outro() {
                 </div>
 
                 <div className="container_copyright">
-                    <span className="text_copyright">&copy; {year}</span>
+                    <span className="text_copyright">{year}</span>
 
                     <CircleSmall className="icon_CircleSmall" />
 
